@@ -1,0 +1,12 @@
+# Blender 5.1.0 MTL File: 'None'
+# www.blender.org
+
+newmtl Single_Model_10
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd af2b3ecd0d9142f297f6f7052e9d4fcc_RGB_Single_Model_10_u1_v1.jpg
+map_Ke af2b3ecd0d9142f297f6f7052e9d4fcc_RGB_Single_Model_10_u1_v1.jpg
