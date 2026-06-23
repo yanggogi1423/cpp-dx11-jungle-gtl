@@ -1,0 +1,20 @@
+General Graffiti Decal Pack
+v1.0
+
+
+# LICENSE:
+You may use these textures in both free and commercial projects, and modify them to suit your own needs.  
+
+You may NOT redistribute, resell, or repackage the textures (modified or unmodified) as game assets but have to incorporate them into your product (game). 
+
+You may NOT use these textures for machine learning, generative AI training or associated purposes.
+
+
+Please provide attribution, for example:
+General Graffiti decals by Bradley D. (https://strideh.itch.io)
+
+
+# CONTACT:
+Bradley D.
+https://strideh.itch.io
+@strideh.bsky.social
