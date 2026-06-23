@@ -1,0 +1,18 @@
+<rml>
+<head>
+    <link type="text/rcss" href="PreInGameHUD.rcss" />
+</head>
+<body>
+    <div id="preInGameRoot" data-ui-type="Canvas" data-ui-name="Pre In Game HUD">
+        <img id="sheet1" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 1" src="Image/PreInGame/Sheet1.png" data-ui-fit="contain" />
+        <img id="sheet2" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 2" src="Image/PreInGame/Sheet2.png" data-ui-fit="contain" />
+        <img id="sheet3" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 3" src="Image/PreInGame/Sheet3.png" data-ui-fit="contain" />
+        <img id="sheet4" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 4" src="Image/PreInGame/Sheet4.png" data-ui-fit="contain" />
+        <img id="sheet5" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 5" src="Image/PreInGame/Sheet5.png" data-ui-fit="contain" />
+        <img id="sheet6" class="story-sheet" data-ui-type="Image" data-ui-name="Sheet 6" src="Image/PreInGame/Sheet6.png" data-ui-fit="contain" />
+        <img id="approvedStamp" data-ui-type="Image" data-ui-name="Approved Stamp" src="Image/PreInGame/Approved.png" data-ui-fit="contain" />
+        <div id="newsSubtitle" data-ui-type="Text" data-ui-name="News Subtitle"></div>
+        <div id="skipPrompt" data-ui-type="Text" data-ui-name="Skip Prompt">Press Space to Skip</div>
+    </div>
+</body>
+</rml>

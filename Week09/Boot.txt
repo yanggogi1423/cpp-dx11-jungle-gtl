@@ -1,0 +1,37 @@
+Boot
+	[Ready for Game State]
+
+Main Title (Cursor Visible)
+	Game Start
+	Quit
+	Score Board
+	Settings (BGM, SFX Volume)
+	Credits
+	Version Label
+	연출 -> 잘리기 + Main Logo 등장 + 버튼 등장
+
+Loading (Cursor Visible)
+	Controls
+	Tips
+	우측 하단 Loading Cycle + Press Space to Start	
+
+InGame (Default : Cursor Invisible)
+	Pause (Main, Retry, Settings) (Cursor Visible) -> In PIE 'Q', In Game Client 'esc'
+
+GameOver (Cursor Visible)
+	Score Board
+	Main, Retry
+
+-> Main만 별도의 Scene으로 구성 (연출용)
+-> Loading은 Game Scene의 로딩을 티 안나게 하기 위해 위에 Overlay로 깔아둠
+-> GameOver도 Game Scene에 Overlay로 구성
+
+-> Loading이나 Game Over는 Game Tick을 멈춰야 하기 때문에 UI에서 Game Tick에 따라갈지 별도의 Tick을 따라가게 할지 설정 가능하게 해야 함(Animation은 DeltaTime을 고려해야하기 때문임)
+
+-> 넘겨줄 데이터같은 것들이 없고, GeneralManager의 StartState가 있기 때문에 Scene 분리 결정
+-> 단, Lua Tick 중단 등의 안정성때문에 한 프레임 뒤에 Deferred로 Scene 교체
+
+
+Heal Pack
+Time Scale
+Camera Shake

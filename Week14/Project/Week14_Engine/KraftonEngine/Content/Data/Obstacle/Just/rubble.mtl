@@ -1,0 +1,52 @@
+# Blender 5.1.0 MTL File: 'rubble.blend'
+# www.blender.org
+
+newmtl TextureAtlas_1001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd RubbleTex.png
+
+newmtl TextureAtlas_1002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd RubbleTex.png
+
+newmtl TextureAtlas_1003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd RubbleTex.png
+
+newmtl TextureAtlas_1004
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd RubbleTex.png
+
+newmtl TextureAtlas_1005
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.300000 0.300000 0.300000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd RubbleTex.png

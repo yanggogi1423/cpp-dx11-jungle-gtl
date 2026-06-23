@@ -1,0 +1,147 @@
+[Controls]
+- RMB : 줌 인
+- LMB : 쏘기
+- Shift : 숨참기
+- R 재장전
+
+
+- WASD : 이동
+
+[거리]
+- 화면 정중앙 Zoom 시에 예상 거리
+
+[풍속]
+- 방향각 (나침반과 같은 방향) + m/s
+
+[줌 범위]
+- 4배 ~ 32배 (1씩 증가) -> Scroll 조작
+
+[연출]
+
+[튜토리얼]
+🇰🇷 한국어 버전
+[지직- (무전 노이즈)]
+본부 (Overlord): 브라보 원, 여기는 오버로드. 현재 귀소대 주둔지인 코소보 B1 섹터 외곽에 다수의 적 침투가 식별되었다.
+본부 (Overlord): 현재 가용 가능한 공중지원의 도착 예정 시간은 **5분**이다. 반복한다, 지원까지 앞으로 5분.
+본부 (Overlord): 저격수, 고지에서 분대원들의 시야를 확보하고 접근하는 적들을 차단하라. 아군을 생존시켜야 한다.
+본부 (Overlord): 방어선이 뚫려 분대 전멸 시, 전선 전체가 무너진다. 반드시 사수하라. 이상. 
+[지직-]
+
+🇺🇸 English Version
+[Radio Static]
+Overlord: Bravo One, this is Overlord. We have multiple hostiles infiltrating Sector B1. Your perimeter is compromised.
+Overlord: CAS (Close Air Support) ETA is five mikes. I repeat, five minutes until air support arrives.
+Overlord: Sniper, provide overwatch and keep our boys alive. Eliminate any advancing threats.
+Overlord: If Bravo Squad falls, the entire line breaks. Hold the position at all costs. Out. [Radio Static]
+
+
+[고유 대사]
+
+1. 잔여 시간 관련 (Time-based Urgency)
+[대사 01] 전투 중반 - 공중지원 지체 공지
+한국어 (KR): [본부] 브라보, 지원 세력이 현재 대공망 때문에 지체되고 있다. 앞으로 3분 더 버텨야 한다.
+
+영어 (EN): [Overlord] Bravo, support elements are delayed by hostile AA. You need to hold for three more mikes.
+
+[대사 02] 전투 중반 - 분대원의 초조함
+한국어 (KR): [분대원] 3분이나 더? 본부, 장난해? 탄약도 바닥나 가는데 끝도 없이 밀려온다고!
+
+영어 (EN): [Squad] Three more mikes? Overlord, you gotta be kidding me! We're low on ammo and they keep pushing!
+
+[대사 03] 전투 후반 - 지원 60초 전 공지
+한국어 (KR): [본부] 전 분대 주목, 공중지원 전장 진입 60초 전이다. 버텨라, 다 왔어.
+
+영어 (EN): [Overlord] All stations, air support is sixty seconds out. Hang in there, you're almost home.
+
+[대사 04] 전투 후반 - 분대원의 마지막 발악
+한국어 (KR): [분대원] 마지막 탄창이다! 저격수, 저기 오는 새끼들 대가리 다 날려버려! 1분만 버티자!
+
+영어 (EN): [Squad] Last mag! Sniper, blow those bastards away! Just sixty more seconds!
+
+[대사 05] 최후의 고비 - 30초 전 카운트다운
+한국어 (KR): [본부] 브라보, 지원군이 눈앞에 있다. 방어선 유지해라, 앞으로 30초!
+
+영어 (EN): [Overlord] Bravo, support is on sight. Hold the line, thirty more seconds!
+
+2. 분대 위기 (Squad Crisis)
+[대사 06] 아군 교전 및 압박 상태
+한국어 (KR): [분대원] 강한 압박을 받고 있다! 저격수! 엄호 사격 바람!
+
+영어 (EN): [Squad] Taking heavy fire! Sniper, need overwatch now!
+
+[대사 07] 아군 치명상 (빈사 상태)
+한국어 (KR): [분대원] 브라보 쓰리 치명상! 피가 너무 많이 난다! 저격수, 내 전방의 적들 좀 치워줘!
+
+영어 (EN): [Squad] Bravo Three is critically hit! He's bleeding out! Sniper, clear my front!
+
+[대사 08] 측면 우회로 돌파 위기
+한국어 (KR): [분대원] 우측 측면이 뚫린다! 우회하는 놈들 차단해! 방어선 무너진다!
+
+영어 (EN): [Squad] Right flank is breaking! Intercept the flankers! We're losing the perimeter!
+
+[대사 09] 적 중화기병(RPG/박격포) 등장
+한국어 (KR): [분대원] 적 RPG 확인! 저격수, 중화기병 먼저 따! 안 그러면 우리 다 몰살이야!
+
+영어 (EN): [Squad] Enemy RPG spotted! Sniper, take out that launcher first or we're dead meat!
+
+[대사 10] 전멸 직전 (마지막 생존자)
+한국어 (KR): [분대원] 다 죽었어, 나 혼자 남았다고! 저격수, 나 좀 살려줘! 엄호해!
+
+영어 (EN): [Squad] They're all down, I'm the last man standing! Sniper, keep 'em off me! Help me!
+
+3. 저격 반응 (Sniper Response)
+[대사 11] 일반 사살 확인 (Tango Down)
+한국어 (KR): [분대원] 타겟 다운! 나이스 샷, 저격수!
+
+영어 (EN): [Squad] Tango down! Nice shot, sniper!
+
+[대사 12] 헤드샷 및 연속 사살 칭찬
+한국어 (KR): [분대원] 확인했다! 끝내주는 헤드샷이었어! 계속 밀어붙여!
+
+영어 (EN): [Squad] Confirmed kill! Beautiful headshot! Keep 'em coming!
+
+[대사 13] 플레이어의 오인 사격 / 샷 미스
+한국어 (KR): [분대원] 빗나갔잖아! 정신 차려, 저격수! 우리 목숨이 네 손에 달렸어!
+
+영어 (EN): [Squad] You missed! Stay sharp, sniper! Our lives are in your hands!
+
+[대사 14] 저격수 재장전 (시야 공백 알림)
+한국어 (KR): [저격수] 재장전 중! 잠시 시야 비니까 전 분대 몸 사려라!
+
+영어 (EN): [Sniper] Reloading! I'm blind for a second, keep your heads down!
+
+[대사 15] 카운터 스나이퍼(적 저격수) 경고
+한국어 (KR): [분대원] 적 저격수다! 11시 방향 건물 옥상! 저격수, 처리해!
+
+영어 (EN): [Squad] Counter-sniper! High ground, eleven o'clock! Take him out, Sniper!
+
+4. 게임 결말 (Game Endings)
+[대사 16] 승리 - 지휘부의 폭격 명령
+한국어 (KR): [본부] 건십 전장 진입 완료. 전 분대 고개 숙여라(Danger Close). 빗자루질을 시작한다.
+
+영어 (EN): [Overlord] Gunship is on station. Danger close, stay down. Commencing sweep.
+
+[대사 17] 승리 - 분대원의 환호
+한국어 (KR): [분대원] 하하! 살았다! 끝내주는 저격이었어, 친구! 네가 우리 목숨을 구했어!
+
+영어 (EN): [Squad] Haha! We made it! Hell of a shooting, brother! You saved our asses!
+
+[대사 18] 패배 - 분대원의 마지막 교전음
+한국어 (KR): [분대원] 방어선이 완전히... 뚫렸... 으윽... [치지직- 무전 끊김]
+
+영어 (EN): [Squad] Perimeter completely breached... Ugh... [Radio Static]
+
+[대사 19] 패배 - 지휘부의 철수 명령
+한국어 (KR): [본부] 브라보 응답하라! 제장, 분대 전멸이다. 해당 섹터 포기한다. 전 장병 철수하라.
+
+영어 (EN): [Overlord] Bravo, respond! Dammit, bravo squad is wiped out. Sector is lost. All units, fall back.
+
+[대사 20] 패배 - 지휘부의 임무 실패 선언
+한국어 (KR): [본부] 전선이 완전히 붕괴되었다. 작전 실패. 지원 세력을 전 전장에서 회항시킨다.
+
+영어 (EN): [Overlord] The entire line has collapsed. Mission failed. Diverting all support elements.
+
+1 : 야 이 미친 새끼야! 지금 어딜 쏘는 거야?! 아군이라고!
+2 : 젠장, 저격수 새끼 눈이 삐었나! 우리 편을 쏘면 어쩌자는 거야!
+3 : **, 네가 쐈잖아! 브라보 투 대가리가 날아갔다고, 이 ***야!
+4 : 야 이 ****야, 네가 쐈잖아! 본부, 저격수 저 새끼 미쳤으니까 당장 죽여버려!

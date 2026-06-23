@@ -1,0 +1,13 @@
+# Blender 5.1.0 MTL File: 'None'
+# www.blender.org
+
+newmtl Prosthetic_Mat
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd C:/W9_Team3_Engine/NipsEngine/Asset/Mesh/cyberpunk_arm/Prosthetic_Mat.png
+map_Ns C:/W9_Team3_Engine/NipsEngine/Asset/Mesh/cyberpunk_arm/metalnessMap1.png
+map_refl C:/W9_Team3_Engine/NipsEngine/Asset/Mesh/cyberpunk_arm/metalnessMap1.png

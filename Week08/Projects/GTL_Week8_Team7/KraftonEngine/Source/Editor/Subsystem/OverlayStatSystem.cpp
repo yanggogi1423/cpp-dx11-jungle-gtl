@@ -1,0 +1,250 @@
+﻿#include "Editor/Subsystem/OverlayStatSystem.h"
+
+#include "Editor/EditorEngine.h"
+#include "Engine/Profiling/Timer.h"
+#include "Engine/Profiling/MemoryStats.h"
+#include <cstdio>
+
+// バイト数を適切な単位 (B / KB / MB / GB) に変換して文字列化
+static int FormatBytes(char* Buffer, int32 BufferSize, const char* Label, uint64 Bytes)
+{
+	const double B = static_cast<double>(Bytes);
+	const double KB = B / 1024.0;
+	const double MB = KB / 1024.0;
+	const double GB = MB / 1024.0;
+
+	if (GB >= 1.0)
+		return snprintf(Buffer, BufferSize, "%s : %.2f GB", Label, GB);
+	if (MB >= 1.0)
+		return snprintf(Buffer, BufferSize, "%s : %.2f MB", Label, MB);
+	if (KB >= 1.0)
+		return snprintf(Buffer, BufferSize, "%s : %.2f KB", Label, KB);
+	return snprintf(Buffer, BufferSize, "%s : %llu B", Label, static_cast<unsigned long long>(Bytes));
+}
+
+static const char* GetShadowFilterName(EShadowFilterMode Mode)
+{
+	switch (Mode)
+	{
+	case EShadowFilterMode::None: return "None";
+	case EShadowFilterMode::PCF_BOX: return "PCF_BOX";
+	case EShadowFilterMode::VSM: return "VSM";
+	case EShadowFilterMode::ESM: return "ESM";
+	case EShadowFilterMode::PCF_POISSON: return "PCF_POI";
+	default: return "Unknown";
+	}
+}
+
+static const char* GetDirectionalShadowModeName(EDirectionalShadowMode Mode)
+{
+	switch (Mode)
+	{
+	case EDirectionalShadowMode::PSM: return "PSM";
+	case EDirectionalShadowMode::CSM: return "CSM";
+	default: return "Unknown";
+	}
+}
+
+void FOverlayStatSystem::AppendLine(TArray<FOverlayStatLine>& OutLines, float Y, const FString& Text) const
+{
+	FOverlayStatLine Line;
+	Line.Text = Text;
+	Line.ScreenPosition = FVector2(Layout.StartX, Y);
+	OutLines.push_back(std::move(Line));
+}
+
+void FOverlayStatSystem::RecordPickingAttempt(double ElapsedMs)
+{
+	LastPickingTimeMs = ElapsedMs;
+	AccumulatedPickingTimeMs += ElapsedMs;
+	++PickingAttemptCount;
+}
+
+void FOverlayStatSystem::BuildLines(const UEditorEngine& Editor, TArray<FOverlayStatLine>& OutLines) const
+{
+	OutLines.clear();
+
+	uint32 EstimatedLineCount = 0;
+	if (bShowFPS)
+	{
+		++EstimatedLineCount;
+	}
+	if (bShowPickingTime)
+	{
+		++EstimatedLineCount;
+	}
+	if (bShowMemory)
+	{
+		EstimatedLineCount += 20;
+	}
+	if (bShowShadow)
+	{
+		EstimatedLineCount += 8;
+	}
+	if (bShowCascadeShadow)
+	{
+		EstimatedLineCount += 5;
+	}
+	OutLines.reserve(EstimatedLineCount);
+
+	float CurrentY = Layout.StartY;
+	if (bShowFPS)
+	{
+		const FTimer* Timer = Editor.GetTimer();
+		if (Timer)
+		{
+			constexpr double FPSAverageWindowSeconds = 0.3;
+			const double CurrentTime = Timer->GetTotalTime();
+
+			if (!bFPSAverageInitialized)
+			{
+				FPSAverageWindowStartTime = CurrentTime;
+				FPSAccumulatedFrameTimeMs = 0.0;
+				FPSAccumulatedFrameCount = 0;
+				bFPSAverageInitialized = true;
+			}
+
+			FPSAccumulatedFrameTimeMs += Timer->GetFrameTimeMs();
+			++FPSAccumulatedFrameCount;
+
+			const double WindowElapsed = CurrentTime - FPSAverageWindowStartTime;
+			if (WindowElapsed >= FPSAverageWindowSeconds && FPSAccumulatedFrameCount > 0)
+			{
+				const float AverageMS = static_cast<float>(FPSAccumulatedFrameTimeMs / FPSAccumulatedFrameCount);
+				const float AverageFPS = AverageMS > 0.0f ? 1000.0f / AverageMS : 0.0f;
+
+				char Buffer[128] = {};
+				snprintf(Buffer, sizeof(Buffer), "FPS : %.1f (%.2f ms)", AverageFPS, AverageMS);
+				CachedFPSLine = Buffer;
+
+				FPSAverageWindowStartTime = CurrentTime;
+				FPSAccumulatedFrameTimeMs = 0.0;
+				FPSAccumulatedFrameCount = 0;
+			}
+		}
+		else
+		{
+			CachedFPSLine = "FPS : 0.0 (0.00 ms)";
+			bFPSAverageInitialized = false;
+			FPSAccumulatedFrameTimeMs = 0.0;
+			FPSAccumulatedFrameCount = 0;
+		}
+
+		if (CachedFPSLine.empty())
+		{
+			CachedFPSLine = "FPS : 0.0 (0.00 ms)";
+		}
+
+		AppendLine(OutLines, CurrentY, CachedFPSLine);
+		CurrentY += Layout.LineHeight + Layout.GroupSpacing;
+	}
+
+	if (bShowPickingTime)
+	{
+		char Buffer[160] = {};
+		snprintf(Buffer, sizeof(Buffer), "Picking Time %.5f ms : Num Attempts %d : Accumulated Time %.5f ms",
+			LastPickingTimeMs,
+			static_cast<int32>(PickingAttemptCount),
+			AccumulatedPickingTimeMs);
+		CachedPickingLine = Buffer;
+		AppendLine(OutLines, CurrentY, CachedPickingLine);
+		CurrentY += Layout.LineHeight + Layout.GroupSpacing;
+	}
+
+	if (bShowMemory)
+	{
+		char Buffer[128] = {};
+
+		// 할당 횟수 (단위 없음)
+		snprintf(Buffer, sizeof(Buffer), "Allocation Count : %u", MemoryStats::GetTotalAllocationCount());
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight;
+
+		// 바이트 단위 메모리 — 자동 단위 변환 (B/KB/MB/GB)
+		struct { const char* Label; uint64 Bytes; } MemEntries[] = {
+			{ "Total Allocated",       MemoryStats::GetTotalAllocationBytes() },
+			{ "PixelShader Memory",    MemoryStats::GetPixelShaderMemory() },
+			{ "VertexShader Memory",   MemoryStats::GetVertexShaderMemory() },
+			{ "VertexBuffer Memory",   MemoryStats::GetVertexBufferMemory() },
+			{ "IndexBuffer Memory",    MemoryStats::GetIndexBufferMemory() },
+			{ "StaticMesh CPU Memory", MemoryStats::GetStaticMeshCPUMemory() },
+			{ "Texture Memory",        MemoryStats::GetTextureMemory() },
+		};
+
+		for (const auto& Entry : MemEntries)
+		{
+			FormatBytes(Buffer, sizeof(Buffer), Entry.Label, Entry.Bytes);
+			AppendLine(OutLines, CurrentY, FString(Buffer));
+			CurrentY += Layout.LineHeight;
+		}
+
+		(void)Editor;
+	}
+
+	if (bShowShadow || bShowCascadeShadow)
+	{
+		const FRenderer& Renderer = Editor.GetRenderer();
+		const FShadowRuntimeOptions& ShadowOptions = Renderer.GetRuntimeOptions();
+		const FShadowTelemetry& Telemetry = Renderer.GetShadowTelemetry();
+		const FDirectionalShadowArray& DirectionalArray = Renderer.GetDirShadowArray();
+
+		char Buffer[192] = {};
+		snprintf(Buffer, sizeof(Buffer), "Shadow Filter : %s", GetShadowFilterName(ShadowOptions.ShadowFilterMode));
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight;
+
+		snprintf(Buffer, sizeof(Buffer), "Lights : Directional %u / Point %u / Spot %u",
+			Telemetry.NumDirectionalLights,
+			Telemetry.NumPointLights,
+			Telemetry.NumSpotLights);
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight;
+
+		snprintf(Buffer, sizeof(Buffer), "Local Shadow Views : %u requested / %u allocated / %u failed",
+			Telemetry.RequestedLocalViewCount,
+			Telemetry.AllocatedLocalViewCount,
+			Telemetry.FailedShadowViewCount);
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight;
+
+		snprintf(Buffer, sizeof(Buffer), "Local Atlas Area : %llu / %llu px",
+			static_cast<unsigned long long>(Telemetry.UsedLocalShadowAtlasAreaPerFrame),
+			static_cast<unsigned long long>(Telemetry.LocalAtlasTotalArea));
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight;
+
+		FormatBytes(Buffer, sizeof(Buffer), "Estimated Shadow VRAM", Telemetry.EstimatedShadowVRAMBytes);
+		AppendLine(OutLines, CurrentY, FString(Buffer));
+		CurrentY += Layout.LineHeight + Layout.GroupSpacing;
+
+		if (bShowCascadeShadow)
+		{
+			snprintf(Buffer, sizeof(Buffer), "Directional Shadow Mode : %s", GetDirectionalShadowModeName(ShadowOptions.DirectionalShadowMode));
+			AppendLine(OutLines, CurrentY, FString(Buffer));
+			CurrentY += Layout.LineHeight;
+
+			snprintf(Buffer, sizeof(Buffer), "Directional Array : %.0f x %.0f, CSM slices=%u, total slices=%u",
+				DirectionalArray.Width,
+				DirectionalArray.Height,
+				Telemetry.DirectionalShadowCascadeSliceCount,
+				Telemetry.DirectionalShadowArraySliceCount);
+			AppendLine(OutLines, CurrentY, FString(Buffer));
+			CurrentY += Layout.LineHeight;
+
+			FormatBytes(Buffer, sizeof(Buffer), "Directional Shadow VRAM", Telemetry.EstimatedDirectionalShadowVRAMBytes);
+			AppendLine(OutLines, CurrentY, FString(Buffer));
+			CurrentY += Layout.LineHeight;
+
+			snprintf(Buffer, sizeof(Buffer), "Cascade Debug : %s", ShadowOptions.bDebugCascades ? "On" : "Off");
+			AppendLine(OutLines, CurrentY, FString(Buffer));
+			CurrentY += Layout.LineHeight + Layout.GroupSpacing;
+		}
+	}
+}
+
+TArray<FOverlayStatLine> FOverlayStatSystem::BuildLines(const UEditorEngine& Editor) const
+{
+	TArray<FOverlayStatLine> Result;
+	BuildLines(Editor, Result);
+	return Result;
+}

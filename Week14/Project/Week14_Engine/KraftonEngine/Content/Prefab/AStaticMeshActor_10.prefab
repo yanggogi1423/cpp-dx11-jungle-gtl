@@ -1,0 +1,57 @@
+{
+  "Actor" : {
+    "ClassName" : "AStaticMeshActor",
+    "Name" : "AStaticMeshActor_10",
+    "NonSceneComponents" : [],
+    "ObjectId" : 1,
+    "Properties" : {
+      "PendingActorLocation" : [-27.558577, 14.853318, -1.999999],
+      "PendingActorRotation" : [-0.000000, -179.999985, 0.000000],
+      "PendingActorScale" : [0.150000, 0.150000, 0.150000],
+      "PendingActorVisible" : true,
+      "PendingTagsString" : "",
+      "bNeedsTick" : true
+    },
+    "RootComponent" : {
+      "Children" : [],
+      "ClassName" : "UStaticMeshComponent",
+      "ObjectId" : 2,
+      "Properties" : {
+        "AttachSocketName" : "Name_None",
+        "CachedEditRotator" : [-0.000000, -179.999985, 0.000000],
+        "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+        "CollisionEnabled" : 0,
+        "Mass" : 1.000000,
+        "MaterialSlots" : ["Content/Material/Auto/Barrett_M82_Magazine_and_Bullet.uasset"],
+        "ObjectType" : 0,
+        "PendingTagsString" : "",
+        "PersistentGuid" : "Component_644",
+        "RelativeTransform.Location" : [-27.558577, 14.853318, -1.999999],
+        "RelativeTransform.Scale" : [0.150000, 0.150000, 0.150000],
+        "ResponseContainer" : {
+          "Responses[0]" : 2,
+          "Responses[1]" : 2,
+          "Responses[2]" : 2,
+          "Responses[3]" : 2,
+          "Responses[4]" : 2
+        },
+        "StaticMeshPath" : "Content/Data/SniperBullet/bullet_StaticMesh.uasset",
+        "bAutoActivate" : true,
+        "bCastShadow" : true,
+        "bCastShadowAsTwoSided" : false,
+        "bEditorOnly" : false,
+        "bEnableCCD" : false,
+        "bGenerateOverlapEvents" : false,
+        "bHiddenInComponentTree" : false,
+        "bIsActive" : true,
+        "bIsVisible" : true,
+        "bKinematic" : false,
+        "bSimulatePhysics" : false,
+        "bTickEnable" : true
+      }
+    }
+  },
+  "SourceActorName" : "AStaticMeshActor_10",
+  "Type" : "KraftonPrefab",
+  "Version" : 1
+}

@@ -1,0 +1,32 @@
+# Blender 5.1.0 MTL File: 'Truck_A.blend'
+# www.blender.org
+
+newmtl UBH_Crashed_Vehicle_05_Car05a
+Ns 1.788855
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TuckTex_3.jpg
+
+newmtl UBH_Crashed_Vehicle_05_Car05b
+Ns 1.788855
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TuckTex_1.jpg
+
+newmtl UBH_Crashed_Vehicle_05_Car05c
+Ns 1.788855
+Ka 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TuckTex_2.jpg

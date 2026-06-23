@@ -1,0 +1,333 @@
+{
+  "Actors" : [{
+      "Active" : true,
+      "ClassName" : "ADirectionalLightActor",
+      "Components" : [{
+          "AttachSocketName" : "Name_None",
+          "CSMMaxDistance" : 300.000000,
+          "CSMPractialLambda" : 0.250000,
+          "ClassName" : "UDirectionalLightComponent",
+          "ConstantBias" : 0.003000,
+          "Intensity" : 1.000000,
+          "LightColor" : {
+            "A" : 1.000000,
+            "B" : 1.000000,
+            "G" : 1.000000,
+            "R" : 1.000000
+          },
+          "ObjectName" : "UDirectionalLightComponent_1",
+          "PersistentGuid" : "FF34F603-D3E54AE9-9784864D-619BDAB8",
+          "RelativeLocation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 13.000000
+          },
+          "RelativeRotation" : {
+            "X" : -0.000000,
+            "Y" : 44.000000,
+            "Z" : -0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "ShadowMapType" : 0,
+          "ShadowResolutionScale" : 2048,
+          "ShadowSharpen" : 0.500000,
+          "SlopeScaledBias" : 0.120000,
+          "Tags" : [],
+          "Type" : "UDirectionalLightComponent",
+          "UUID" : 1869,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastShadows" : true,
+          "bIsActive" : true,
+          "bIsEditorOnly" : false,
+          "bShadowTexelSnapped" : true,
+          "bTransient" : false
+        }, {
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "UBillboardComponent",
+          "Height" : 1.000000,
+          "ObjectName" : "UBillboardComponent_1",
+          "ParentUUID" : 1869,
+          "PersistentGuid" : "5D96273A-36F14D50-978D7750-FBED6BFD",
+          "PlayRate" : 30.000000,
+          "RelativeLocation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeRotation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "Tags" : [],
+          "TextureName" : "Resources/Editor/Icons/DirectionalLight_64x.png",
+          "Type" : "UBillboardComponent",
+          "UUID" : 1870,
+          "Width" : 1.000000,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastDecal" : true,
+          "bEnableCull" : true,
+          "bGenerateOverlapEvents" : false,
+          "bInheritOwnerScale" : false,
+          "bIsActive" : true,
+          "bIsEditorOnly" : true,
+          "bIsVisible" : true,
+          "bLoop" : true,
+          "bTransient" : false
+        }],
+      "EditorOnly" : true,
+      "Name" : "Directional Light",
+      "PersistentGuid" : "EEE66026-341B45EC-B0F03DD1-3AC3DB4B",
+      "RootComponent" : 1869,
+      "Tags" : [],
+      "UUID" : 1868,
+      "Visible" : true
+    }, {
+      "Active" : true,
+      "ClassName" : "AAmbientLightActor",
+      "Components" : [{
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "UAmbientLightComponent",
+          "ConstantBias" : 0.003000,
+          "Intensity" : 0.020000,
+          "LightColor" : {
+            "A" : 1.000000,
+            "B" : 1.000000,
+            "G" : 1.000000,
+            "R" : 1.000000
+          },
+          "ObjectName" : "UAmbientLightComponent_1",
+          "PersistentGuid" : "35C8CF01-FA084A75-8E472DC3-B0C445BF",
+          "RelativeLocation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 15.000000
+          },
+          "RelativeRotation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "ShadowMapType" : 0,
+          "ShadowResolutionScale" : 2048,
+          "ShadowSharpen" : 0.500000,
+          "SlopeScaledBias" : 0.120000,
+          "Tags" : [],
+          "Type" : "UAmbientLightComponent",
+          "UUID" : 1872,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastShadows" : true,
+          "bIsActive" : true,
+          "bIsEditorOnly" : false,
+          "bShadowTexelSnapped" : true,
+          "bTransient" : false
+        }, {
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "UBillboardComponent",
+          "Height" : 1.000000,
+          "ObjectName" : "UBillboardComponent_1",
+          "ParentUUID" : 1872,
+          "PersistentGuid" : "BA5FE809-EC034B51-B62AEF12-915F45ED",
+          "PlayRate" : 30.000000,
+          "RelativeLocation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeRotation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "Tags" : [],
+          "TextureName" : "Resources/Editor/Icons/SkyLight_64x.png",
+          "Type" : "UBillboardComponent",
+          "UUID" : 1873,
+          "Width" : 1.000000,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastDecal" : true,
+          "bEnableCull" : true,
+          "bGenerateOverlapEvents" : false,
+          "bInheritOwnerScale" : false,
+          "bIsActive" : true,
+          "bIsEditorOnly" : true,
+          "bIsVisible" : true,
+          "bLoop" : true,
+          "bTransient" : false
+        }],
+      "EditorOnly" : false,
+      "Name" : "Ambient Light",
+      "PersistentGuid" : "1090E741-A8874980-BA5C271C-93B0DE29",
+      "RootComponent" : 1872,
+      "Tags" : [],
+      "UUID" : 1871,
+      "Visible" : true
+    }, {
+      "Active" : true,
+      "ClassName" : "APlayerStart",
+      "Components" : [{
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "USceneComponent",
+          "ObjectName" : "USceneComponent_1",
+          "PersistentGuid" : "8D2D3451-7D764DED-B3C3B756-4355834A",
+          "RelativeLocation" : {
+            "X" : 6.810397,
+            "Y" : -38.766605,
+            "Z" : 34.507290
+          },
+          "RelativeRotation" : {
+            "X" : -0.000000,
+            "Y" : 0.000000,
+            "Z" : -0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "Tags" : [],
+          "Type" : "USceneComponent",
+          "UUID" : 1875,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bIsActive" : true,
+          "bIsEditorOnly" : false,
+          "bTransient" : false
+        }, {
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "UBillboardComponent",
+          "Height" : 1.000000,
+          "ObjectName" : "UBillboardComponent_1",
+          "ParentUUID" : 1875,
+          "PersistentGuid" : "2F80101D-18F8434C-B6725CF6-3E90F772",
+          "PlayRate" : 30.000000,
+          "RelativeLocation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeRotation" : {
+            "X" : 0.000000,
+            "Y" : 0.000000,
+            "Z" : 0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 1.000000,
+            "Y" : 1.000000,
+            "Z" : 1.000000
+          },
+          "Tags" : [],
+          "TextureName" : "Resources/Editor/Icons/PlayerStart_64x.PNG",
+          "Type" : "UBillboardComponent",
+          "UUID" : 1876,
+          "Width" : 1.000000,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastDecal" : true,
+          "bEnableCull" : true,
+          "bGenerateOverlapEvents" : false,
+          "bInheritOwnerScale" : false,
+          "bIsActive" : true,
+          "bIsEditorOnly" : true,
+          "bIsVisible" : true,
+          "bLoop" : true,
+          "bTransient" : false
+        }],
+      "EditorOnly" : false,
+      "Name" : "Player Start",
+      "PersistentGuid" : "F6B49A46-E50F4709-BF70DA72-369740C8",
+      "RootComponent" : 1875,
+      "Tags" : [],
+      "UUID" : 1874,
+      "Visible" : true
+    }, {
+      "Active" : true,
+      "ClassName" : "AStaticMeshActor",
+      "Components" : [{
+          "AttachSocketName" : "Name_None",
+          "ClassName" : "UStaticMeshComponent",
+          "Materials" : ["Asset/Material/Auto/Mercury_Mat_0.uasset"],
+          "ObjectName" : "UStaticMeshComponent_1",
+          "PersistentGuid" : "918D9676-783145A3-BEF14126-7504F948",
+          "RelativeLocation" : {
+            "X" : 9.407475,
+            "Y" : -43.446690,
+            "Z" : 7.431976
+          },
+          "RelativeRotation" : {
+            "X" : -0.000000,
+            "Y" : 0.000000,
+            "Z" : -0.000000
+          },
+          "RelativeScale3D" : {
+            "X" : 5.000000,
+            "Y" : 5.000000,
+            "Z" : 5.000000
+          },
+          "ScrollU" : 0.000000,
+          "ScrollV" : 0.000000,
+          "StaticMeshAssetPath" : "Asset/Mesh/Mercury/Mercury.uasset",
+          "Tags" : [],
+          "Type" : "UStaticMeshComponent",
+          "UUID" : 1922,
+          "bAutoActivate" : true,
+          "bCanEverTick" : true,
+          "bCastDecal" : true,
+          "bEnableCull" : true,
+          "bGenerateOverlapEvents" : false,
+          "bIsActive" : true,
+          "bIsEditorOnly" : false,
+          "bIsVisible" : true,
+          "bTransient" : false
+        }],
+      "EditorOnly" : false,
+      "Name" : "AStaticMeshActor_1",
+      "PersistentGuid" : "ED6FA514-8D8048AF-9AC9E651-00B9A1D9",
+      "RootComponent" : 1922,
+      "Tags" : [],
+      "UUID" : 1921,
+      "Visible" : true
+    }],
+  "ClassName" : "UWorld",
+  "Name" : "Start",
+  "NextUUID" : 7052,
+  "PerspectiveCamera" : {
+    "FOV" : 60.000000,
+    "FarClip" : 2000.000000,
+    "Location" : [-30.178928, -52.384529, 25.313673],
+    "NearClip" : 0.100000,
+    "Rotation" : [3.571349, 24.620371, -8.520294]
+  },
+  "Version" : 6,
+  "WorldSettings" : {
+    "DefaultPawnClass" : "ADefaultPawn",
+    "DefaultPawnPrefabPath" : "",
+    "GameModeClass" : "AGameModeBase",
+    "OverrideGameMode" : false,
+    "PlayerControllerClass" : "APlayerController"
+  },
+  "WorldType" : "Editor"
+}

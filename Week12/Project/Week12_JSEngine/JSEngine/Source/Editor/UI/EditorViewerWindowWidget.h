@@ -1,0 +1,154 @@
+﻿#pragma once
+#include "Editor/UI/EditorWidget.h"
+#include "Editor/UI/EditorAnimationSequenceViewerWidget.h"
+#include "Editor/Undo/EditorUndoSystem.h"
+#include "Asset/SkeletalMeshTypes.h"
+#include "Render/Common/ComPtr.h"
+#include "ImGui/imgui.h"
+
+#include <memory>
+
+class USkeletalMeshComponent;
+class FSceneViewport;
+class FEditorViewer;
+class UAnimSequence;
+class USkeletalMesh;
+struct ID3D11ShaderResourceView;
+
+class FEditorViewerWindowWidget : public FEditorWidget
+{
+public:
+    void Initialize(UEditorEngine* InEditorEngine) override;
+    void Render(float DeltaTime) override;
+    void RenderEmbedded(float DeltaTime);
+    void DrawBoneNode(
+        int32 BoneIndex,
+        const TArray<FBoneInfo>& Bones,
+        const TArray<TArray<int32>>& Children);
+
+    // Bone tree에 socket을 leaf 노드로 표시. SocketIdx는 CachedMesh->Sockets 배열 인덱스.
+    void DrawSocketNode(int32 SocketIdx);
+
+	void SetViewer(FEditorViewer* InViewer);
+    FEditorViewer* GetViewer() const { return Viewer; }
+
+	bool IsOpen() const { return bOpen; }
+    void SetOpen(bool NewOpen) { bOpen = NewOpen; }
+
+	FString GetWindowName() const;
+	void RequestSaveMesh();
+	bool CanSaveMesh() const;
+	bool IsMeshDirty() const;
+	void RequestSaveAnimSequence();
+	bool CanSaveAnimSequence() const;
+
+private:
+    // bone tree 캐시들. CachedMesh가 바뀌면 둘 다 재빌드.
+    // socket을 add/delete할 때도 BoneToSocketIndices만 다시 빌드해야 한다.
+    void RebuildBoneTreeCaches(const FSkeletalMesh* MeshData);
+    void RebuildBoneToSocketIndices(const FSkeletalMesh* MeshData);
+
+    // Socket 편집 액션들. Render()안에서만 호출 — CachedMesh/CachedSkComp가 유효한 시점.
+    void QueueBoneSubtreeOpenState(int32 BoneIdx, bool bOpen);
+    void ApplyPendingBoneTreeOpenState(const FSkeletalMesh* MeshData);
+    void SetBoneSubtreeOpenState(int32 BoneIdx, const TArray<TArray<int32>>& InChildren, bool bOpen);
+    void    AddSocketOnBone(int32 BoneIdx);
+    void DeleteSocket(int32 SocketIdx);
+    bool HasPreview(const FName& SocketName) const;
+    FString GenerateUniqueSocketName(const char* Base = "Socket") const;
+    FEditorSkeletalMeshSocketState CaptureSocketUndoState(const FString& Label) const;
+    void RecordSocketUndoState(
+        const FEditorSkeletalMeshSocketState& BeforeState,
+        const FString& Label);
+
+    // 모달 picker — Render() 끝에서 호출하여 그림.
+    void DrawPreviewPickerModal();
+
+    // 좌측 패널 하단의 선택된 socket properties 편집기 + Save Mesh 버튼.
+    void    DrawSocketInspector();
+    void    TriggerSaveMesh();
+
+    // Rename 다이얼로그
+    void DrawRenameModal();
+    bool    IsSocketNameUnique(const FString& Candidate, int32 IgnoreIdx) const;
+
+	void RenderBoneDetails(USkeletalMeshComponent* SkelComp);
+    void RenderContent(float DeltaTime);
+    void RenderViewportPanel(FSceneViewport& SceneViewport, ID3D11ShaderResourceView* SRV, const ImVec2& Size);
+    void RenderStaticMeshLeftPanel(class UStaticMeshComponent* StaticMeshComp);
+    void RenderSkeletonLeftPanel(USkeletalMeshComponent* SkelMeshComp, FSkeletalMesh* MeshData);
+    void RenderBoneRightPanel(USkeletalMeshComponent* SkelMeshComp);
+    void RenderAnimSequenceLeftPanel(UAnimSequence* Sequence, USkeletalMeshComponent* SkelMeshComp);
+    void RenderAnimSequenceRightPanel(UAnimSequence* Sequence, USkeletalMesh* PreviewMesh);
+    void RenderAnimSequenceToolbar(UAnimSequence* Sequence);
+    void RenderAnimSequenceTimeline(UAnimSequence* Sequence);
+    void RenderAnimSequenceDetails(UAnimSequence* Sequence, USkeletalMesh* PreviewMesh);
+    bool SaveAnimSequenceAsset(UAnimSequence* Sequence);
+    void RenderAnimSequenceList(UAnimSequence* Sequence);
+    void SyncPreviewMeshPathBuffer();
+    void LoadAnimSequenceToolbarIcons();
+    bool DrawAnimSequenceIconButton(
+        const char* Id,
+        ID3D11ShaderResourceView* Icon,
+        const char* Tooltip,
+        const ImVec2& Size);
+	void RenderDetachedDocumentChrome(bool& bDockRequested, bool& bCloseRequested);
+	void RenderDetachedDocumentToolbar(bool& bDockRequested);
+    void Shutdown();
+	FSkeletalMesh* ResolveCurrentMeshData() const;
+	uint64 ComputeEditableMeshSignature(const FSkeletalMesh* MeshData) const;
+	void ResetMeshDirtyBaseline();
+	bool HasMeshAssetEdits() const;
+    TArray<TArray<int32>> Children;             // bone idx → child bone indices
+    TArray<TArray<int32>> BoneToSocketIndices;  // bone idx → socket array indices
+    FSkeletalMesh* CachedMesh = nullptr;
+    USkeletalMeshComponent* CachedSkComp = nullptr;   // Render() 내내만 유효한 transient cache
+
+    int32 PendingPreviewPickerSocketIdx = -1;  // picker modal 트리거; -1이면 닫힌 상태
+    int32 RenameSocketIdx = -1;                // rename modal 트리거; -1이면 닫힌 상태
+    int32 PendingBoneTreeOpenStateRoot = -1;
+    bool bPendingBoneTreeOpenStateValue = false;
+    char  RenameBuffer[256] = {};
+    bool  bMeshDirty = false;         // socket 등 mesh asset 데이터 변경 후 Save 트리거용
+	uint64 CleanMeshEditSignature = 0;
+	bool bHasCleanMeshEditSignature = false;
+    bool bSocketTransformEditUndoCaptured = false;
+    FEditorSkeletalMeshSocketState SocketTransformBeforeState;
+    FString PreviewMeshPathBufferSource;
+    char PreviewMeshPathBuffer[1024] = {};
+    int32 SelectedAnimTrackIndex = -1;
+    int32 SelectedAnimNotifyIndex = -1;
+    int32 DraggingAnimNotifyIndex = -1;
+    int32 AnimNotifyDragMode = 0; // 0=None, 1=Move, 2=Start, 3=End
+    float AnimNotifyDragGrabOffset = 0.0f;
+    bool bAnimNotifyDragDirty = false;
+    int32 PendingAnimNotifyTrackIndexToAdd = 0;
+    UAnimSequence* CachedAnimSequence = nullptr;
+    float PendingAnimNotifyTimeToAdd = 0.0f;
+    char SelectedAnimNotifyNameBuffer[128] = {};
+    int32 SelectedAnimNotifyNameBufferIndex = -1;
+    char SelectedAnimNotifyLuaEventNameBuffer[128] = {};
+    char SelectedAnimNotifyLuaTargetScriptBuffer[256] = {};
+    int32 SelectedAnimNotifyLuaBufferIndex = -1;
+    float AnimNotifyDurationToAdd = 0.0f;
+
+    bool bAnimSequenceToolbarIconsLoadAttempted = false;
+    TComPtr<ID3D11ShaderResourceView> AnimSequencePlayIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequencePauseIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceReverseIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceToFrontIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceToEndIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceLoopingIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceNoLoopingIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceToNextingIcon;
+    TComPtr<ID3D11ShaderResourceView> AnimSequenceToPreviousingIcon;
+
+	FEditorViewer* Viewer = nullptr;
+	std::unique_ptr<FEditorAnimationSequenceViewerWidget> AnimSequenceViewerWidget;
+    bool bOpen = false;
+    ImVec2 LastDetachedWindowPos = ImVec2(0.0f, 0.0f);
+    bool bDraggingDetachedWindow = false;
+
+    float LeftPanelWidth = 250.0f;
+    float RightPanelWidth = 250.0f;
+};

@@ -1,0 +1,87 @@
+{
+  "Actors" : [{
+      "ClassName" : "AActor",
+      "Name" : "AActor_133",
+      "NonSceneComponents" : [{
+          "ClassName" : "ULuaScriptComponent",
+          "ObjectId" : 4,
+          "Properties" : {
+            "InitialGameState" : 3,
+            "PendingTagsString" : "",
+            "PersistentGuid" : "Component_791",
+            "ScriptFile" : "Management/GeneralManager.lua",
+            "bAutoActivate" : true,
+            "bEditorOnly" : false,
+            "bHiddenInComponentTree" : false,
+            "bIsActive" : true,
+            "bTickEnable" : true
+          }
+        }],
+      "ObjectId" : 2,
+      "Properties" : {
+        "PendingActorLocation" : [-1.162724, -1.947562, 0.989739],
+        "PendingActorRotation" : [-0.000000, 0.000000, 0.000000],
+        "PendingActorScale" : [0.700000, 0.700000, 0.700000],
+        "PendingActorVisible" : true,
+        "PendingTagsString" : "",
+        "bNeedsTick" : true
+      },
+      "RootComponent" : {
+        "Children" : [],
+        "ClassName" : "UBillboardComponent",
+        "ObjectId" : 3,
+        "Properties" : {
+          "AttachSocketName" : "Name_None",
+          "CachedEditRotator" : [-0.000000, 0.000000, 0.000000],
+          "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+          "CollisionEnabled" : 0,
+          "Mass" : 1.000000,
+          "MaterialSlot" : "Content/Material/Editor/EmptyActor.uasset",
+          "ObjectType" : 0,
+          "PendingTagsString" : "",
+          "PersistentGuid" : "Component_790",
+          "RelativeTransform.Location" : [-1.162724, -1.947562, 0.989739],
+          "RelativeTransform.Scale" : [0.700000, 0.700000, 0.700000],
+          "ResponseContainer" : {
+            "Responses[0]" : 2,
+            "Responses[1]" : 2,
+            "Responses[2]" : 2,
+            "Responses[3]" : 2,
+            "Responses[4]" : 2
+          },
+          "bAutoActivate" : true,
+          "bCastShadow" : true,
+          "bCastShadowAsTwoSided" : false,
+          "bEditorOnly" : true,
+          "bEnableCCD" : false,
+          "bGenerateOverlapEvents" : false,
+          "bHiddenInComponentTree" : false,
+          "bIsActive" : true,
+          "bIsBillboard" : true,
+          "bIsVisible" : true,
+          "bKinematic" : false,
+          "bSimulatePhysics" : false,
+          "bTickEnable" : true
+        }
+      }
+    }],
+  "ClassName" : "UWorld",
+  "ContextHandle" : "NewScene",
+  "ContextName" : "New Scene",
+  "Name" : "PreInGame",
+  "ObjectId" : 1,
+  "PerspectiveCamera" : {
+    "FOV" : 1.047198,
+    "FarClip" : 1000.000000,
+    "Location" : [4.261468, -6.149932, 8.401265],
+    "NearClip" : 0.100000,
+    "Rotation" : [0.000000, 47.715015, 146.399963]
+  },
+  "Version" : 2,
+  "WorldSettings" : {
+    "DefaultPawnPrefabPath" : "",
+    "GameMode" : "",
+    "Gravity" : [0.000000, 0.000000, -9.810000]
+  },
+  "WorldType" : "Editor"
+}

@@ -1,0 +1,64 @@
+<rml>
+<head>
+    <title>Result HUD</title>
+    <link type="text/rcss" href="ResultHUD.rcss" />
+</head>
+<body>
+    <div id="resultRoot" data-ui-type="Canvas" data-ui-name="Result HUD">
+        <div id="resultDim" data-ui-type="Panel" data-ui-name="Result Dim"></div>
+        <div id="radioSubtitlePanel" data-ui-type="Panel" data-ui-name="Radio Subtitle Panel">
+            <div id="radioSubtitleText" data-ui-type="Text" data-ui-name="Radio Subtitle Text"></div>
+        </div>
+
+        <div id="resultEntryPanel" class="result-panel" data-ui-type="Panel" data-ui-name="Result Entry Panel">
+            <div id="resultEyebrow" class="eyebrow">MISSION RESULT</div>
+            <div id="resultTitle" class="result-title">Victory</div>
+            <div id="resultDivider" class="thin-divider"></div>
+
+            <div id="scoreBlock" class="metric-block" data-ui-type="Panel">
+                <span id="scoreLabel" class="metric-label">Score</span>
+                <span id="resultScoreValue" class="metric-value">000000</span>
+            </div>
+
+            <div id="nicknameBlock" class="nickname-block" data-ui-type="Panel">
+                <span id="nicknameLabel" class="field-label">Nickname</span>
+                <input id="nicknameInput" class="nickname-input" type="text" value="" maxlength="12" />
+                <span id="nicknameHint" class="nickname-hint">English letters and numbers, 6-12 characters.</span>
+                <span id="nicknameError" class="nickname-error"></span>
+            </div>
+
+            <button id="btnSubmitScore" class="submit-button disabled" data-ui-type="Button" data-ui-name="Submit Score" data-action="SubmitScore">
+                <span id="btnSubmitScoreLabel" class="submit-label">Submit</span>
+            </button>
+            <button id="btnResultGoMain" class="submit-button secondary" data-ui-type="Button" data-ui-name="Go To Main" data-action="GoToMain">
+                <span id="btnResultGoMainLabel" class="submit-label">Go To Main</span>
+            </button>
+        </div>
+
+        <div id="resultScorePanel" class="result-panel" data-ui-type="Panel" data-ui-name="Result Scoreboard Panel">
+            <div id="scoreboardEyebrow" class="eyebrow">LOCAL RECORD</div>
+            <div id="scoreboardTitle" class="board-title">Score Board</div>
+            <div id="scoreboardDivider" class="thin-divider"></div>
+
+            <div id="resultScoreHeader" class="score-table-header" data-ui-type="Panel">
+                <span class="rank-cell">Rank</span>
+                <span class="name-cell">Nickname</span>
+                <span class="result-cell">Result</span>
+                <span class="score-cell">Score</span>
+            </div>
+
+            <div id="resultScoreList" class="score-list" data-ui-type="Panel">
+                <div id="resultScoreRow1" class="score-row" data-ui-type="Panel"><span id="resultScoreRank1" class="rank-cell">1</span><span id="resultScoreName1" class="name-cell">-</span><span id="resultScoreResult1" class="result-cell">-</span><span id="resultScoreValue1" class="score-cell">0</span></div>
+                <div id="resultScoreRow2" class="score-row" data-ui-type="Panel"><span id="resultScoreRank2" class="rank-cell">2</span><span id="resultScoreName2" class="name-cell">-</span><span id="resultScoreResult2" class="result-cell">-</span><span id="resultScoreValue2" class="score-cell">0</span></div>
+                <div id="resultScoreRow3" class="score-row" data-ui-type="Panel"><span id="resultScoreRank3" class="rank-cell">3</span><span id="resultScoreName3" class="name-cell">-</span><span id="resultScoreResult3" class="result-cell">-</span><span id="resultScoreValue3" class="score-cell">0</span></div>
+                <div id="resultScoreRow4" class="score-row" data-ui-type="Panel"><span id="resultScoreRank4" class="rank-cell">4</span><span id="resultScoreName4" class="name-cell">-</span><span id="resultScoreResult4" class="result-cell">-</span><span id="resultScoreValue4" class="score-cell">0</span></div>
+                <div id="resultScoreRow5" class="score-row" data-ui-type="Panel"><span id="resultScoreRank5" class="rank-cell">5</span><span id="resultScoreName5" class="name-cell">-</span><span id="resultScoreResult5" class="result-cell">-</span><span id="resultScoreValue5" class="score-cell">0</span></div>
+                <div id="resultScoreRow6" class="score-row" data-ui-type="Panel"><span id="resultScoreRank6" class="rank-cell">6</span><span id="resultScoreName6" class="name-cell">-</span><span id="resultScoreResult6" class="result-cell">-</span><span id="resultScoreValue6" class="score-cell">0</span></div>
+                <div id="resultScoreRow7" class="score-row" data-ui-type="Panel"><span id="resultScoreRank7" class="rank-cell">7</span><span id="resultScoreName7" class="name-cell">-</span><span id="resultScoreResult7" class="result-cell">-</span><span id="resultScoreValue7" class="score-cell">0</span></div>
+                <div id="resultScoreRow8" class="score-row" data-ui-type="Panel"><span id="resultScoreRank8" class="rank-cell">8</span><span id="resultScoreName8" class="name-cell">-</span><span id="resultScoreResult8" class="result-cell">-</span><span id="resultScoreValue8" class="score-cell">0</span></div>
+            </div>
+            <div id="resultScoreScrollbar" class="fake-scrollbar" data-ui-type="Panel"><div id="resultScoreScrollThumb" class="fake-scrollbar-thumb" data-ui-type="Panel"></div></div>
+        </div>
+    </div>
+</body>
+</rml>

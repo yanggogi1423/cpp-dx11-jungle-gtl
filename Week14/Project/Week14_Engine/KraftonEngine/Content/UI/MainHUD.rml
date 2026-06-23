@@ -1,0 +1,103 @@
+<rml>
+<head>
+    <link type="text/rcss" href="MainHUD.rcss" />
+</head>
+<body>
+    <div id="mainRoot" data-ui-type="Canvas" data-ui-name="Main HUD">
+        <div id="logoSlot" data-ui-type="Panel" data-ui-name="Logo Slot">
+            <img id="mainLogo" data-ui-type="Image" data-ui-name="Main Logo" src="Image/MainLogo.png" data-ui-fit="contain" />
+        </div>
+
+        <div id="mainMenu" data-ui-type="Panel" data-ui-name="Main Menu">
+            <button id="btnGameStart" class="menu-button primary" data-ui-type="Button" data-ui-name="Game Start" data-action="GameStart" data-hover-action="MainButtonHover"><span id="btnGameStartLabel" class="menu-button-label">Game Start</span></button>
+            <button id="btnScoreBoard" class="menu-button secondary" data-ui-type="Button" data-ui-name="Score Board" data-action="OpenScoreBoard" data-hover-action="MainButtonHover"><span id="btnScoreBoardLabel" class="menu-button-label">Score Board</span></button>
+            <button id="btnSettings" class="menu-button secondary" data-ui-type="Button" data-ui-name="Settings" data-action="OpenSettings" data-hover-action="MainButtonHover"><span id="btnSettingsLabel" class="menu-button-label">Settings</span></button>
+            <button id="btnCredits" class="menu-button secondary" data-ui-type="Button" data-ui-name="Credits" data-action="OpenCredits" data-hover-action="MainButtonHover"><span id="btnCreditsLabel" class="menu-button-label">Credits</span></button>
+            <button id="btnExit" class="menu-button secondary" data-ui-type="Button" data-ui-name="Exit" data-action="ExitGame" data-hover-action="MainButtonHover"><span id="btnExitLabel" class="menu-button-label">Exit</span></button>
+        </div>
+
+        <div id="popupLayer" data-ui-type="Panel" data-ui-name="Popup Layer">
+            <div id="popupBackdrop" data-ui-type="Panel" data-ui-name="Popup Backdrop"></div>
+
+            <div id="settingsPopup" class="popup-panel" data-ui-type="Panel" data-ui-name="Settings Popup">
+                <div class="popup-header" data-ui-type="Panel" data-ui-name="Settings Header">
+                    <span class="popup-title">Settings</span>
+                    <button id="btnCloseSettings" class="popup-close" data-ui-type="Button" data-ui-name="Close Settings" data-action="ClosePopup"><span class="popup-close-label">X</span></button>
+                </div>
+                <div class="settings-list" data-ui-type="Panel" data-ui-name="Settings List">
+                    <div id="settingsBgmRow" class="setting-row" data-ui-type="Panel" data-ui-name="BGM Volume Row">
+                        <span class="setting-label">BGM Volume</span>
+                        <button id="btnBgmDown" class="step-button" data-ui-type="Button" data-ui-name="BGM Down" data-action="BgmDown"><span class="step-button-label">-</span></button>
+                        <span id="bgmValue" class="setting-value">100%</span>
+                        <button id="btnBgmUp" class="step-button" data-ui-type="Button" data-ui-name="BGM Up" data-action="BgmUp"><span class="step-button-label">+</span></button>
+                    </div>
+                    <div id="settingsSfxRow" class="setting-row" data-ui-type="Panel" data-ui-name="SFX Volume Row">
+                        <span class="setting-label">SFX Volume</span>
+                        <button id="btnSfxDown" class="step-button" data-ui-type="Button" data-ui-name="SFX Down" data-action="SfxDown"><span class="step-button-label">-</span></button>
+                        <span id="sfxValue" class="setting-value">100%</span>
+                        <button id="btnSfxUp" class="step-button" data-ui-type="Button" data-ui-name="SFX Up" data-action="SfxUp"><span class="step-button-label">+</span></button>
+                    </div>
+                    <div id="settingsZoomRow" class="setting-row" data-ui-type="Panel" data-ui-name="Zoom Mode Row">
+                        <span class="setting-label">Right Click Zoom</span>
+                        <button id="btnZoomMode" class="mode-button" data-ui-type="Button" data-ui-name="Zoom Mode" data-action="ToggleZoomMode"><span id="zoomModeValue">Hold</span></button>
+                    </div>
+                    <div id="settingsMouseRow" class="setting-row" data-ui-type="Panel" data-ui-name="Mouse Sensitivity Row">
+                        <span class="setting-label">Mouse Sensitivity</span>
+                        <button id="btnMouseDown" class="step-button" data-ui-type="Button" data-ui-name="Mouse Down" data-action="MouseDown"><span class="step-button-label">-</span></button>
+                        <span id="mouseValue" class="setting-value">1.00x</span>
+                        <button id="btnMouseUp" class="step-button" data-ui-type="Button" data-ui-name="Mouse Up" data-action="MouseUp"><span class="step-button-label">+</span></button>
+                    </div>
+                    <div id="settingsGamepadRow" class="setting-row" data-ui-type="Panel" data-ui-name="Gamepad Sensitivity Row">
+                        <span class="setting-label">Gamepad Sensitivity</span>
+                        <button id="btnGamepadDown" class="step-button" data-ui-type="Button" data-ui-name="Gamepad Down" data-action="GamepadDown"><span class="step-button-label">-</span></button>
+                        <span id="gamepadValue" class="setting-value">1.00x</span>
+                        <button id="btnGamepadUp" class="step-button" data-ui-type="Button" data-ui-name="Gamepad Up" data-action="GamepadUp"><span class="step-button-label">+</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="scorePopup" class="popup-panel" data-ui-type="Panel" data-ui-name="Score Board Popup">
+                <div class="popup-header" data-ui-type="Panel" data-ui-name="Score Header">
+                    <span class="popup-title">Score Board</span>
+                    <button id="btnCloseScore" class="popup-close" data-ui-type="Button" data-ui-name="Close Score" data-action="ClosePopup"><span class="popup-close-label">X</span></button>
+                </div>
+                <div class="score-table-header" data-ui-type="Panel" data-ui-name="Score Header Row">
+                    <span class="rank-cell">Rank</span>
+                    <span class="name-cell">Nickname</span>
+                    <span class="result-cell">Result</span>
+                    <span class="score-cell">Score</span>
+                </div>
+                <div id="scoreList" class="score-list" data-ui-type="Panel" data-ui-name="Score List">
+                    <div id="scoreRow1" class="score-row" data-ui-type="Panel"><span id="scoreRank1" class="rank-cell">1</span><span id="scoreName1" class="name-cell">-</span><span id="scoreResult1" class="result-cell">-</span><span id="scoreValue1" class="score-cell">0</span></div>
+                    <div id="scoreRow2" class="score-row" data-ui-type="Panel"><span id="scoreRank2" class="rank-cell">2</span><span id="scoreName2" class="name-cell">-</span><span id="scoreResult2" class="result-cell">-</span><span id="scoreValue2" class="score-cell">0</span></div>
+                    <div id="scoreRow3" class="score-row" data-ui-type="Panel"><span id="scoreRank3" class="rank-cell">3</span><span id="scoreName3" class="name-cell">-</span><span id="scoreResult3" class="result-cell">-</span><span id="scoreValue3" class="score-cell">0</span></div>
+                    <div id="scoreRow4" class="score-row" data-ui-type="Panel"><span id="scoreRank4" class="rank-cell">4</span><span id="scoreName4" class="name-cell">-</span><span id="scoreResult4" class="result-cell">-</span><span id="scoreValue4" class="score-cell">0</span></div>
+                    <div id="scoreRow5" class="score-row" data-ui-type="Panel"><span id="scoreRank5" class="rank-cell">5</span><span id="scoreName5" class="name-cell">-</span><span id="scoreResult5" class="result-cell">-</span><span id="scoreValue5" class="score-cell">0</span></div>
+                    <div id="scoreRow6" class="score-row" data-ui-type="Panel"><span id="scoreRank6" class="rank-cell">6</span><span id="scoreName6" class="name-cell">-</span><span id="scoreResult6" class="result-cell">-</span><span id="scoreValue6" class="score-cell">0</span></div>
+                    <div id="scoreRow7" class="score-row" data-ui-type="Panel"><span id="scoreRank7" class="rank-cell">7</span><span id="scoreName7" class="name-cell">-</span><span id="scoreResult7" class="result-cell">-</span><span id="scoreValue7" class="score-cell">0</span></div>
+                    <div id="scoreRow8" class="score-row" data-ui-type="Panel"><span id="scoreRank8" class="rank-cell">8</span><span id="scoreName8" class="name-cell">-</span><span id="scoreResult8" class="result-cell">-</span><span id="scoreValue8" class="score-cell">0</span></div>
+                </div>
+                <div id="scoreScrollbar" class="fake-scrollbar" data-ui-type="Panel"><div id="scoreScrollThumb" class="fake-scrollbar-thumb" data-ui-type="Panel"></div></div>
+            </div>
+
+            <div id="creditsPopup" class="popup-panel" data-ui-type="Panel" data-ui-name="Credits Popup">
+                <div class="popup-header" data-ui-type="Panel" data-ui-name="Credits Header">
+                    <span class="popup-title">Credits</span>
+                    <button id="btnCloseCredits" class="popup-close" data-ui-type="Button" data-ui-name="Close Credits" data-action="ClosePopup"><span class="popup-close-label">X</span></button>
+                </div>
+                <div class="credits-content" data-ui-type="Panel" data-ui-name="Credits Content">
+                    <div id="creditRowPm" class="credit-row"><span class="credit-role">PM</span><span class="credit-name">&#44608;&#54805;&#46020;</span><span class="credit-work">Player + Sense of Hitting</span></div>
+                    <div id="creditRowAi" class="credit-row"><span class="credit-role">LD</span><span class="credit-name">&#51060;&#49345;&#54984;</span><span class="credit-work">Level Design</span></div>
+                    <div id="creditRowLevel" class="credit-row"><span class="credit-role">AI</span><span class="credit-name">&#44428;&#54788;&#49688;</span><span class="credit-work"></span>Enemy AI</div>
+                    <div id="creditRowSystem" class="credit-row"><span class="credit-role">SYS</span><span class="credit-name">&#50577;&#54788;&#49437;</span><span class="credit-work">UI, Sequence, Game System</span></div>
+                    <div id="creditDivider" class="credit-divider"></div>
+                    <div id="creditMetaPeriod" class="credit-meta">Development Period : 20260604-20260609</div>
+                    <div id="creditMetaTeam" class="credit-meta">KRAFTON Game Tech Lab 3 Week14 Team 7</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="versionLabel" data-ui-type="Text" data-ui-name="Version Label">Latest Update v1.0.0 by Team 7</div>
+    </div>
+</body>
+</rml>

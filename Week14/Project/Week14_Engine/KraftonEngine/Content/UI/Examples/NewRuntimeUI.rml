@@ -1,0 +1,13 @@
+<rml>
+<head>
+    <link type="text/rcss" href="NewRuntimeUI.rcss" />
+</head>
+<body>
+    <div id="root" data-ui-type="Canvas" data-ui-name="Root Canvas">
+        <div id="mainPanel" data-ui-type="Panel" data-ui-name="Main Panel">
+            <div id="titleText" data-ui-type="Text" data-ui-name="Title">Runtime UI</div>
+            <button id="startButton" data-ui-type="Button" data-ui-name="Start Button" data-action="StartGame">Start</button>
+        </div>
+    </div>
+</body>
+</rml>

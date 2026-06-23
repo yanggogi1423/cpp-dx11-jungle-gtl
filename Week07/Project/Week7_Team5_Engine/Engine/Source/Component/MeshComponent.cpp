@@ -1,0 +1,250 @@
+#include "Object/Class.h"
+#include "Serializer/Archive.h"
+#include "Renderer/Resources/Material/Material.h"
+#include "Component/MeshComponent.h"
+
+#include "Debug/EngineLog.h"
+#include "Renderer/Resources/Material/MaterialManager.h"
+
+namespace
+{
+	constexpr const char* GMaterialBaseColorCountKey = "MaterialBaseColorCount";
+	constexpr const char* GMaterialBaseColorKeyPrefix = "MaterialBaseColor_";
+
+	std::shared_ptr<FMaterial> DuplicateMaterialInstance(const std::shared_ptr<FMaterial>& SourceMaterial)
+	{
+		if (!SourceMaterial)
+		{
+			return nullptr;
+		}
+
+		if (std::unique_ptr<FDynamicMaterial> DynamicMaterial = SourceMaterial->CreateDynamicMaterial())
+		{
+			return std::shared_ptr<FMaterial>(DynamicMaterial.release());
+		}
+
+		return SourceMaterial;
+	}
+}
+
+IMPLEMENT_RTTI(UMeshComponent, UPrimitiveComponent)
+
+void UMeshComponent::SetMaterial(int32 Index, const std::shared_ptr<FMaterial>& InMaterial)
+{
+	if (Index >= 0)
+	{
+		if (Index >= Materials.size())
+		{
+			Materials.resize(Index + 1, nullptr);
+		}
+		Materials[Index] = DuplicateMaterialInstance(InMaterial);
+		
+		// 섹션에 Normal 오버라이드가 있으면 새로 바인딩된 Material에도 자동 재적용
+		if (Materials[Index] && Index < static_cast<int32>(NormalTextureOverrides.size()))
+		{
+			const FString& OverridePath = NormalTextureOverrides[Index];
+			if (!OverridePath.empty())
+			{
+				LoadNormalTextureFromFile(Materials[Index], std::filesystem::path(OverridePath));
+			}
+		}
+	}
+}
+
+std::shared_ptr<FMaterial> UMeshComponent::GetMaterial(int32 Index) const
+{
+	if (Index >= 0 && Index < Materials.size()) return Materials[Index];
+	return nullptr;
+}
+
+void UMeshComponent::DuplicateMaterialsTo(UMeshComponent* DuplicatedComponent) const
+{
+	DuplicatedComponent->Materials.clear();
+	DuplicatedComponent->NormalTextureOverrides = NormalTextureOverrides;
+	for (int32 MaterialIndex = 0; MaterialIndex < static_cast<int32>(Materials.size()); ++MaterialIndex)
+	{
+		DuplicatedComponent->SetMaterial(MaterialIndex, DuplicateMaterialInstance(Materials[MaterialIndex]));
+	}
+}
+
+void UMeshComponent::DuplicateShallow(UObject* DuplicatedObject, FDuplicateContext& Context) const
+{
+	UPrimitiveComponent::DuplicateShallow(DuplicatedObject, Context);
+	DuplicateMaterialsTo(static_cast<UMeshComponent*>(DuplicatedObject));
+}
+
+void UMeshComponent::SetNormalTextureOverride(int32 Index, const FString& InTexturePath)
+{
+	if (Index < 0)
+	{
+		return;
+	}
+	if (Index >= static_cast<int32>(NormalTextureOverrides.size()))
+	{
+		NormalTextureOverrides.resize(Index + 1);
+	}
+	NormalTextureOverrides[Index] = InTexturePath;
+
+	if (Index < static_cast<int32>(Materials.size()) && Materials[Index])
+	{
+		LoadNormalTextureFromFile(Materials[Index], std::filesystem::path(InTexturePath));
+	}
+}
+
+void UMeshComponent::ClearNormalTextureOverride(int32 Index)
+{
+	if (Index >= 0 && Index < static_cast<int32>(NormalTextureOverrides.size()))
+	{
+		NormalTextureOverrides[Index].clear();
+	}
+	if (Index >= 0 && Index < static_cast<int32>(Materials.size()) && Materials[Index])
+	{
+		ClearNormalTexture(Materials[Index]);
+	}
+}
+
+const FString& UMeshComponent::GetNormalTextureOverride(int32 Index) const
+{
+	static const FString EmptyString;
+	if (Index >= 0 && Index < static_cast<int32>(NormalTextureOverrides.size()))
+	{
+		return NormalTextureOverrides[Index];
+	}
+	return EmptyString;
+}
+
+void UMeshComponent::Serialize(FArchive& Ar)
+{
+	UPrimitiveComponent::Serialize(Ar);
+
+	if (Ar.IsSaving())
+	{
+		TArray<FString> MaterialNames;
+		for (const std::shared_ptr<FMaterial>& Material : Materials)
+		{
+			if (Material) MaterialNames.push_back(Material->GetOriginName());
+			else MaterialNames.push_back("");
+		}
+		Ar.SerializeStringArray("Materials", MaterialNames);
+
+		int32 MaterialBaseColorCount = static_cast<int32>(Materials.size());
+		Ar.Serialize(GMaterialBaseColorCountKey, MaterialBaseColorCount);
+		for (int32 MaterialIndex = 0; MaterialIndex < MaterialBaseColorCount; ++MaterialIndex)
+		{
+			FLinearColor BaseColor = FLinearColor::White;
+			if (const std::shared_ptr<FMaterial>& Material = Materials[MaterialIndex])
+			{
+				BaseColor = FLinearColor(Material->GetVectorParameter("BaseColor"));
+			}
+
+			Ar.Serialize(FString(GMaterialBaseColorKeyPrefix) + std::to_string(MaterialIndex), BaseColor);
+		}
+
+		Ar.SerializeStringArray("NormalTextureOverrides", NormalTextureOverrides);
+	}
+	else
+	{
+		if (Ar.Contains("Materials"))
+		{
+			TArray<FString> MaterialNames;
+			Ar.SerializeStringArray("Materials", MaterialNames);
+
+			// Keep pre-populated mesh default materials from SetStaticMesh() when
+			// serialized material names are not globally registered (e.g. embedded .model materials).
+			TArray<std::shared_ptr<FMaterial>> ExistingMaterials = Materials;
+			Materials.clear();
+			Materials.resize(MaterialNames.size(), nullptr);
+			for (int32 MaterialIndex = 0; MaterialIndex < static_cast<int32>(MaterialNames.size()); ++MaterialIndex)
+			{
+				const FString& MaterialName = MaterialNames[MaterialIndex];
+				if (!MaterialName.empty())
+				{
+					std::shared_ptr<FMaterial> LoadedMaterial = FMaterialManager::Get().FindByName(MaterialName);
+					if (!LoadedMaterial &&
+						MaterialIndex >= 0 &&
+						MaterialIndex < static_cast<int32>(ExistingMaterials.size()) &&
+						ExistingMaterials[MaterialIndex] &&
+						ExistingMaterials[MaterialIndex]->GetOriginName() == MaterialName)
+					{
+						LoadedMaterial = ExistingMaterials[MaterialIndex];
+					}
+					Materials[MaterialIndex] = LoadedMaterial;
+				}
+			}
+		}
+
+		int32 MaterialBaseColorCount = 0;
+		Ar.Serialize(GMaterialBaseColorCountKey, MaterialBaseColorCount);
+		for (int32 MaterialIndex = 0; MaterialIndex < MaterialBaseColorCount; ++MaterialIndex)
+		{
+			const FString BaseColorKey = FString(GMaterialBaseColorKeyPrefix) + std::to_string(MaterialIndex);
+			if (!Ar.Contains(BaseColorKey) || MaterialIndex < 0 || MaterialIndex >= static_cast<int32>(Materials.size()))
+			{
+				continue;
+			}
+
+			FLinearColor BaseColor = FLinearColor::White;
+			Ar.Serialize(BaseColorKey, BaseColor);
+
+			if (!Materials[MaterialIndex])
+			{
+				continue;
+			}
+
+			std::shared_ptr<FMaterial> MaterialInstance = DuplicateMaterialInstance(Materials[MaterialIndex]);
+			if (!MaterialInstance)
+			{
+				continue;
+			}
+
+			MaterialInstance->SetLinearColorParameter("BaseColor", BaseColor);
+			Materials[MaterialIndex] = MaterialInstance;
+		}
+
+		if (Ar.Contains("NormalTextureOverrides"))
+		{
+			Ar.SerializeStringArray("NormalTextureOverrides", NormalTextureOverrides);
+			for (int32 MaterialIndex = 0; MaterialIndex < static_cast<int32>(NormalTextureOverrides.size()); ++MaterialIndex)
+			{
+				const FString& OverridePath = NormalTextureOverrides[MaterialIndex];
+				if (!OverridePath.empty())
+				{
+					SetNormalTextureOverride(MaterialIndex, OverridePath);
+				}
+			}
+		}
+		else
+		{
+			NormalTextureOverrides.clear();
+		}
+	}
+}
+
+/*
+void UMeshComponent::Serialize(FArchive& Ar)
+{
+	UUPrimitiveComponent::Serialize(Ar);
+
+	uint32 MatCount = static_cast<uint32>(Materials.size());
+	Ar.Serialize("MaterialCount", MatCount);
+
+	if (!Ar.IsSaving())
+	{
+		Materials.resize(MatCount, nullptr);
+	}
+
+	for (uint32 i = 0; i < MatCount; ++i)
+	{
+		FString MatName;
+		MatName = Materials[0]->GetOriginName();
+		FString KeyName = FString("Material_") + std::to_string(i).c_str();
+		Ar.Serialize(KeyName, MatName);
+
+		if (!Ar.IsSaving() && !MatName.empty())
+		{
+			// TODO: 나중에 머티리얼 매니저가 생기면 주석 해제
+			// Materials[i] = FMaterialManager::LoadMaterial(MatName);
+		}
+	}
+}
+*/

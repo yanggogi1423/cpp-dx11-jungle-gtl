@@ -1,0 +1,10 @@
+<rml>
+<head>
+    <link type="text/rcss" href="Asset/UI/Generated/New Runtime UI.rcss" />
+</head>
+<body>
+    <div id="RootCanvas" data-ui-type="Canvas" data-ui-name="Root Canvas">
+        <button id="StartButton" data-ui-type="Button" data-ui-name="Start Button" data-action="StartGame">Start</button>
+    </div>
+</body>
+</rml>

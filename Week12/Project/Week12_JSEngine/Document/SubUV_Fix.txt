@@ -1,0 +1,234 @@
+# SubUV 등록 가이드 — ResourceManager 파이프라인 설명서
+
+## Context
+
+`ParticleEradication` 작업으로 Particle alias가 모두 SubUV로 통일된 직후, 사용자가 새 SubUV 아틀라스를 추가했을 때 (`Asset/Texture/subuvtest.png`) 다음 두 가지 실수가 발생함:
+1. `.meta`의 `Type`이 `"Texture"`로 잡혀 SubUV 카탈로그에 등록되지 않음
+2. 컴포넌트에서 `SetSubUV(FName("subuvtest.png"))`로 파일명만 넘겨 lookup 실패 (등록 키는 **정규화된 상대경로 전체**)
+
+앞으로 SubUV asset을 안전하게 추가하기 위해 ResourceManager의 discovery 로직과 정확한 등록 절차를 문서화한다. **이 문서는 코드 변경이 아닌 절차/지식 정리** — 실행 단계가 아니라 reference로 사용한다.
+
+---
+
+## 1. 한눈에 — SubUV asset 등록 절차 (권장)
+
+새 SubUV 아틀라스(6x6 explosion 같은) 추가 시:
+
+### Step 1 — 파일 배치
+```
+JSEngine/Asset/SubUV/foo.png         ← 권장 위치
+JSEngine/Asset/SubUV/foo.meta        ← 생략 가능 (자동 생성됨)
+```
+- `Asset/SubUV/` 디렉토리에 두면 [TextureAssetMetaService.cpp:21-23](JSEngine/Source/Engine/Core/TextureAssetMetaService.cpp:21)의 디렉토리 inference가 자동으로 `Type=SubUV`로 잡음
+- `Asset/Texture/`에 두려면 `.meta`에 `Type: "SubUV"`를 **명시**해야 함 (디렉토리는 Texture로 추론되므로)
+
+### Step 2 — .meta 파일 작성 (Columns/Rows ≠ 1인 경우 필수)
+자동 생성된 .meta는 항상 `Columns:1, Rows:1`이라 애니메이션이 안 됨. 6x6 아틀라스라면 직접 작성:
+```json
+{
+  "Columns" : 6,
+  "Rows" : 6,
+  "Type" : "SubUV"
+}
+```
+
+### Step 3 — 엔진에 인식시키기
+- **엔진 재시작**: [Engine.cpp:35](JSEngine/Source/Engine/Runtime/Engine.cpp:35)의 `LoadFromAssetDirectory`가 새 파일을 스캔
+- **재시작 없이**: 에디터 메뉴 → "Reload Asset From Disk" ([EditorToolbarWidget.cpp:305-308](JSEngine/Source/Editor/UI/EditorToolbarWidget.cpp:305)) — `RefreshFromAssetDirectory` + `RefreshAssetDatabase` 콤보 실행
+
+### Step 4 — 컴포넌트에 할당
+**키 = `FPaths::Normalize`된 상대경로**. 두 가지 방법:
+
+**방법 A. 에디터 dropdown** (권장)
+- `USubUVComponent`의 프로퍼티 패널에서 "SubUV" 필드 dropdown 클릭
+- 등록된 SubUV asset 목록이 자동으로 표시됨 — 선택만 하면 됨
+
+**방법 B. 코드에서 직접**
+```cpp
+SubUV->SetSubUV(FName("Asset/SubUV/foo.png"));   // forward-slash
+```
+- 파일명만 넘기면 안 됨 (`"foo.png"` ❌)
+- backslash 안 됨 (`"Asset\\SubUV\\foo.png"` ❌ — Normalize 통과 후 forward-slash만 매칭)
+
+---
+
+## 2. ResourceManager 내부 동작 (참고용)
+
+### 2.1 발견(Discovery) 단계 — 엔진 시작 시 1회
+
+**진입점**: [Engine.cpp:35](JSEngine/Source/Engine/Runtime/Engine.cpp:35)
+```cpp
+FResourceManager::Get().LoadFromAssetDirectory(FPaths::ToUtf8(FPaths::AssetDirectoryPath()));
+```
+
+**동작**: [ResourceManager.cpp:449-491](JSEngine/Source/Engine/Core/ResourceManager.cpp:449)
+1. `ClearDiscoveredResourceLists(false)` — 기존 경로 리스트 비움 (atlas 캐시는 유지)
+2. `recursive_directory_iterator`로 `Asset/` 트리 전체 순회
+3. 각 파일마다 `RegisterDiscoveredAssetFile(Entry.path(), ProjectRootPath)` 호출
+4. 순회 종료 후 `LoadGPUResources(Device)` — 모든 텍스처를 GPU로 업로드
+
+`ProjectRootPath = FPaths::RootDir()` — exe 작업 디렉토리(`JSEngine/`).
+
+### 2.2 분류(Dispatch) — 파일 한 개당
+
+**함수**: [ResourceManager.cpp:298-366](JSEngine/Source/Engine/Core/ResourceManager.cpp:298) `RegisterDiscoveredAssetFile`
+
+핵심 로직 (`.png/.dds/.jpg/.jpeg` 분기):
+```cpp
+const FString RelativePath = FPaths::Normalize(
+    FPaths::ToString(std::filesystem::relative(FilePath, ProjectRootPath)));
+//   ↑ "Asset/SubUV/foo.png" 형태 (generic_wstring → forward-slash)
+
+const FTextureAssetMeta Meta = LoadOrCreateTextureMeta(FilePath);
+
+if (Meta.Type == EAssetMetaType::Font)        { FontFilePaths.push_back(...);  RegisterFont(...); }
+else if (Meta.Type == EAssetMetaType::SubUV)  { SubUVFilePaths.push_back(...); RegisterSubUV(FName(RelativePath.c_str()), RelativePath, Meta.Columns, Meta.Rows); }
+else if (Meta.Type == EAssetMetaType::Texture){ TextureFilePaths.push_back(...); }
+// EAssetMetaType::None은 무시됨 — 디렉토리도 .meta도 의미 없는 위치
+```
+
+→ **SubUV로 분류되려면 `Meta.Type == EAssetMetaType::SubUV` 한 가지 조건만 만족하면 됨**
+
+### 2.3 메타 결정 — .meta 파일의 우선순위
+
+**함수**: [TextureAssetMetaService.cpp:33-92](JSEngine/Source/Engine/Core/TextureAssetMetaService.cpp:33) `LoadOrCreate`
+
+```
+.meta 존재? ──Yes──> JSON 파싱
+                    Type 필드 있음? ──Yes──> ToAssetMetaType(Value)로 결정 ★ 최우선
+                                     No  ──> Type = None
+                    Columns/Rows: JSON에서 읽기 (없으면 1)
+                    Type==None & 부모디렉=Texture ──> Type=Texture로 보정
+                    return Meta;
+
+.meta 없음? ──> InferAssetMetaTypeFromParentDirectory() 호출
+              ├─ "Font"    → Font
+              ├─ "SubUV"   → SubUV
+              ├─ "Texture" → Texture
+              └─ 기타      → None
+              Columns=1, Rows=1 기본값으로 .meta JSON 생성·저장
+              return Meta;
+```
+
+**우선순위 정리**:
+1. **.meta의 `Type` 필드 명시값** (있으면 무조건 이게 이김)
+2. **부모 디렉토리명** (.meta가 없을 때만 추론에 사용)
+3. None (위 둘 다 미적용)
+
+→ `Asset/Texture/`에 있어도 `.meta`에 `"Type": "SubUV"` 쓰면 SubUV로 인식됨 (subuvtest.png 경우)
+
+### 2.4 등록(Register) — 메모리 저장
+
+**경로**: `FResourceManager::RegisterSubUV` → `FAtlasResourceCache::RegisterSubUV`
+
+[AtlasResourceCache.cpp:101-110](JSEngine/Source/Engine/Core/AtlasResourceCache.cpp:101)
+```cpp
+void FAtlasResourceCache::RegisterSubUV(const FName& SubUVName, const FString& InPath, uint32 Columns, uint32 Rows)
+{
+    FTextureAtlasResource Resource;
+    Resource.Name = SubUVName;
+    Resource.Path = FPaths::Normalize(InPath);   // ← 한 번 더 정규화 (방어)
+    Resource.Columns = Columns;
+    Resource.Rows = Rows;
+    Resource.Texture = UObjectManager::Get().CreateObject<UTexture>();  // ← GPU 리소스는 여기서 만들지 않음. 빈 UTexture만 할당
+    SubUVResources[SubUVName.ToString()] = Resource;   // ★ map 키 = SubUVName.ToString()
+}
+```
+
+→ map 키는 **`SubUVName.ToString()`** = `RelativePath` 문자열. 그래서 `SetSubUV()`에 정확히 이 키를 넘겨야 `FindSubUV`에서 매칭됨.
+
+### 2.5 GPU 로드 — 디렉토리 순회 종료 후 1회
+
+[AtlasResourceCache.cpp:29-41](JSEngine/Source/Engine/Core/AtlasResourceCache.cpp:29) `LoadGPUResources` → `FSubUVAtlasLoader::Load`
+
+[SubUVAtlasLoader.cpp:11-52](JSEngine/Source/Engine/Asset/SubUVAtlasLoader.cpp:11):
+- 확장자가 `.dds` → `DirectX::CreateDDSTextureFromFileEx`
+- 그 외 (`.png/.jpg/.jpeg`) → `DirectX::CreateWICTextureFromFile`
+- 실패 시 `false` 반환 → 호출자가 `Failed to load SubUV atlas: %s` 경고 로그 출력
+
+**중요**: Columns/Rows가 실제 이미지의 셀 구조와 다르면 검증 없이 그대로 사용 — UV 좌표가 어긋나 시각적으로 깨짐 (런타임 에러 아님)
+
+### 2.6 컴포넌트 lookup
+
+[SubUVComponent.cpp:40-44](JSEngine/Source/Engine/Component/SubUVComponent.cpp:40)
+```cpp
+void USubUVComponent::SetSubUV(const FName& InSubUVName)
+{
+    SubUVName = InSubUVName;
+    CachedSubUV = FResourceManager::Get().FindSubUV(InSubUVName);  // ← nullptr 시 매 프레임 GetSubUV로 재시도
+}
+```
+
+`FindSubUV` ([AtlasResourceCache.cpp:79-88](JSEngine/Source/Engine/Core/AtlasResourceCache.cpp:79)):
+- `SubUVResources.find(SubUVName.ToString())`로 lookup
+- **miss 시 fallback**: `&SubUVResources.begin()->second` 반환 (등록된 첫 항목) — 키 오타 시 엉뚱한 아틀라스가 표시되는 함정. 디버깅 시 주의.
+
+### 2.7 에디터 dropdown — `EditorAssetService`
+
+[EditorAssetService.cpp:152-163](JSEngine/Source/Editor/Asset/EditorAssetService.cpp:152)
+```cpp
+for (const FString& Name : FResourceManager::Get().GetSubUVNames())  // ← SubUVFilePaths
+    FEditorAssetService::AddUniquePath(SubUVNames, Name);
+BuildItems(SubUVNames, EEditorAssetType::SubUV, SubUVItems);
+```
+
+[EditorPropertyWidget.cpp:2330-2332](JSEngine/Source/Editor/UI/EditorPropertyWidget.cpp:2330):
+- `FName` 프로퍼티의 DisplayName이 `"SubUV"`면 dropdown 옵션을 `GetSubUVNames()`에서 가져옴
+- USubUVComponent의 `SubUVName` 멤버가 `UPROPERTY(DisplayName = "SubUV")`이므로 자동 매칭
+- 선택 시 `*Val = FName(Name)` ([line 2345](JSEngine/Source/Editor/UI/EditorPropertyWidget.cpp:2345)) — 등록 키와 동일 문자열이 그대로 들어가 매칭 보장
+
+### 2.8 핫 리로드 — Refresh 명령
+
+새 파일을 추가하거나 .meta를 수정한 후 엔진을 재시작하지 않으려면:
+
+- 에디터 메뉴: **"Reload Asset From Disk"** ([EditorToolbarWidget.cpp:305](JSEngine/Source/Editor/UI/EditorToolbarWidget.cpp:305))
+- 내부적으로 `EEditorCommand::RefreshAssets` ([EditorCommandSystem.cpp:70-74](JSEngine/Source/Editor/Command/EditorCommandSystem.cpp:70)):
+  1. `FResourceManager::Get().RefreshFromAssetDirectory(...)` ([ResourceManager.cpp:493-531](JSEngine/Source/Engine/Core/ResourceManager.cpp:493)) — `ClearDiscoveredResourceLists(true)` 후 재스캔 + GPU 재로드
+  2. `EditorEngine->GetAssetService().RefreshAssetDatabase()` — dropdown 목록 재구성
+  3. 알림 "Assets reloaded"
+
+런타임 file watcher는 없음 — Refresh 명령이 유일한 자동화 경로.
+
+---
+
+## 3. 흔한 실수 체크리스트
+
+| 증상 | 원인 | 해결 |
+|------|------|------|
+| dropdown에 새 asset이 안 나옴 | .meta `Type` ≠ `"SubUV"` | .meta 수정 후 Reload Asset From Disk |
+| dropdown에 나오지만 선택해도 화면이 빈 사각형 | Columns/Rows ≠ 실제 이미지 격자 | .meta 수정 또는 이미지 격자 수정 |
+| `SetSubUV()` 코드 호출인데 표시 안 됨 | 키가 정규화 상대경로와 불일치 | `"Asset/SubUV/foo.png"` 형태로 — 파일명 단독·backslash 금지 |
+| 콘솔에 `Failed to load SubUV atlas: ...` | DDS/WIC 디코드 실패 (압축 형식, 깨진 파일 등) | DXT1/DXT5 DDS 또는 표준 PNG로 재내보내기 |
+| 엉뚱한 아틀라스가 표시됨 | 키 오타로 `FindSubUV`가 fallback 첫 항목 반환 | 키 정확히 확인 — 디버거로 `SubUVResources` 키 출력해서 비교 |
+| 디렉토리 옮긴 뒤 자동 분류 안 됨 | 디렉토리 inference는 .meta가 **없을 때**만 동작 | 이전 .meta를 삭제하거나 `Type` 필드를 새 디렉토리에 맞게 수정 |
+
+---
+
+## 4. 검증 시나리오 (end-to-end)
+
+새 SubUV asset을 추가했을 때 잘 잡혔는지 점검 순서:
+
+1. **파일 시스템 확인**
+   - 대상 .png/.dds 존재
+   - 동일 디렉토리의 .meta `Type == "SubUV"`, `Columns/Rows` 적정값
+
+2. **빌드 & 실행** (코드 변경이 있었다면)
+   - `MSBuild JSEngine.sln /p:Configuration=Debug /p:Platform=x64` 또는 VS에서 빌드
+   - `JSEngine\Bin\Debug\JSEngine.exe` 실행
+
+3. **자동 등록 확인**
+   - 콘솔 로그에 `Complete Load Resources!` ([ResourceManager.cpp:485](JSEngine/Source/Engine/Core/ResourceManager.cpp:485)) 출력 확인
+   - `Failed to load SubUV atlas: ...` 경고 없는지 확인
+
+4. **에디터 UI 확인**
+   - 임의 액터에 `USubUVComponent` 추가
+   - 프로퍼티 패널 "SubUV" 드롭다운 클릭 → 새 asset 경로 보임
+   - 선택 시 viewport에 빌보드 스프라이트 표시
+   - `SetFrameRate(30)`로 1/30초마다 다음 셀로 진행하는지 시각 확인
+
+5. **자동 등록이 실패한 경우**
+   - 에디터 메뉴 → "Reload Asset From Disk" 실행 → 다시 4번 확인
+   - 그래도 안 되면 .meta 내용·디렉토리명·파일 확장자 순서로 재점검 (위 체크리스트 참고)
+
+6. **코드 경로 검증 (옵션, 의심스러울 때)**
+   - `FResourceManager::Get().FindSubUV(FName("Asset/...path..."))` 결과를 디버거로 확인 → nullptr이면 키 불일치, non-null인데 `IsLoaded()==false`이면 GPU 로드 실패

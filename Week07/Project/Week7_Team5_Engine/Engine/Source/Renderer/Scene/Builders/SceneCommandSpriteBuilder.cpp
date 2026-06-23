@@ -1,0 +1,203 @@
+#include "Renderer/Scene/Builders/SceneCommandSpriteBuilder.h"
+
+#include "Renderer/Scene/Builders/SceneCommandBuilder.h"
+#include "Renderer/Scene/Builders/SceneCommandBuilderUtils.h"
+
+#include "Component/BillboardComponent.h"
+#include "Component/SubUVComponent.h"
+
+namespace
+{
+	FMatrix MakeAxisLockedBillboard(const FVector& Position, const FVector& CameraPosition, const FVector& LockedAxis)
+	{
+		const FVector Axis = LockedAxis.GetSafeNormal();
+		if (Axis.IsNearlyZero())
+		{
+			return FMatrix::MakeBillboard(Position, CameraPosition);
+		}
+
+		FVector Forward = CameraPosition - Position;
+		Forward -= Axis * FVector::DotProduct(Forward, Axis);
+		Forward = Forward.GetSafeNormal();
+		if (Forward.IsNearlyZero())
+		{
+			const FVector Fallback =
+				(std::fabs(Axis.Z) < 0.999f) ? FVector::ForwardVector : FVector::RightVector;
+			Forward = (Fallback - Axis * FVector::DotProduct(Fallback, Axis)).GetSafeNormal();
+		}
+
+		if (Forward.IsNearlyZero())
+		{
+			return FMatrix::MakeTranslation(Position);
+		}
+
+		const FVector Right = FVector::CrossProduct(Axis, Forward).GetSafeNormal();
+		if (Right.IsNearlyZero())
+		{
+			return FMatrix::MakeTranslation(Position);
+		}
+
+		return FMatrix(
+			Forward.X, Forward.Y, Forward.Z, 0.f,
+			-Right.X, -Right.Y, -Right.Z, 0.f,
+			Axis.X, Axis.Y, Axis.Z, 0.f,
+			Position.X, Position.Y, Position.Z, 1.f
+		);
+	}
+}
+
+void FSceneCommandSpriteBuilder::BuildSubUVInputs(
+	const FSceneCommandBuildContext& BuildContext,
+	const FSceneRenderPacket& Packet,
+	const FViewContext& View,
+	FSceneViewData& OutSceneViewData) const
+{
+	const FVector& CameraPosition = View.CameraPosition;
+
+	TArray<const USubUVComponent*> ActiveSubUVComponents;
+	ActiveSubUVComponents.reserve(Packet.SubUVPrimitives.size());
+
+	for (const FSceneSubUVPrimitive& Primitive : Packet.SubUVPrimitives)
+	{
+		USubUVComponent* SubUVComponent = Primitive.Component;
+		if (!SubUVComponent)
+		{
+			continue;
+		}
+
+		FRenderMesh* SubUVMesh = SubUVComponent->GetSubUVMesh();
+		if (!SubUVMesh)
+		{
+			continue;
+		}
+
+		if (SubUVComponent->IsSubUVMeshDirty())
+		{
+			if (!BuildContext.SubUVFeature || !BuildContext.SubUVFeature->BuildMesh(SubUVComponent->GetSize(), *SubUVMesh))
+			{
+				continue;
+			}
+
+			SubUVMesh->bIsDirty = true;
+			SubUVComponent->ClearSubUVMeshDirty();
+		}
+
+		FMaterial* SubUVMaterial = BuildContext.ResourceCache
+			? BuildContext.ResourceCache->GetOrCreateSubUVMaterial(BuildContext, SubUVComponent)
+			: nullptr;
+		if (!SubUVMaterial && BuildContext.SubUVFeature)
+		{
+			SubUVMaterial = BuildContext.SubUVFeature->GetBaseMaterial();
+		}
+		if (!SubUVMaterial)
+		{
+			continue;
+		}
+
+		FMeshBatch Batch;
+		Batch.Mesh = SubUVMesh;
+		Batch.Material = SubUVMaterial;
+		Batch.SourceComponent = SubUVComponent;
+		Batch.Domain = EMaterialDomain::Transparent;
+		Batch.PassMask = static_cast<uint32>(EMeshPassMask::ForwardTransparent);
+		Batch.bDisableDepthWrite = true;
+		Batch.World = SubUVComponent->GetWorldTransform();
+
+		if (SubUVComponent->IsBillboard())
+		{
+			const FVector WorldPosition = Batch.World.GetTranslation();
+			const FVector Scale = Batch.World.GetScaleVector();
+			Batch.World = FMatrix::MakeScale(Scale) * FMatrix::MakeBillboard(WorldPosition, CameraPosition);
+		}
+
+		const FVector WorldPosition = Batch.World.GetTranslation();
+		Batch.DistanceSqToCamera = (WorldPosition - CameraPosition).SizeSquared();
+
+		if (SceneCommandBuilderUtils::AddBatch(BuildContext, OutSceneViewData, std::move(Batch)))
+		{
+			ActiveSubUVComponents.push_back(SubUVComponent);
+		}
+	}
+
+	if (BuildContext.ResourceCache)
+	{
+		BuildContext.ResourceCache->PruneStaleSubUVMaterials(ActiveSubUVComponents);
+	}
+}
+
+void FSceneCommandSpriteBuilder::BuildBillboardInputs(
+	const FSceneCommandBuildContext& BuildContext,
+	const FSceneRenderPacket& Packet,
+	const FViewContext& View,
+	FSceneViewData& OutSceneViewData) const
+{
+	const FVector& CameraPosition = View.CameraPosition;
+
+	TArray<const UBillboardComponent*> ActiveBillboardComponents;
+	ActiveBillboardComponents.reserve(Packet.BillboardPrimitives.size());
+
+	for (const FSceneBillboardPrimitive& Primitive : Packet.BillboardPrimitives)
+	{
+		UBillboardComponent* BillboardComponent = Primitive.Component;
+		if (!BillboardComponent)
+		{
+			continue;
+		}
+
+		FRenderMesh* BillboardMesh = BillboardComponent->GetBillboardMesh();
+		if (!BillboardMesh || !BuildContext.BillboardFeature)
+		{
+			continue;
+		}
+
+		if (BillboardComponent->IsBillboardMeshDirty())
+		{
+			if (!BuildContext.BillboardFeature->BuildMesh(BillboardComponent->GetSize(), *BillboardMesh))
+			{
+				continue;
+			}
+
+			BillboardMesh->bIsDirty = true;
+			BillboardComponent->ClearBillboardMeshDirty();
+		}
+
+		FMaterial* BillboardMaterial = BuildContext.BillboardFeature->GetOrCreateMaterial(*BillboardComponent);
+		if (!BillboardMaterial)
+		{
+			continue;
+		}
+
+		FMeshBatch Batch;
+		Batch.Mesh = BillboardMesh;
+		Batch.Material = BillboardMaterial;
+		Batch.SourceComponent = BillboardComponent;
+		Batch.Domain = BillboardComponent->IsEditorVisualization() ? EMaterialDomain::EditorPrimitive : EMaterialDomain::Transparent;
+		Batch.PassMask = BillboardComponent->IsEditorVisualization()
+			? static_cast<uint32>(EMeshPassMask::EditorPrimitive)
+			: static_cast<uint32>(EMeshPassMask::ForwardTransparent);
+		if (BillboardComponent->IsPickable())
+		{
+			Batch.PassMask |= static_cast<uint32>(EMeshPassMask::EditorPicking);
+		}
+		Batch.bDisableDepthWrite = true;
+
+		const FVector WorldPosition = BillboardComponent->GetWorldTransform().GetTranslation();
+		const FVector Scale = BillboardComponent->GetRenderWorldScale();
+		const FVector LockedAxis = BillboardComponent->GetBillboardAxisLockVector();
+		Batch.World = FMatrix::MakeScale(Scale)
+			* (BillboardComponent->IsAxisLockedBillboard()
+				? MakeAxisLockedBillboard(WorldPosition, CameraPosition, LockedAxis)
+				: FMatrix::MakeBillboard(WorldPosition, CameraPosition));
+		Batch.DistanceSqToCamera = (WorldPosition - CameraPosition).SizeSquared();
+
+		if (SceneCommandBuilderUtils::AddBatch(BuildContext, OutSceneViewData, std::move(Batch)))
+		{
+			ActiveBillboardComponents.push_back(BillboardComponent);
+		}
+	}
+
+	if (BuildContext.BillboardFeature)
+	{
+		BuildContext.BillboardFeature->PruneMaterials(ActiveBillboardComponents);
+	}
+}

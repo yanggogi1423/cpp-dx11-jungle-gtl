@@ -1,0 +1,57 @@
+<rml>
+<head>
+    <link type="text/rcss" href="LoadingHUD.rcss" />
+</head>
+<body>
+    <div id="loadingRoot" data-ui-type="Canvas" data-ui-name="Loading HUD">
+        <div id="loadingSnapshotSlot" data-ui-type="Panel" data-ui-name="Snapshot Slot">
+            <img id="loadingSnapshotImage" data-ui-type="Image" data-ui-name="Loading Snapshot" src="Image/Map/Map_Base.png" data-ui-fit="fill" />
+        </div>
+        <div id="loadingBottomFade" data-ui-type="Panel" data-ui-name="Bottom Fade">
+            <img id="loadingBottomGradient" data-ui-type="Image" data-ui-name="Bottom Gradient" src="Image/HUD/LoadingBottomGradient.png" data-ui-fit="fill" />
+        </div>
+        <div id="loadingControlsPanel" data-ui-type="Panel" data-ui-name="Loading Controls Panel">
+            <div id="loadingControlsTitle" data-ui-type="Text" data-ui-name="Loading Controls Title">Controls</div>
+            <div id="loadingControlMove" class="loading-control-row" data-ui-type="Panel" data-ui-name="Move Control">
+                <div class="control-action" data-ui-type="Text">Move</div>
+                <div class="control-key" data-ui-type="Text">WASD / Right Stick</div>
+            </div>
+            <div id="loadingControlAim" class="loading-control-row" data-ui-type="Panel" data-ui-name="Aim Control">
+                <div class="control-action" data-ui-type="Text">Aim</div>
+                <div class="control-key" data-ui-type="Text">Mouse Move / Left Stick</div>
+            </div>
+            <div id="loadingControlScope" class="loading-control-row" data-ui-type="Panel" data-ui-name="Scope Control">
+                <div class="control-action" data-ui-type="Text">Scope</div>
+                <div class="control-key" data-ui-type="Text">Right Mouse / Left Trigger</div>
+            </div>
+            <div id="loadingControlFire" class="loading-control-row" data-ui-type="Panel" data-ui-name="Fire Control">
+                <div class="control-action" data-ui-type="Text">Fire</div>
+                <div class="control-key" data-ui-type="Text">Left Mouse / Right Trigger</div>
+            </div>
+            <div id="loadingControlBreath" class="loading-control-row" data-ui-type="Panel" data-ui-name="Breath Control">
+                <div class="control-action" data-ui-type="Text">Hold Breath</div>
+                <div class="control-key" data-ui-type="Text">Shift / LB</div>
+            </div>
+            <div id="loadingControlZoom" class="loading-control-row" data-ui-type="Panel" data-ui-name="Zoom Control">
+                <div class="control-action" data-ui-type="Text">Zoom</div>
+                <div class="control-key" data-ui-type="Text">Mouse Wheel / D-Pad Up, Down</div>
+            </div>
+            <div id="loadingControlAmmo" class="loading-control-row" data-ui-type="Panel" data-ui-name="Ammo Control">
+                <div class="control-action" data-ui-type="Text">Ammo</div>
+                <div class="control-key" data-ui-type="Text">1, 2 / D-Pad Left, Right</div>
+            </div>
+            <div id="loadingControlReload" class="loading-control-row" data-ui-type="Panel" data-ui-name="Reload Control">
+                <div class="control-action" data-ui-type="Text">Reload</div>
+                <div class="control-key" data-ui-type="Text">R / X</div>
+            </div>
+            <div id="loadingControlPause" class="loading-control-row" data-ui-type="Panel" data-ui-name="Pause Control">
+                <div class="control-action" data-ui-type="Text">Pause</div>
+                <div class="control-key" data-ui-type="Text">Q / Menu</div>
+            </div>
+        </div>
+        <div id="loadingTitle" data-ui-type="Text" data-ui-name="Loading Label">Loading</div>
+        <div id="loadingTip" data-ui-type="Text" data-ui-name="Tip">Tip: Hold your breath only when the shot really matters.</div>
+        <div id="pressPrompt" data-ui-type="Text" data-ui-name="Press Space">Press Space to Play</div>
+    </div>
+</body>
+</rml>

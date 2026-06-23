@@ -1,0 +1,61 @@
+[Pending Bugs]
+- PIE일 때 Eject or shift + f1 이면 Play가 아니라 Stop 상태로 넘어가짐
+- Local Gizmo 조금 이상함
+- Anim SQ Viewer에서 단축키가 먹히도록 (Delete, Space<With Focusing>) -> 열자마자 Play 상태
+- Command Pattern for Undo System
+
+
+[Pending Jobs]
+- Contents Browser 거시기 하기 (Font 크기 변동 등)
+- Gizmo 이쁘게 하기
+- Editor Launch Loading & Asset Loading
+- 탭을 많이 늘렸을 때 어떻게 처리할건가?
+- Editor Setting && Editor Debug 으로 정리해야할 항목들 정리
+
+{
+<Project Setting>
+현재 Rendering 항목 제외하고 나머지 남겨두기
+
+<World Setting>
+그대로 유지
+
+<Viewport Setting>
+- Camera 관련 제거 (이는 Editor Debug와 겹침)
+
+
+<Editor Debug>
+- Show flag 제거 (Viewport Setting과 겹침)
+- Viewport Settings의 BVH Maintenance 가져오기
+- Viewport Settings의 Shadow Atlas 및 Point Shadow cube Array 가져오기
+
+<Editor Setting> - 신규
+Project Setting의 Rendering 항목 가져오기 (Skinning Method)
+}
+
+[Pending Study]
+- Command Pattern
+- Reflection
+
+
+[추가 작업]
+- CPP, Lua StateMachine Window로 빼기 + Undo 추가
+
+
+
+[연출]
+- Letter Box 생성 (0.2초)
+- Cam1 (2초)
+-> Fade out 0.2초 Fade In 0.2초
+- Cam2 -> Cam3 (2초 간 Blending)
+-> Fade out 0.2초 Fade In 0.2초
+- Cam4 -> Cam5 -> Cam6 (각각 2초씩 블렌딩)
+-> Fade out 0.2초 Fade In 0.2초
+- Cam7 -> Cam8 (3초간 Blending)
+- Fade out  후 Cam1로 변경
+
+
+[Spell]
+1 : RMB (Q)
+2 : Shift (W)
+3: E
+4 : R

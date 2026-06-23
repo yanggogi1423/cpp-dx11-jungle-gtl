@@ -1,0 +1,567 @@
+# Blender 5.1.0 MTL File: 'Untitled.blend'
+# www.blender.org
+
+newmtl MI_Aircon01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Aircon_BC.png
+map_Bump -bm 0.300000 T_Aircon_N.png
+
+newmtl MI_AirconFan
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Aircon_BC.png
+map_Ke MI_AirconFan_Emissive.png
+map_Bump -bm 0.300000 T_Aircon_N.png
+
+newmtl MI_Beam01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Beam_BC.png
+map_Bump -bm 0.300000 T_Beam_N.png
+
+newmtl MI_CityWall
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WallBorder_BC.png
+map_Bump -bm 0.300000 T_WallBorder_N.png
+
+newmtl MI_ConcreteGround
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_ConcreteGround_BC_sRGB.png
+map_Bump -bm 0.300000 T_ConcreteGround_N.png
+
+newmtl MI_ConcretePipe
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_ConcretePipe_BC.png
+map_Bump -bm 0.300000 T_ConcretePipe_N.png
+
+newmtl MI_Container01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Containers_BC.png
+map_Bump -bm 0.300000 T_Containers_N.png
+
+newmtl MI_DoorAndFrame
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_DoorAndFrame_BC.png
+map_Bump -bm 0.300000 T_DoorAndFrame_N.png
+
+newmtl MI_DoorWall
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WallDoor_BC.png
+map_Bump -bm 0.300000 T_WallDoor_N.png
+
+newmtl MI_Glow02
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.600000 1.000000 0.596078
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl MI_GroundBorder
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_GroundBorder_BC.png
+map_Bump -bm 0.300000 T_GroundBorder_N.png
+
+newmtl MI_GroundTiles
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_GroundTiles_BC.png
+map_Bump -bm 0.300000 T_GroundTiles_N.png
+
+newmtl MI_Light01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Light01_BC.png
+map_Bump -bm 0.300000 T_Light01_N.png
+
+newmtl MI_NeonMetal
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_SignNeons01_BC.png
+map_Bump -bm 0.300000 T_SignNeons01_N.png
+
+newmtl MI_Pillar01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Pillar01_BC.png
+map_Bump -bm 0.300000 T_Pillar01_N.png
+
+newmtl MI_Pipes01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Pipes01_BC.png
+map_Bump -bm 0.300000 T_Pipes01_N.png
+
+newmtl MI_PipesGrey01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_PipesGrey_BC.png
+map_Bump -bm 0.300000 T_Pipes01_N.png
+
+newmtl MI_Rollets
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Rollets_BC.png
+map_Bump -bm 0.300000 T_Rollets_N.png
+
+newmtl MI_StatueDetails01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Statue01_BC.png
+map_Bump -bm 0.300000 T_Statue01_N.png
+
+newmtl MI_Wall01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl MI_Wall01.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl MI_Wall01.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl MI_Wall01.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl MI_Wall01.004
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl MI_WallWindow02
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WallWindow02_BC.png
+map_Bump -bm 0.300000 T_WallWindow02_N.png
+
+newmtl MI_WallWindow03
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WallWindow03_BC.png
+map_Bump -bm 0.300000 T_WallWindow03_N.png
+
+newmtl MI_WarehouseWindow01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WarehouseWindow01_BC.png
+map_Bump -bm 0.300000 T_WarehouseWindow01_N.png
+
+newmtl MI_Window01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Windows01_BC.png
+map_Bump -bm 0.300000 T_Windows01_N.png
+
+newmtl M_Asphalt01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Asphalt01_BC.png
+map_Bump -bm 0.300000 T_Asphalt01_N.png
+
+newmtl M_Asphalt01.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Asphalt01_BC.001.png
+map_Bump -bm 0.300000 T_Asphalt01_N.001.png
+
+newmtl M_Asphalt01.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Asphalt01_BC.002.png
+map_Bump -bm 0.300000 T_Asphalt01_N.002.png
+
+newmtl M_Banner01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Banner01_BC.png
+map_Ke M_Banner01_Emissive.png
+map_Bump -bm 0.300000 T_Banner01_N.png
+
+newmtl M_CyberpunkSign
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_CyberpunkLogo_BC.png
+map_Ke M_CyberpunkSign_Emissive.png
+map_Bump -bm 0.300000 T_CyberpunkLogo_N.png
+
+newmtl M_Glow
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 1.000000 0.905882 0.082353
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl M_Grey
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.171875 0.171875 0.171875
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+
+newmtl M_ShopSignsNeon01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_ShopSigns01_BC.png
+map_Ke M_ShopSignsNeon01_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon17
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd -o -0.01081812 -0.24604964 0 -s 1.3847194 2.3115125 1 T_ShopSigns01_BC.png
+map_Ke -o -0.01081812 -0.24604964 0 -s 1.3847194 2.3115125 1 M_ShopSignsNeonFlickering01_SM_Neon17_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon18
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 T_ShopSigns01_BC.png
+map_Ke -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 M_ShopSignsNeonFlickering01_SM_Neon18_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon19
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -2.09319 -1.6202449 0 -s 3.670251 2.6408768 1 T_ShopSigns01_BC.png
+map_Ke -o -2.09319 -1.6202449 0 -s 3.670251 2.6408768 1 M_ShopSignsNeonFlickering01_SM_Neon19_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon21
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 T_ShopSigns01_BC.png
+map_Ke -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 M_ShopSignsNeonFlickering01_SM_Neon21_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon22
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.009467456 -1.4600486 0 -s 1.2118343 2.479419 1 T_ShopSigns01_BC.png
+map_Ke -o -0.009467456 -1.4600486 0 -s 1.2118343 2.479419 1 M_ShopSignsNeonFlickering01_SM_Neon22_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon26
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 T_ShopSigns01_BC.png
+map_Ke -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 M_ShopSignsNeonFlickering01_SM_Neon26_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon30
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 T_ShopSigns01_BC.png
+map_Ke -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 M_ShopSignsNeonFlickering01_SM_Neon30_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon40
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.01081812 -0.24604964 0 -s 1.3847194 2.3115125 1 T_ShopSigns01_BC.png
+map_Ke -o -0.01081812 -0.24604964 0 -s 1.3847194 2.3115125 1 M_ShopSignsNeonFlickering01_SM_Neon40_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon44
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 T_ShopSigns01_BC.png
+map_Ke -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 M_ShopSignsNeonFlickering01_SM_Neon44_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon59
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.009467456 -1.4600486 0 -s 1.2118343 2.479419 1 T_ShopSigns01_BC.png
+map_Ke -o -0.009467456 -1.4600486 0 -s 1.2118343 2.479419 1 M_ShopSignsNeonFlickering01_SM_Neon59_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon60
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 T_ShopSigns01_BC.png
+map_Ke -o -0.00872886 -0.031026248 0 -s 1.1172941 1.629276 1 M_ShopSignsNeonFlickering01_SM_Neon60_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon7
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 T_ShopSigns01_BC.png
+map_Ke -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 M_ShopSignsNeonFlickering01_SM_Neon7_Emissive.png
+
+newmtl M_ShopSignsNeonFlickering01_SM_Neon8
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 T_ShopSigns01_BC.png
+map_Ke -o -0.32820514 -0.5196233 0 -s 6.0014653 1.6075354 1 M_ShopSignsNeonFlickering01_SM_Neon8_Emissive.png
+
+newmtl M_TiledMetal01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd M_TiledMetal01_BaseColor.png
+
+newmtl M_Wall02
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl M_Wall02.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_Wall_BC.png
+map_Bump -bm 0.300000 T_Wall_N.png
+
+newmtl M_WallWindow01
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd T_WallWindow01_BC.png
+map_Bump -bm 0.300000 T_WallWindow01_N.png

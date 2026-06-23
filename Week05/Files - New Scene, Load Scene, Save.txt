@@ -1,0 +1,20 @@
+Files - New Scene, Load Scene, Save Scene , Save As, Open Asset Folder
+	-> Scene Load나 Save 시 반드시 Scene 디렉터리 경로가 항상 나올 수 있도록 세팅
+View - Panel들 켜고 끄기
+Help - Shortcuts
+	-> 화면 전체를 덮는 Overlay 뒤에는 반투명 Panel이 있어서 클릭을 막음
+
+
+Shift + F1 : PIE viewport에서 focusing 해제 하기
+esc : PIE 종료
+
+- 1 , 1 , 0.1 Cam 5.0
+
+<발표>
+- PIE 및 이를 위한 준비 (Input System 구조)
+- UWorld, AActor, Component Pattern
+- Object Duplication, Deep, Shallow Copy
+- Sprite, Text Renderer
+- 시연
+
+

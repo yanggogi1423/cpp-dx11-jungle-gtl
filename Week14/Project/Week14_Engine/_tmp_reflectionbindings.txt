@@ -1,0 +1,747 @@
+void FLuaScriptManager::RegisterReflectionBindings(sol::state& Lua)
+{
+    Lua.new_usertype<UClass>(
+        "UClass",
+        "GetName",
+        [](const UClass& Class)
+        {
+            return FString(Class.GetName() ? Class.GetName() : "");
+        },
+        "GetSuperClass",
+        &UClass::GetSuperClass,
+        "GetFlags",
+        &UClass::GetClassFlags,
+        "IsA",
+        [](const UClass& Class, UClass* Other)
+        {
+            return Other && Class.IsA(Other);
+        },
+        "HasAnyClassFlags",
+        &UClass::HasAnyClassFlags
+    );
+
+    sol::table Class = Lua.create_named_table("Class");
+    Class.set_function(
+        "Find",
+        [](const FString& ClassName) -> UClass*
+        {
+            return UClass::FindByName(ClassName.c_str());
+        }
+    );
+    Class.set_function(
+        "Exists",
+        [](const FString& ClassName)
+        {
+            return UClass::FindByName(ClassName.c_str()) != nullptr;
+        }
+    );
+    Class.set_function(
+        "All",
+        [](sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            int32           Idx    = 1;
+            for (UClass* C : UClass::GetAllClasses()) if (C) Result[Idx++] = C;
+            return Result;
+        }
+    );
+    Class.set_function(
+        "GetFunctions",
+        [](const FString& ClassName, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            UClass*         C      = UClass::FindByName(ClassName.c_str());
+            if (!C) return Result;
+            TArray<const FFunction*> Functions;
+            C->GetFunctionRefs(Functions);
+            int32 Idx = 1;
+            for (const FFunction* F : Functions) if (F) Result[Idx++] = LuaDescribeFunction(State, *F);
+            return Result;
+        }
+    );
+    Class.set_function(
+        "GetProperties",
+        [](const FString& ClassName, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            UClass*         C      = UClass::FindByName(ClassName.c_str());
+            if (!C) return Result;
+            TArray<const FProperty*> Props;
+            C->GetPropertyRefs(Props);
+            int32 Idx = 1;
+            for (const FProperty* P : Props) if (P) Result[Idx++] = LuaDescribeProperty(State, *P);
+            return Result;
+        }
+    );
+
+    Lua.new_usertype<UObject>(
+        "Object",
+        "GetName",
+        [](UObject& Object)
+        {
+            return Object.GetName();
+        },
+        "GetClass",
+        [](UObject& Object) -> UClass*
+        {
+            return IsValid(&Object) ? Object.GetClass() : nullptr;
+        },
+        "GetClassName",
+        [](UObject& Object)
+        {
+            return IsValid(&Object) && Object.GetClass() ? FString(Object.GetClass()->GetName()) : FString();
+        },
+        "IsA",
+        [](UObject& Object, const FString& ClassName)
+        {
+            UClass* C = UClass::FindByName(ClassName.c_str());
+            return IsValid(&Object) && Object.GetClass() && C && Object.GetClass()->IsA(C);
+        },
+        "AsActor",
+        [](UObject& Object) -> AActor*
+        {
+            return IsValid(&Object) ? Cast<AActor>(&Object) : nullptr;
+        },
+        "AsPawn",
+        [](UObject& Object) -> APawn*
+        {
+            return IsValid(&Object) ? Cast<APawn>(&Object) : nullptr;
+        },
+        "AsPrimitiveComponent",
+        [](UObject& Object) -> UPrimitiveComponent*
+        {
+            return IsValid(&Object) ? Cast<UPrimitiveComponent>(&Object) : nullptr;
+        },
+        "AsSceneComponent",
+        [](UObject& Object) -> USceneComponent*
+        {
+            return IsValid(&Object) ? Cast<USceneComponent>(&Object) : nullptr;
+        },
+        "AsComponent",
+        [](UObject& Object) -> UActorComponent*
+        {
+            return IsValid(&Object) ? Cast<UActorComponent>(&Object) : nullptr;
+        },
+        "AsActorSequenceComponent",
+        [](UObject& Object) -> UActorSequenceComponent*
+        {
+            return IsValid(&Object) ? Cast<UActorSequenceComponent>(&Object) : nullptr;
+        },
+        "GetUUID",
+        &UObject::GetUUID,
+        "IsValid",
+        [](UObject* Object)
+        {
+            return IsValid(Object);
+        },
+        "CallFunction",
+        [](UObject& Object, const FString& FunctionName, sol::variadic_args Args, sol::this_state State)
+        {
+            if (!IsValid(&Object))
+            {
+                return sol::make_object(sol::state_view(State), sol::nil);
+            }
+            return LuaInvokeReflectedFunction(State, &Object, nullptr, FunctionName, Args);
+        },
+        "CallFunctionSignature",
+        [](UObject& Object, const FString& Signature, sol::variadic_args Args, sol::this_state State)
+        {
+            if (!IsValid(&Object))
+            {
+                return sol::make_object(sol::state_view(State), sol::nil);
+            }
+            return LuaInvokeReflectedFunctionBySignature(State, &Object, nullptr, Signature, Args);
+        },
+        "BindEvent",
+        [](UObject& Object, const FString& FunctionNameOrSignature, sol::protected_function Callback)
+        {
+            return IsValid(&Object) && LuaBindReflectedEventOverride(&Object, FunctionNameOrSignature, std::move(Callback));
+        },
+        "UnbindEvent",
+        [](UObject& Object, const FString& FunctionNameOrSignature)
+        {
+            return IsValid(&Object) && LuaUnbindReflectedEventOverride(&Object, FunctionNameOrSignature);
+        },
+        "HasEventBinding",
+        [](UObject& Object, const FString& FunctionNameOrSignature)
+        {
+            return IsValid(&Object) && LuaHasReflectedEventOverride(&Object, FunctionNameOrSignature);
+        },
+        "GetProperty",
+        [](UObject& Object, const FString& PropertyName, sol::this_state State)
+        {
+            return IsValid(&Object) ? LuaGetReflectedProperty(State, &Object, PropertyName) : sol::make_object(sol::state_view(State), sol::nil);
+        },
+        "SetProperty",
+        [](UObject& Object, const FString& PropertyName, sol::object Value)
+        {
+            return IsValid(&Object) && LuaSetReflectedProperty(&Object, PropertyName, Value);
+        },
+        "GetFunctions",
+        [](UObject& Object, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            if (!IsValid(&Object) || !Object.GetClass())
+            {
+                return Result;
+            }
+            TArray<const FFunction*> Functions;
+            Object.GetClass()->GetFunctionRefs(Functions);
+            int Index = 1;
+            for (const FFunction* Function : Functions)
+            {
+                if (Function)
+                {
+                    Result[Index++] = LuaDescribeFunction(State, *Function);
+                }
+            }
+            return Result;
+        },
+        "GetProperties",
+        [](UObject& Object, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            if (!IsValid(&Object) || !Object.GetClass())
+            {
+                return Result;
+            }
+            TArray<const FProperty*> Properties;
+            Object.GetClass()->GetPropertyRefs(Properties);
+            int Index = 1;
+            for (const FProperty* Property : Properties)
+            {
+                if (Property)
+                {
+                    Result[Index++] = LuaDescribeProperty(State, *Property);
+                }
+            }
+            return Result;
+        }
+    );
+
+    Lua.new_usertype<UActorComponent>(
+        "ActorComponent",
+        sol::base_classes,
+        sol::bases<UObject>(),
+        "GetOwner",
+        &UActorComponent::GetOwner,
+        "IsActive",
+        &UActorComponent::IsActive,
+        "SetActive",
+        &UActorComponent::SetActive,
+        "Activate",
+        &UActorComponent::Activate,
+        "Deactivate",
+        &UActorComponent::Deactivate,
+        "HasTag",
+        [](UActorComponent& Component, const FString& Tag)
+        {
+            return Component.HasTag(FName(Tag));
+        },
+        "AddTag",
+        [](UActorComponent& Component, const FString& Tag)
+        {
+            Component.AddTag(FName(Tag));
+        },
+        "RemoveTag",
+        [](UActorComponent& Component, const FString& Tag)
+        {
+            Component.RemoveTag(FName(Tag));
+        },
+        "GetTags",
+        [](UActorComponent& Component, sol::this_state State) -> sol::table
+        {
+            sol::state_view L(State);
+            sol::table Result = L.create_table();
+            int Index = 1;
+            for (const FName& Tag : Component.GetTags())
+            {
+                Result[Index++] = Tag.ToString();
+            }
+            return Result;
+        },
+        "SetTags",
+        [](UActorComponent& Component, sol::table Tags)
+        {
+            TArray<FName> Names;
+            for (auto& Entry : Tags)
+            {
+                sol::object Value = Entry.second;
+                if (Value.is<std::string>())
+                {
+                    Names.push_back(FName(FString(Value.as<std::string>())));
+                }
+            }
+            Component.SetTags(Names);
+        },
+        "GetPersistentGuid",
+        [](UActorComponent& Component)
+        {
+            return Component.EnsurePersistentGuid();
+        }
+    );
+
+    Lua.new_usertype<UActorSequence>(
+        "ActorSequence",
+        sol::base_classes,
+        sol::bases<UObject>(),
+        "GetStartTime",
+        &UActorSequence::GetStartTime,
+        "GetDuration",
+        &UActorSequence::GetDuration,
+        "GetEndTime",
+        &UActorSequence::GetEndTime,
+        "SetStartTime",
+        &UActorSequence::SetStartTime,
+        "SetDuration",
+        &UActorSequence::SetDuration,
+        "SetPlaybackRange",
+        &UActorSequence::SetPlaybackRange,
+        "Clear",
+        &UActorSequence::Clear,
+        "ExportToJsonString",
+        &UActorSequence::ExportToJsonString,
+        "ImportFromJsonString",
+        &UActorSequence::ImportFromJsonString
+    );
+
+    Lua.new_usertype<UActorSequencePlayer>(
+        "ActorSequencePlayer",
+        sol::base_classes,
+        sol::bases<UObject>(),
+        "Play",
+        [](UActorSequencePlayer& Player, sol::optional<bool> bResetTime)
+        {
+            Player.Play(bResetTime.value_or(true));
+        },
+        "Pause",
+        &UActorSequencePlayer::Pause,
+        "Stop",
+        [](UActorSequencePlayer& Player, sol::optional<bool> bRestoreBaseValues)
+        {
+            Player.Stop(bRestoreBaseValues.value_or(true));
+        },
+        "SetCurrentTime",
+        &UActorSequencePlayer::SetCurrentTime,
+        "GetCurrentTime",
+        [](UActorSequencePlayer& Player)
+        {
+            return (Player.GetCurrentTime)();
+        },
+        "IsPlaying",
+        [](UActorSequencePlayer& Player)
+        {
+            return Player.IsPlaying();
+        },
+        "IsPaused",
+        [](UActorSequencePlayer& Player)
+        {
+            return Player.IsPaused();
+        }
+    );
+
+    Lua.new_usertype<UActorSequenceComponent>(
+        "ActorSequenceComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "Play",
+        &UActorSequenceComponent::Play,
+        "Pause",
+        &UActorSequenceComponent::Pause,
+        "Stop",
+        &UActorSequenceComponent::Stop,
+        "GetSequence",
+        &UActorSequenceComponent::GetSequence,
+        "GetSequencePlayer",
+        &UActorSequenceComponent::GetSequencePlayer,
+        "AddFloatTrack",
+        [](UActorSequenceComponent& Component, sol::table Desc)
+        {
+            const FString Target = LuaTableStringAny(
+                Desc,
+                {
+                    "TargetObjectName",
+                    "Target",
+                    "target",
+                    "Component",
+                    "component",
+                    "TargetComponentGuid",
+                    "ComponentGuid",
+                    "component_guid"
+                },
+                "Owner");
+            const FString Property = LuaTableStringAny(
+                Desc,
+                {
+                    "PropertyName",
+                    "Property",
+                    "property"
+                });
+            if (Property.empty())
+            {
+                UE_LOG("[Lua][ActorSequence] AddFloatTrack rejected: missing property name");
+                return false;
+            }
+
+            const FString Channel = LuaTableStringAny(
+                Desc,
+                {
+                    "ChannelName",
+                    "Channel",
+                    "channel"
+                },
+                "Value");
+            const float StartTime = LuaTableFloatAny(
+                Desc,
+                {
+                    "StartTime",
+                    "start_time",
+                    "start"
+                },
+                0.0f);
+            const float Duration = LuaTableFloatAny(
+                Desc,
+                {
+                    "Duration",
+                    "duration"
+                },
+                1.0f);
+            const FString CurveAssetPath = LuaTableStringAny(
+                Desc,
+                {
+                    "CurveAssetPath",
+                    "Curve",
+                    "curve",
+                    "curve_path"
+                });
+
+            return Component.AddFloatTrack(Target, Property, Channel, StartTime, Duration, CurveAssetPath);
+        }
+    );
+
+
+    Lua.new_usertype<ULuaBlueprintComponent>(
+        "LuaBlueprintComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "ReloadBlueprint",
+        &ULuaBlueprintComponent::ReloadBlueprint,
+        "CallFunction",
+        &ULuaBlueprintComponent::CallFunction,
+        "CallLuaBlueprintFileFunction",
+        &ULuaBlueprintComponent::CallLuaBlueprintFileFunction,
+        "CallLuaScriptFileFunction",
+        &ULuaBlueprintComponent::CallLuaScriptFileFunction,
+        "GetBlueprintPath",
+        &ULuaBlueprintComponent::GetBlueprintPath,
+        "SetBlueprintPath",
+        &ULuaBlueprintComponent::SetBlueprintPath
+    );
+
+    Lua.new_usertype<ULuaScriptComponent>(
+        "LuaScriptComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "ReloadScript",
+        &ULuaScriptComponent::ReloadScript,
+        "CallFunction",
+        &ULuaScriptComponent::CallFunction,
+        "GetScriptFile",
+        &ULuaScriptComponent::GetScriptFile,
+        "SetScriptFile",
+        &ULuaScriptComponent::SetScriptFile
+    );
+
+    Lua.new_usertype<USniperWeaponComponent>(
+        "SniperWeaponComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "GetCurrentAmmoType",
+        &USniperWeaponComponent::GetCurrentAmmoType,
+        "SetCurrentAmmoType",
+        &USniperWeaponComponent::SetCurrentAmmoType,
+        "IsZeroingEnabled",
+        &USniperWeaponComponent::IsZeroingEnabled,
+        "GetZeroingEnabled",
+        &USniperWeaponComponent::IsZeroingEnabled,
+        "SetZeroingEnabled",
+        &USniperWeaponComponent::SetZeroingEnabled,
+        "GetZeroRangeMeters",
+        &USniperWeaponComponent::GetZeroRangeMeters,
+        "SetZeroRangeMeters",
+        &USniperWeaponComponent::SetZeroRangeMeters,
+        "CanFire",
+        &USniperWeaponComponent::CanFire,
+        "RequestFire",
+        &USniperWeaponComponent::RequestFire,
+        "GetFireCooldownRemaining",
+        &USniperWeaponComponent::GetFireCooldownRemaining,
+        "GetBulletManagerComponent",
+        &USniperWeaponComponent::GetBulletManagerComponent
+    );
+
+    Lua.new_usertype<UBallisticBulletManagerComponent>(
+        "BallisticBulletManagerComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "GetAliveBulletCount",
+        &UBallisticBulletManagerComponent::GetAliveBulletCount,
+        "IsWindEnabled",
+        &UBallisticBulletManagerComponent::IsWindEnabled,
+        "GetWindEnabled",
+        &UBallisticBulletManagerComponent::IsWindEnabled,
+        "SetWindEnabled",
+        &UBallisticBulletManagerComponent::SetWindEnabled,
+        "GetWindAcceleration",
+        &UBallisticBulletManagerComponent::GetWindAcceleration,
+        "SetWindAcceleration",
+        &UBallisticBulletManagerComponent::SetWindAcceleration,
+        "GetWeaponComponent",
+        &UBallisticBulletManagerComponent::GetWeaponComponent
+    );
+
+    Lua.new_usertype<USniperDamageReceiverComponent>(
+        "SniperDamageReceiverComponent",
+        sol::base_classes,
+        sol::bases<UActorComponent, UObject>(),
+        "GetMaxHP",
+        &USniperDamageReceiverComponent::GetMaxHP,
+        "GetCurrentHP",
+        &USniperDamageReceiverComponent::GetCurrentHP,
+        "IsFriendly",
+        &USniperDamageReceiverComponent::IsFriendly,
+        "HasArmor",
+        &USniperDamageReceiverComponent::HasArmor,
+        "GetArmorStrength",
+        &USniperDamageReceiverComponent::GetArmorStrength,
+        "AllowsRicochet",
+        &USniperDamageReceiverComponent::AllowsRicochet,
+        "CanRagdoll",
+        &USniperDamageReceiverComponent::CanRagdoll,
+        "IsDead",
+        &USniperDamageReceiverComponent::IsDead,
+        "CanReceiveSniperHit",
+        &USniperDamageReceiverComponent::CanReceiveSniperHit,
+        "ResolveSniperHit",
+        &USniperDamageReceiverComponent::ResolveSniperHit,
+        "ResetHealth",
+        &USniperDamageReceiverComponent::ResetHealth,
+        "ApplySniperHit",
+        &USniperDamageReceiverComponent::ApplySniperHit,
+        "ApplyResolvedSniperHit",
+        &USniperDamageReceiverComponent::ApplyResolvedSniperHit
+    );
+
+    Lua.new_usertype<FSniperHitInfo>(
+        "SniperHitInfo",
+        "HitActor",
+        sol::property(
+            [](const FSniperHitInfo& HitInfo) -> AActor*
+            {
+                return IsValid(HitInfo.HitActor) ? HitInfo.HitActor : nullptr;
+            }
+        ),
+        "Shooter",
+        sol::property(
+            [](const FSniperHitInfo& HitInfo) -> AActor*
+            {
+                return IsValid(HitInfo.Shooter) ? HitInfo.Shooter : nullptr;
+            }
+        ),
+        "HitLocation",
+        &FSniperHitInfo::HitLocation,
+        "HitNormal",
+        &FSniperHitInfo::HitNormal,
+        "ShotDirection",
+        &FSniperHitInfo::ShotDirection,
+        "Damage",
+        &FSniperHitInfo::Damage,
+        "TravelDistance",
+        &FSniperHitInfo::TravelDistance,
+        "ImpactSpeed",
+        &FSniperHitInfo::ImpactSpeed,
+        "RagdollImpulseStrength",
+        &FSniperHitInfo::RagdollImpulseStrength,
+        "AmmoType",
+        &FSniperHitInfo::AmmoType,
+        "HitOutcome",
+        &FSniperHitInfo::HitOutcome,
+        "bIsScopedShot",
+        &FSniperHitInfo::bIsScopedShot,
+        "bIsHeadshot",
+        &FSniperHitInfo::bIsHeadshot,
+        "bIsArmorPiercing",
+        &FSniperHitInfo::bIsArmorPiercing,
+        "bShouldRagdoll",
+        &FSniperHitInfo::bShouldRagdoll,
+        "HitBoneName",
+        &FSniperHitInfo::HitBoneName
+    );
+
+    sol::table SniperAmmoType = Lua.create_named_table("SniperAmmoType");
+    SniperAmmoType["Normal"] = ESniperAmmoType::Normal;
+    SniperAmmoType["AntiMaterial"] = ESniperAmmoType::AntiMaterial;
+
+    sol::table SniperHitOutcome = Lua.create_named_table("SniperHitOutcome");
+    SniperHitOutcome["Normal"] = ESniperHitOutcome::Normal;
+    SniperHitOutcome["Blocked"] = ESniperHitOutcome::Blocked;
+    SniperHitOutcome["Ricochet"] = ESniperHitOutcome::Ricochet;
+    SniperHitOutcome["Penetrated"] = ESniperHitOutcome::Penetrated;
+
+    sol::table Reflection = Lua.create_named_table("Reflection");
+    Reflection.set_function(
+        "Call",
+        [](UObject* Object, const FString& FunctionName, sol::variadic_args Args, sol::this_state State)
+        {
+            return LuaInvokeReflectedFunction(State, Object, nullptr, FunctionName, Args);
+        }
+    );
+    Reflection.set_function(
+        "CallSignature",
+        [](UObject* Object, const FString& Signature, sol::variadic_args Args, sol::this_state State)
+        {
+            return LuaInvokeReflectedFunctionBySignature(State, Object, nullptr, Signature, Args);
+        }
+    );
+    Reflection.set_function(
+        "CallStatic",
+        [](const FString& ClassName, const FString& FunctionName, sol::variadic_args Args, sol::this_state State)
+        {
+            UClass* Class = UClass::FindByName(ClassName.c_str());
+            return LuaInvokeReflectedFunction(State, nullptr, Class, FunctionName, Args);
+        }
+    );
+    Reflection.set_function(
+        "CallStaticSignature",
+        [](const FString& ClassName, const FString& Signature, sol::variadic_args Args, sol::this_state State)
+        {
+            UClass* Class = UClass::FindByName(ClassName.c_str());
+            return LuaInvokeReflectedFunctionBySignature(State, nullptr, Class, Signature, Args);
+        }
+    );
+    Reflection.set_function(
+        "BindEvent",
+        [](UObject* Object, const FString& FunctionNameOrSignature, sol::protected_function Callback)
+        {
+            return LuaBindReflectedEventOverride(Object, FunctionNameOrSignature, std::move(Callback));
+        }
+    );
+    Reflection.set_function(
+        "UnbindEvent",
+        [](UObject* Object, const FString& FunctionNameOrSignature)
+        {
+            return LuaUnbindReflectedEventOverride(Object, FunctionNameOrSignature);
+        }
+    );
+    Reflection.set_function(
+        "HasEventBinding",
+        [](UObject* Object, const FString& FunctionNameOrSignature)
+        {
+            return LuaHasReflectedEventOverride(Object, FunctionNameOrSignature);
+        }
+    );
+    Reflection.set_function(
+        "GetProperty",
+        [](UObject* Object, const FString& PropertyName, sol::this_state State)
+        {
+            return LuaGetReflectedProperty(State, Object, PropertyName);
+        }
+    );
+    Reflection.set_function(
+        "SetProperty",
+        [](UObject* Object, const FString& PropertyName, sol::object Value)
+        {
+            return LuaSetReflectedProperty(Object, PropertyName, Value);
+        }
+    );
+    Reflection.set_function(
+        "GetFunctions",
+        [](UObject* Object, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            if (!IsValid(Object) || !Object->GetClass())
+            {
+                return Result;
+            }
+            TArray<const FFunction*> Functions;
+            Object->GetClass()->GetFunctionRefs(Functions);
+            int Index = 1;
+            for (const FFunction* Function : Functions)
+            {
+                if (Function)
+                {
+                    Result[Index++] = LuaDescribeFunction(State, *Function);
+                }
+            }
+            return Result;
+        }
+    );
+    // LuaBlueprint Cast 노드용 ? IsA 통과 시 같은 객체 반환, 실패 시 nil.
+    // 실제 Unreal Blueprint Cast 와 동일한 의미 (성공/실패 분기).
+    Reflection.set_function(
+        "Cast",
+        [](UObject* Object, const FString& ClassName) -> UObject*
+        {
+            if (!IsValid(Object)) return nullptr;
+            UClass* Target = UClass::FindByName(ClassName.c_str());
+            if (!Target) return nullptr;
+            UClass* Source = Object->GetClass();
+            if (!Source) return nullptr;
+            return Source->IsA(Target) ? Object : nullptr;
+        }
+    );
+    Reflection.set_function(
+        "GetStaticFunctions",
+        [](const FString& ClassName, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            UClass*         Class  = UClass::FindByName(ClassName.c_str());
+            if (!Class)
+            {
+                return Result;
+            }
+            TArray<const FFunction*> Functions;
+            Class->GetFunctionRefs(Functions);
+            int Index = 1;
+            for (const FFunction* Function : Functions)
+            {
+                if (Function && Function->IsStatic())
+                {
+                    Result[Index++] = LuaDescribeFunction(State, *Function);
+                }
+            }
+            return Result;
+        }
+    );
+    Reflection.set_function(
+        "GetProperties",
+        [](UObject* Object, sol::this_state State)
+        {
+            sol::state_view L(State);
+            sol::table      Result = L.create_table();
+            if (!IsValid(Object) || !Object->GetClass())
+            {
+                return Result;
+            }
+            TArray<const FProperty*> Properties;
+            Object->GetClass()->GetPropertyRefs(Properties);
+            int Index = 1;
+            for (const FProperty* Property : Properties)
+            {
+                if (Property)
+                {
+                    Result[Index++] = LuaDescribeProperty(State, *Property);
+                }
+            }
+            return Result;
+        }
+    );
+}
+

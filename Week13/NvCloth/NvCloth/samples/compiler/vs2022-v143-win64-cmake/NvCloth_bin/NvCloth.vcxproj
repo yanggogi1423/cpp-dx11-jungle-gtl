@@ -1,0 +1,717 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="checked|x64">
+      <Configuration>checked</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2719F48F-DD42-3C68-B3A7-90EBFB30F4C5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>NvCloth</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">NvCloth.dir\debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">NvClothDEBUG_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">NvCloth.dir\checked\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='checked|x64'">NvClothCHECKED_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='checked|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='checked|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='checked|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">NvCloth.dir\profile\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile|x64'">NvClothPROFILE_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='profile|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='profile|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">NvCloth.dir\release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release|x64'">NvCloth_x64</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8 /RTCsu /Zo</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4514;4820;4127;4710;4711;4577;4530;4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NV_CLOTH_IMPORT=PX_DLL_EXPORT;_DEBUG;PX_DEBUG=1;PX_CHECKED=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=DEBUG;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR="debug";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\NvClothDEBUG_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;NV_CLOTH_IMPORT=PX_DLL_EXPORT;PX_DEBUG=1;PX_CHECKED=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=DEBUG;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR=\"debug\";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <DelayLoadDLLs>nvcuda.dll</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/NvClothDEBUG_x64.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/NvClothDEBUG_x64.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4514;4820;4127;4710;4711;4577;4530;4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;PX_CHECKED=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=CHECKED;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR="checked";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\NvClothCHECKED_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;PX_CHECKED=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=CHECKED;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR=\"checked\";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <DelayLoadDLLs>nvcuda.dll</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/NvClothCHECKED_x64.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/NvClothCHECKED_x64.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4514;4820;4127;4710;4711;4577;4530;4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;PX_PROFILE=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=PROFILE;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR="profile";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\NvClothPROFILE_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;PX_PROFILE=1;PX_NVTX=0;PX_PHYSX_DLL_NAME_POSTFIX=PROFILE;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR=\"profile\";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <DelayLoadDLLs>nvcuda.dll</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/NvClothPROFILE_x64.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/NvClothPROFILE_x64.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4514;4820;4127;4710;4711;4577;4530;4819</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR="release";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\NvCloth_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NV_CLOTH_IMPORT=PX_DLL_EXPORT;NDEBUG;NV_CLOTH_ENABLE_DX11=1;NV_CLOTH_ENABLE_CUDA=1;WIN64;CMAKE_INTDIR=\"release\";NvCloth_EXPORTS</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\src;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\..\..\..\extensions\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <DelayLoadDLLs>nvcuda.dll</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateMapFile>true</GenerateMapFile>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/NvCloth_x64.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/NvCloth_x64.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem></SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.cu">
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building NVCC fatbin file NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D generated_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin -D generated_cubin_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cubin.txt -P C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.debug.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math_defines.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memcpy_s.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memory.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_search.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_stdio_config.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_terminate.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstring.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wtime.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\crtdbg.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\ctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\errno.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stddef.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\string.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\time.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\ciso646;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cmath;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\concurrencysal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\crtdefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdarg;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstddef;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdint;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdlib;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstring;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\eh.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\exception;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\initializer_list;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\iso646.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\limits.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\new;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\sal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdarg.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdint.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\type_traits;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\use_ansi.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vadefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_exception.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new_debug.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_string.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xkeycheck.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xtr1common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals_core.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\builtin_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\channel_descriptor.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\common_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\cudacc_ext.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_config.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_defines.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_device_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_launch_parameters.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\library_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_types.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\Px.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxPreprocessor.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxSimpleTypes.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.debug.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building NVCC fatbin file NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D generated_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin -D generated_cubin_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cubin.txt -P C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.checked.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math_defines.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memcpy_s.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memory.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_search.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_stdio_config.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_terminate.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstring.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wtime.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\crtdbg.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\ctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\errno.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stddef.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\string.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\time.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\ciso646;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cmath;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\concurrencysal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\crtdefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdarg;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstddef;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdint;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdlib;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstring;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\eh.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\exception;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\initializer_list;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\iso646.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\limits.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\new;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\sal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdarg.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdint.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\type_traits;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\use_ansi.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vadefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_exception.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new_debug.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_string.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xkeycheck.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xtr1common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals_core.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\builtin_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\channel_descriptor.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\common_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\cudacc_ext.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_config.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_defines.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_device_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_launch_parameters.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\library_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_types.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\Px.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxPreprocessor.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxSimpleTypes.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.checked.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building NVCC fatbin file NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D generated_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin -D generated_cubin_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cubin.txt -P C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.profile.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math_defines.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memcpy_s.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memory.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_search.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_stdio_config.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_terminate.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstring.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wtime.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\crtdbg.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\ctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\errno.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stddef.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\string.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\time.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\ciso646;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cmath;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\concurrencysal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\crtdefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdarg;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstddef;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdint;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdlib;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstring;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\eh.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\exception;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\initializer_list;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\iso646.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\limits.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\new;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\sal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdarg.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdint.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\type_traits;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\use_ansi.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vadefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_exception.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new_debug.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_string.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xkeycheck.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xtr1common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals_core.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\builtin_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\channel_descriptor.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\common_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\cudacc_ext.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_config.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_defines.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_device_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_launch_parameters.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\library_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_types.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\Px.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxPreprocessor.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxSimpleTypes.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.profile.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building NVCC fatbin file NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -D verbose:BOOL=OFF -D "CCBIN:PATH=$(VCInstallDir)Tools/MSVC/$(VCToolsVersion)/bin/Host$(Platform)/$(PlatformTarget)" -D build_configuration:STRING=$(ConfigurationName) -D generated_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin -D generated_cubin_file:STRING=C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cubin.txt -P C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.release.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\assert.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_math_defines.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memcpy_s.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_memory.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_search.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_stdio_config.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_terminate.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wstring.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\corecrt_wtime.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\crtdbg.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\ctype.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\errno.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\malloc.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\math.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stddef.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdio.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\stdlib.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\string.h;C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt\time.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\ciso646;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cmath;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\concurrencysal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\crtdefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdarg;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstddef;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdint;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstdlib;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\cstring;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\eh.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\exception;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\initializer_list;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\iso646.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\limits.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\new;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\sal.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdarg.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\stdint.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\type_traits;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\use_ansi.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\utility;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vadefs.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_exception.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_new_debug.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\vcruntime_string.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xkeycheck.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\xtr1common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals.h;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\yvals_core.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\builtin_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\channel_descriptor.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\common_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\cudacc_ext.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_double_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\device_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_config.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\host_defines.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\math_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_100_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_70_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_80_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\crt\sm_90_rt.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_device_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\cuda_runtime_api.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_launch_parameters.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\device_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\driver_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\library_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_20_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_30_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_32_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_35_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_60_atomic_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\sm_61_intrinsics.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\surface_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_indirect_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\texture_types.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.h;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_functions.hpp;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include\vector_types.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\Px.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxPreprocessor.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation\PxSimpleTypes.h;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.release.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\52598e043eae721a20a8270452a59d26\CuSolverKernelBlob.h.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Generating C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/src/cuda/CuSolverKernelBlob.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\bin2c.exe" --name kCuSolverKernel C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin &gt; C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/../../..//src/cuda/CuSolverKernelBlob.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Generating C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/src/cuda/CuSolverKernelBlob.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\bin2c.exe" --name kCuSolverKernel C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin &gt; C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/../../..//src/cuda/CuSolverKernelBlob.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Generating C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/src/cuda/CuSolverKernelBlob.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\bin2c.exe" --name kCuSolverKernel C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin &gt; C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/../../..//src/cuda/CuSolverKernelBlob.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Generating C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/src/cuda/CuSolverKernelBlob.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+cd C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\bin\bin2c.exe" --name kCuSolverKernel C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin &gt; C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/../../..//src/cuda/CuSolverKernelBlob.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\run_nvcc.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\SetOutputPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cmake.pre-gen;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.depend;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\run_nvcc.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\SetOutputPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cmake.pre-gen;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.depend;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\run_nvcc.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\SetOutputPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cmake.pre-gen;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.depend;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/NvCloth_bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\run_nvcc.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\SetOutputPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\common\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\NvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cmake.pre-gen;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\cuda_compile_fatbin_1.dir\__\__\__\src\cuda\cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.depend;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsAtomic.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsFPU.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsInclude.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCheckSuccess.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCloth.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCloth.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothClone.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuContextLock.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuContextLock.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuDevicePointer.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuDeviceVector.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFabric.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFabric.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFactory.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFactory.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPinnedAllocator.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolver.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolver.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\windows\PsWindowsIntrinsics.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxBatchedVector.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCheckSuccess.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCloth.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCloth.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothClone.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothData.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothData.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxContextLock.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxContextLock.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxDeviceVector.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFabric.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFabric.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFactory.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFactory.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolver.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolver.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolverKernelBlob.h" />
+    <None Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSortKernel.inc">
+    </None>
+    <FXCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolverKernel.hlsl">
+      <ShaderType>Compute</ShaderType>
+      <ShaderModel>5.0</ShaderModel>
+      <AdditionalOptions>/Vn gDxSolverKernel /Fh C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/../../..//src/dx/DxSolverKernelBlob.h</AdditionalOptions>
+    </FXCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\avx\SwSolveConstraints.cpp">
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='debug|x64'">AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='checked|x64'">AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='profile|x64'">AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='release|x64'">AdvancedVectorExtensions</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Allocator.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Callbacks.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Cloth.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\DxContextManagerCallback.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Fabric.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Factory.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\PhaseConfig.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Range.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Solver.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\Ps.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAtomic.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAlignedMalloc.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAllocator.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAllocator.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsArray.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsBasicTemplates.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsBitUtils.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHash.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHashInternals.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHashMap.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsIntrinsics.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsUserAllocated.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsMathUtils.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Allocator.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\BoundingBox.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Callbacks.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothBase.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothClone.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothImpl.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Factory.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IterationState.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\MovingAverage.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\PhaseConfig.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\PointInterpolator.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Simd.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\StackAllocator.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCloth.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCloth.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwClothData.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwClothData.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollision.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollision.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollisionHelpers.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFabric.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFabric.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFactory.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFactory.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwInterCollision.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwInterCollision.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSelfCollision.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSelfCollision.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolver.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolver.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolverKernel.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolverKernel.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\TripletScheduler.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\TripletScheduler.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Vec4T.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimd4f.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimd4i.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimdTypes.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimd4f.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimd4i.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimdTypes.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimd4f.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimd4i.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimdTypes.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2Simd4f.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2Simd4i.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2SimdTypes.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\scalar\SwCollisionHelpers.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\sse2\SwCollisionHelpers.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\sse2\SwSolveConstraints.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsAlloca.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsFPU.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsSort.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsSortInternals.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsUtilities.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PxIntrinsics.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothFabricCooker.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothMeshDesc.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothMeshQuadifier.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothTetherCooker.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothFabricCooker.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothGeodesicTetherCooker.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothMeshQuadifier.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothSimpleTetherCooker.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\ZERO_CHECK.vcxproj">
+      <Project>{5A04116E-6CD8-38D1-A9E3-FDAB8E68C0F6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

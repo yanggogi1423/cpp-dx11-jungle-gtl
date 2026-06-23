@@ -1,0 +1,53 @@
+{
+  "Actor" : {
+    "Active" : true,
+    "ClassName" : "AStaticMeshActor",
+    "Components" : [{
+        "AttachSocketName" : "Name_None",
+        "ClassName" : "UStaticMeshComponent",
+        "Materials" : ["Asset/Material/New Material.uasset"],
+        "ObjectName" : "UStaticMeshComponent_1",
+        "PersistentGuid" : "E7C8E2DE-FE5F4079-8968010F-E78BE027",
+        "RelativeLocation" : {
+          "X" : -16.960758,
+          "Y" : 27.272398,
+          "Z" : -4.626175
+        },
+        "RelativeRotation" : {
+          "X" : -0.000000,
+          "Y" : 0.000000,
+          "Z" : -0.000000
+        },
+        "RelativeScale3D" : {
+          "X" : 20.000000,
+          "Y" : 1.000000,
+          "Z" : 20.000000
+        },
+        "ScrollU" : 0.000000,
+        "ScrollV" : 0.000000,
+        "StaticMeshAssetPath" : "Asset/Mesh/Dice/Dice.obj",
+        "Tags" : [],
+        "Type" : "UStaticMeshComponent",
+        "UUID" : 495,
+        "bAutoActivate" : true,
+        "bCanEverTick" : true,
+        "bCastDecal" : true,
+        "bEnableCull" : true,
+        "bGenerateOverlapEvents" : false,
+        "bIsActive" : true,
+        "bIsEditorOnly" : false,
+        "bIsVisible" : true,
+        "bTransient" : false
+      }],
+    "EditorOnly" : false,
+    "Name" : "AStaticMeshActor_7",
+    "PersistentGuid" : "DEB3BD78-372840BA-BD883B60-8BA37D2B",
+    "RootComponent" : 495,
+    "Tags" : [],
+    "UUID" : 494,
+    "Visible" : true
+  },
+  "ClassName" : "JSPrefab",
+  "SourceActorName" : "AStaticMeshActor_7",
+  "Version" : 1
+}

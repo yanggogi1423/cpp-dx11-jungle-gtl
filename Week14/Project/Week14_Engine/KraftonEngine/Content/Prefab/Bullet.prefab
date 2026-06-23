@@ -1,0 +1,94 @@
+{
+  "Actor" : {
+    "ClassName" : "AActor",
+    "Name" : "AActor_46",
+    "NonSceneComponents" : [],
+    "ObjectId" : 1,
+    "Properties" : {
+      "PendingActorLocation" : [0.750196, 17.838120, 3.766545],
+      "PendingActorRotation" : [-0.000005, -179.999893, -179.999893],
+      "PendingActorScale" : [0.050000, 0.050000, 0.050000],
+      "PendingActorVisible" : true,
+      "PendingTagsString" : "",
+      "bNeedsTick" : true
+    },
+    "RootComponent" : {
+      "Children" : [{
+          "Children" : [],
+          "ClassName" : "UStaticMeshComponent",
+          "ObjectId" : 3,
+          "Properties" : {
+            "AttachSocketName" : "Name_None",
+            "CachedEditRotator" : [-0.000000, 0.000000, 0.000000],
+            "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+            "CollisionEnabled" : 0,
+            "Mass" : 1.000000,
+            "MaterialSlots" : ["Content/Material/Auto/Barrett_M82_Magazine_and_Bullet.uasset"],
+            "ObjectType" : 0,
+            "PendingTagsString" : "",
+            "PersistentGuid" : "Component_772",
+            "RelativeTransform.Location" : [0.000000, 0.000000, 0.000000],
+            "RelativeTransform.Scale" : [1.000000, 1.000000, 1.000000],
+            "ResponseContainer" : {
+              "Responses[0]" : 2,
+              "Responses[1]" : 2,
+              "Responses[2]" : 2,
+              "Responses[3]" : 2,
+              "Responses[4]" : 2
+            },
+            "StaticMeshPath" : "Content/Data/SniperBullet/bullet_StaticMesh.uasset",
+            "bAutoActivate" : true,
+            "bCastShadow" : true,
+            "bCastShadowAsTwoSided" : false,
+            "bEditorOnly" : false,
+            "bEnableCCD" : false,
+            "bGenerateOverlapEvents" : false,
+            "bHiddenInComponentTree" : false,
+            "bIsActive" : true,
+            "bIsVisible" : true,
+            "bKinematic" : false,
+            "bSimulatePhysics" : false,
+            "bTickEnable" : true
+          }
+        }],
+      "ClassName" : "UBillboardComponent",
+      "ObjectId" : 2,
+      "Properties" : {
+        "AttachSocketName" : "Name_None",
+        "CachedEditRotator" : [-0.000005, -179.999893, -179.999893],
+        "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+        "CollisionEnabled" : 0,
+        "Mass" : 1.000000,
+        "MaterialSlot" : "Content/Material/Editor/EmptyActor.uasset",
+        "ObjectType" : 0,
+        "PendingTagsString" : "",
+        "PersistentGuid" : "Component_771",
+        "RelativeTransform.Location" : [0.750196, 17.838120, 3.766545],
+        "RelativeTransform.Scale" : [0.050000, 0.050000, 0.050000],
+        "ResponseContainer" : {
+          "Responses[0]" : 2,
+          "Responses[1]" : 2,
+          "Responses[2]" : 2,
+          "Responses[3]" : 2,
+          "Responses[4]" : 2
+        },
+        "bAutoActivate" : true,
+        "bCastShadow" : true,
+        "bCastShadowAsTwoSided" : false,
+        "bEditorOnly" : true,
+        "bEnableCCD" : false,
+        "bGenerateOverlapEvents" : false,
+        "bHiddenInComponentTree" : false,
+        "bIsActive" : true,
+        "bIsBillboard" : true,
+        "bIsVisible" : false,
+        "bKinematic" : false,
+        "bSimulatePhysics" : false,
+        "bTickEnable" : true
+      }
+    }
+  },
+  "SourceActorName" : "AActor_46",
+  "Type" : "KraftonPrefab",
+  "Version" : 1
+}

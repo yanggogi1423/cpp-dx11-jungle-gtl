@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2026-v143-win64-cmake\CMakeFiles\34b44046517a454b38a5f8c5e03b9068\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5E2DB9B6-7A84-3E16-A689-AC1FE63B5A62}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

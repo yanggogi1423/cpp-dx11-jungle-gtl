@@ -1,0 +1,9 @@
+{
+        "Name" : "Asset/Mesh/cyberpunk_arm/cyberpunk_arm_right_Inst_0.matinst",
+        "OverridedParams" : [{
+            "Name" : "DiffuseMap",
+            "Type" : "Texture",
+            "Value" : "Asset/Mesh/Dice/Dice_Diffuse.png"
+          }],
+        "Parent" : "Asset/Material/Auto/halo_reach_-_cybernetic_arm_Mat_0.mat"
+      }

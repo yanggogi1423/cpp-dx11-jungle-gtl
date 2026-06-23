@@ -1,0 +1,381 @@
+body {
+    margin: 0px;
+    width: 1920px;
+    height: 1080px;
+    font-family: "Nexon";
+    color: rgba(236, 241, 235, 255);
+}
+
+#resultRoot {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1920px;
+    height: 1080px;
+    opacity: 0;
+}
+
+#resultDim {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1920px;
+    height: 1080px;
+    display: none;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 76);
+}
+
+#radioSubtitlePanel {
+    position: absolute;
+    left: 260.000000px;
+    top: 862.000000px;
+    width: 1400.000000px;
+    height: 96.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    font-family: "Nexon";
+    font-weight: bold;
+    text-align: center;
+    z-index: 50;
+}
+
+#radioSubtitleText {
+    position: absolute;
+    left: 0.000000px;
+    top: 12.000000px;
+    width: 1400.000000px;
+    height: 76.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: block;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(245, 246, 240, 255);
+    border-width: 0px;
+    padding: 0px;
+    font-size: 24.000000px;
+    font-family: "Nexon";
+    font-weight: bold;
+    text-align: center;
+}
+
+.result-panel {
+    position: absolute;
+    box-sizing: border-box;
+    display: none;
+    opacity: 0;
+    background-color: rgba(6, 14, 16, 230);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+#resultEntryPanel {
+    left: 130px;
+    top: 250px;
+    width: 610px;
+    height: 560px;
+}
+
+#resultScorePanel {
+    left: 810px;
+    top: 190px;
+    width: 920px;
+    height: 700px;
+}
+
+.eyebrow {
+    position: absolute;
+    left: 42px;
+    top: 34px;
+    width: 340px;
+    height: 22px;
+    color: rgba(255, 218, 132, 255);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.result-title {
+    position: absolute;
+    left: 42px;
+    top: 70px;
+    width: 500px;
+    height: 78px;
+    color: rgba(245, 238, 210, 255);
+    font-size: 58px;
+    font-weight: 700;
+}
+
+.board-title {
+    position: absolute;
+    left: 42px;
+    top: 70px;
+    width: 500px;
+    height: 58px;
+    color: rgba(245, 238, 210, 255);
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.thin-divider {
+    position: absolute;
+    left: 42px;
+    top: 154px;
+    width: 526px;
+    height: 1px;
+    background-color: rgba(224, 205, 142, 130);
+}
+
+#resultScorePanel .thin-divider {
+    width: 836px;
+    top: 142px;
+}
+
+.metric-block {
+    position: absolute;
+    left: 42px;
+    top: 202px;
+    width: 526px;
+    height: 120px;
+    background-color: rgba(24, 31, 32, 170);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+.metric-label {
+    position: absolute;
+    left: 26px;
+    top: 22px;
+    width: 220px;
+    height: 28px;
+    color: rgba(218, 229, 222, 255);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.metric-value {
+    position: absolute;
+    left: 26px;
+    top: 54px;
+    width: 470px;
+    height: 52px;
+    color: rgba(255, 218, 132, 255);
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.nickname-block {
+    position: absolute;
+    left: 42px;
+    top: 350px;
+    width: 526px;
+    height: 106px;
+}
+
+.field-label {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 260px;
+    height: 26px;
+    color: rgba(218, 229, 222, 255);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.nickname-input {
+    position: absolute;
+    left: 0px;
+    top: 34px;
+    width: 526px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: rgba(30, 39, 40, 240);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(245, 238, 210, 255);
+    font-size: 24px;
+    font-weight: 700;
+    padding: 9px 16px;
+}
+
+.nickname-input:focus {
+    background-color: rgba(40, 51, 51, 245);
+    color: rgba(255, 248, 225, 255);
+}
+
+.nickname-hint {
+    position: absolute;
+    left: 0px;
+    top: 90px;
+    width: 526px;
+    height: 20px;
+    color: rgba(176, 187, 181, 210);
+    font-size: 13px;
+}
+
+.nickname-error {
+    position: absolute;
+    left: 0px;
+    top: 114px;
+    width: 526px;
+    height: 24px;
+    color: rgba(255, 108, 94, 255);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.submit-button {
+    position: absolute;
+    left: 42px;
+    top: 490px;
+    width: 252px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: rgba(94, 78, 44, 240);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(255, 239, 190, 255);
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: rgba(124, 100, 52, 255);
+}
+
+.submit-button.disabled {
+    background-color: rgba(38, 48, 48, 170);
+    color: rgba(150, 160, 155, 230);
+}
+
+.submit-label {
+    position: absolute;
+    left: 0px;
+    top: 13px;
+    width: 252px;
+    height: 24px;
+    color: rgba(255, 239, 190, 255);
+    text-align: center;
+}
+
+.submit-button.disabled .submit-label {
+    color: rgba(150, 160, 155, 230);
+}
+
+#btnResultGoMain {
+    left: 316px;
+    background-color: rgba(38, 48, 48, 230);
+}
+
+#btnResultGoMain:hover {
+    background-color: rgba(91, 77, 43, 238);
+}
+
+.score-table-header {
+    position: absolute;
+    left: 42px;
+    top: 178px;
+    width: 806px;
+    height: 42px;
+    box-sizing: border-box;
+    color: rgba(255, 218, 132, 255);
+    font-size: 16px;
+    font-weight: 700;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(224, 205, 142, 116);
+}
+
+.score-list {
+    position: absolute;
+    left: 42px;
+    top: 236px;
+    width: 806px;
+    height: 386px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.score-row {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 806px;
+    height: 44px;
+    box-sizing: border-box;
+    background-color: rgba(25, 32, 33, 145);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(229, 236, 230, 255);
+    font-size: 17px;
+}
+
+#resultScoreRow1 { top: 0px; }
+#resultScoreRow2 { top: 52px; }
+#resultScoreRow3 { top: 104px; }
+#resultScoreRow4 { top: 156px; }
+#resultScoreRow5 { top: 208px; }
+#resultScoreRow6 { top: 260px; }
+#resultScoreRow7 { top: 312px; }
+#resultScoreRow8 { top: 364px; }
+
+.rank-cell {
+    position: absolute;
+    left: 24px;
+    top: 12px;
+    width: 80px;
+    height: 22px;
+    text-align: left;
+}
+
+.name-cell {
+    position: absolute;
+    left: 120px;
+    top: 12px;
+    width: 270px;
+    height: 22px;
+    text-align: left;
+}
+
+.result-cell {
+    position: absolute;
+    left: 430px;
+    top: 12px;
+    width: 150px;
+    height: 22px;
+    text-align: left;
+}
+
+.score-cell {
+    position: absolute;
+    left: 640px;
+    top: 12px;
+    width: 128px;
+    height: 22px;
+    text-align: right;
+}
+
+.fake-scrollbar {
+    position: absolute;
+    left: 864px;
+    top: 236px;
+    width: 5px;
+    height: 386px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.fake-scrollbar-thumb {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 5px;
+    height: 386px;
+    background-color: rgba(224, 205, 142, 210);
+    border-radius: 1px;
+}

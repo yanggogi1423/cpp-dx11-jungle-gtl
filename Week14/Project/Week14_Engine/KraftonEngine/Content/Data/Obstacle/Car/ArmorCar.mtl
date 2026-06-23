@@ -1,0 +1,12 @@
+# Blender 5.1.0 MTL File: 'Armor.blend'
+# www.blender.org
+
+newmtl People_Carrier_Tank_Material_u1_v1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.100000 0.100000 0.100000
+Ks 0.100000 0.100000 0.100000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Ke ArmorCar.jpg

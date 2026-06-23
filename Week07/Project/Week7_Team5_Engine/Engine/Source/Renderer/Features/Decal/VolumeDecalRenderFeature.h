@@ -1,0 +1,87 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Renderer/Features/Decal/DecalStats.h"
+#include "Renderer/Features/Decal/DecalTypes.h"
+#include "Renderer/Common/SceneRenderTargets.h"
+#include "Renderer/Resources/Shader/ShaderHandles.h"
+
+#include <d3d11.h>
+#include <memory>
+
+class FRenderer;
+
+class ENGINE_API FVolumeDecalRenderFeature
+{
+public:
+    ~FVolumeDecalRenderFeature();
+
+    bool Initialize(FRenderer& Renderer);
+    void Release();
+
+    bool Render(
+        FRenderer& Renderer,
+        const FDecalRenderRequest& Request,
+        const FSceneRenderTargets& Targets);
+    bool RenderDebugOverlay(
+        FRenderer& Renderer,
+        const FDecalRenderRequest& Request,
+        const FSceneRenderTargets& Targets,
+        ID3D11RenderTargetView* RenderTargetView);
+
+    const FVolumeDecalStats& GetStats() const { return LastStats; }
+    double GetBuildTimeMs() const { return LastBuildTimeMs; }
+    double GetCullIntersectionTimeMs() const { return LastCullIntersectionTimeMs; }
+    double GetShadingPassTimeMs() const { return LastShadingPassTimeMs; }
+    double GetTotalTimeMs() const { return LastTotalTimeMs; }
+
+private:
+    struct FVolumeDecalConstants
+    {
+        FMatrix InverseViewProjection = FMatrix::Identity;
+        FMatrix WorldToDecal = FMatrix::Identity;
+        FVector4 AtlasScaleBias = FVector4(1, 1, 0, 0);
+        FLinearColor BaseColorTint = FLinearColor::White;
+        FVector4 DecalExtentsAndEdgeFade = FVector4(50.0f, 50.0f, 50.0f, 2.0f);
+        FVector4 InvViewportSizeAndAllowAngleAndTextureIndex = FVector4(1.0f, 1.0f, 0.0f, 0.0f);
+        FVector4 DecalForwardWSAndPad = FVector4(1.0f, 0.0f, 0.0f, 0.0f);
+    };
+
+    bool CreateVolumeMesh(FRenderer& Renderer);
+    bool CreatePerDecalConstantBuffer(FRenderer& Renderer);
+    bool CreateStates(FRenderer& Renderer);
+    bool CreateSamplers(FRenderer& Renderer);
+    bool CreateShaders(FRenderer& Renderer);
+
+    bool UpdatePerDecalConstants(
+        FRenderer& Renderer,
+        const FDecalRenderRequest& Request,
+        const FDecalRenderItem& Item);
+
+private:
+    bool bInitialized = false;
+    FVolumeDecalStats LastStats;
+    double LastBuildTimeMs = 0.0;
+    double LastCullIntersectionTimeMs = 0.0;
+    double LastShadingPassTimeMs = 0.0;
+    double LastTotalTimeMs = 0.0;
+
+    std::shared_ptr<FVertexShaderHandle> VolumeVS;
+    std::shared_ptr<FPixelShaderHandle> VolumePS;
+
+    ID3D11Buffer* VolumeVertexBuffer = nullptr;
+    ID3D11Buffer* VolumeIndexBuffer = nullptr;
+    UINT VolumeIndexCount = 0;
+
+    ID3D11Buffer* PerDecalConstantBuffer = nullptr;
+
+    ID3D11SamplerState* DepthPointSampler = nullptr;
+    ID3D11SamplerState* DecalLinearSampler = nullptr;
+
+    ID3D11BlendState* VolumeBlendState = nullptr;
+    ID3D11DepthStencilState* VolumeDepthState = nullptr;
+    ID3D11RasterizerState* VolumeRasterizerState = nullptr;
+	
+	std::shared_ptr<FPixelShaderHandle> DebugPS = nullptr;
+	ID3D11DepthStencilState* DebugDepthState = nullptr;
+};

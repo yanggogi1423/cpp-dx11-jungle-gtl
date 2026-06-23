@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsAtomic.cpp">
+      <Filter>src\ps\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCloth.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothClone.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuContextLock.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFabric.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFactory.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolver.cpp">
+      <Filter>src\cuda</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCloth.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothClone.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothData.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxContextLock.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFabric.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFactory.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolver.cpp">
+      <Filter>src\dx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\avx\SwSolveConstraints.cpp">
+      <Filter>src\avx</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAllocator.cpp">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Allocator.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Callbacks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Factory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\PhaseConfig.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCloth.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwClothData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFabric.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFactory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwInterCollision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSelfCollision.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolverKernel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\TripletScheduler.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothFabricCooker.cpp">
+      <Filter>extensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothGeodesicTetherCooker.cpp">
+      <Filter>extensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothMeshQuadifier.cpp">
+      <Filter>extensions\src</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\src\ClothSimpleTetherCooker.cpp">
+      <Filter>extensions\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsFPU.h">
+      <Filter>src\ps\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\windows\PsWindowsInclude.h">
+      <Filter>src\ps\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCheckSuccess.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCloth.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuClothData.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuCollision.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuContextLock.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuDevicePointer.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuDeviceVector.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFabric.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuFactory.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPhaseConfig.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuPinnedAllocator.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSelfCollision.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolver.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernelBlob.h">
+      <Filter>src\cuda</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\windows\PsWindowsIntrinsics.h">
+      <Filter>include\NvCloth\ps\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxBatchedVector.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCheckSuccess.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxCloth.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxClothData.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxContextLock.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxDeviceVector.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFabric.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxFactory.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolver.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolverKernelBlob.h">
+      <Filter>src\dx</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Allocator.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Callbacks.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Cloth.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\DxContextManagerCallback.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Fabric.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Factory.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\PhaseConfig.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Range.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\Solver.h">
+      <Filter>include\NvCloth</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\Ps.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAtomic.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAlignedMalloc.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsAllocator.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsArray.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsBasicTemplates.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsBitUtils.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHash.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHashInternals.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsHashMap.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsIntrinsics.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsUserAllocated.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include\NvCloth\ps\PsMathUtils.h">
+      <Filter>include\NvCloth\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\BoundingBox.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothBase.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothClone.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ClothImpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IndexPair.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\IterationState.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\MovingAverage.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\PointInterpolator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Simd.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\StackAllocator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCloth.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwClothData.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollision.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwCollisionHelpers.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFabric.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwFactory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwInterCollision.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSelfCollision.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\SwSolverKernel.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\TripletScheduler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\Vec4T.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimd4f.h">
+      <Filter>src\NvSimd</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimd4i.h">
+      <Filter>src\NvSimd</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\NvSimdTypes.h">
+      <Filter>src\NvSimd</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimd4f.h">
+      <Filter>src\NvSimd\neon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimd4i.h">
+      <Filter>src\NvSimd\neon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\neon\NvNeonSimdTypes.h">
+      <Filter>src\NvSimd\neon</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimd4f.h">
+      <Filter>src\NvSimd\scalar</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimd4i.h">
+      <Filter>src\NvSimd\scalar</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\scalar\NvScalarSimdTypes.h">
+      <Filter>src\NvSimd\scalar</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2Simd4f.h">
+      <Filter>src\NvSimd\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2Simd4i.h">
+      <Filter>src\NvSimd\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\NvSimd\sse2\NvSse2SimdTypes.h">
+      <Filter>src\NvSimd\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\scalar\SwCollisionHelpers.h">
+      <Filter>src\scalar</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\sse2\SwCollisionHelpers.h">
+      <Filter>src\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\sse2\SwSolveConstraints.h">
+      <Filter>src\sse2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsAlloca.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsFPU.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsSort.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsSortInternals.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PsUtilities.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\ps\PxIntrinsics.h">
+      <Filter>src\ps</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothFabricCooker.h">
+      <Filter>extensions\include\NvClothExt</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothMeshDesc.h">
+      <Filter>extensions\include\NvClothExt</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothMeshQuadifier.h">
+      <Filter>extensions\include\NvClothExt</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include\NvClothExt\ClothTetherCooker.h">
+      <Filter>extensions\include\NvClothExt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\cuda\CuSolverKernel.cu">
+      <Filter>src\cuda</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2026-v143-win64-cmake\CMakeFiles\52598e043eae721a20a8270452a59d26\CuSolverKernelBlob.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\compiler\cmake\windows\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <FXCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSolverKernel.hlsl">
+      <Filter>src\dx</Filter>
+    </FXCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\src\dx\DxSortKernel.inc">
+      <Filter>src\dx</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{5E2DB9B6-7A84-3E16-A689-AC1FE63B5A62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions">
+      <UniqueIdentifier>{C7B16225-8918-33B8-B503-5C4B45603D6A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions\include">
+      <UniqueIdentifier>{B8AE63F9-026D-365D-8733-99B3CFD89CD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions\include\NvClothExt">
+      <UniqueIdentifier>{5ACE51F5-4211-3A42-91F3-EE6238FD4CEB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extensions\src">
+      <UniqueIdentifier>{52C2B3C3-020F-3F37-9F27-0EE0FF83A959}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{9630B96C-215F-3265-9C3C-AAC3B665227B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\NvCloth">
+      <UniqueIdentifier>{5E5E56F3-1DDF-3A58-AEEE-D99F3D21BAC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\NvCloth\ps">
+      <UniqueIdentifier>{C5534AAF-28B7-3629-B2C7-36345B445176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\NvCloth\ps\windows">
+      <UniqueIdentifier>{F8BF5755-EBEF-35F9-8CE9-E7ECA4B4077B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1A0CE797-732A-39DA-A606-B2416B727E44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NvSimd">
+      <UniqueIdentifier>{DA233BBA-3CC5-3B4A-8B9D-CCCE81270C38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NvSimd\neon">
+      <UniqueIdentifier>{C53F6682-AFA5-3E86-AA47-B0204AE71448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NvSimd\scalar">
+      <UniqueIdentifier>{A335D7EB-BF5A-3F0B-9886-2827FC0B7C0A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NvSimd\sse2">
+      <UniqueIdentifier>{76CBCF1E-E39C-3FE6-8B6C-D52E8847B0FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\avx">
+      <UniqueIdentifier>{C56A8265-19C9-33C3-814E-A000D1D4A97C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\cuda">
+      <UniqueIdentifier>{5EFFEF5B-DFBE-341B-9F20-0ADF7F65701E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\dx">
+      <UniqueIdentifier>{AB2210E9-3B84-3B2E-9C09-B43ABE5601A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ps">
+      <UniqueIdentifier>{B08A2779-8FE8-30E1-8FDF-7BE31F09F5AE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ps\windows">
+      <UniqueIdentifier>{0B241D0C-2D17-3F50-8205-9767AD55722E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\scalar">
+      <UniqueIdentifier>{3BA473BB-3013-30B5-9F76-3C19ED4A40FD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sse2">
+      <UniqueIdentifier>{087FF277-E7F4-3419-9FDC-79179AFAF00A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

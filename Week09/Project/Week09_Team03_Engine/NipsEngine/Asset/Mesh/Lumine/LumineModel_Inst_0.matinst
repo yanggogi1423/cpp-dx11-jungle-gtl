@@ -1,0 +1,21 @@
+{
+        "Name" : "Asset/Mesh/Lumine/LumineModel_Inst_0.matinst",
+        "OverridedParams" : [{
+            "Name" : "EmissiveColor",
+            "Type" : "Vector3",
+            "Value" : [1.000000, 1.000000, 1.000000]
+          }, {
+            "Name" : "DiffuseMap",
+            "Type" : "Texture",
+            "Value" : "Asset/Texture/Decal/T_Graffiti12_MSK.png"
+          }, {
+            "Name" : "Shininess",
+            "Type" : "Float",
+            "Value" : 250.000000
+          }, {
+            "Name" : "AmbientColor",
+            "Type" : "Vector3",
+            "Value" : [0.740000, 0.800000, 0.820000]
+          }],
+        "Parent" : "Asset/Material/Auto/LumineModel_Mat_0.mat"
+      }

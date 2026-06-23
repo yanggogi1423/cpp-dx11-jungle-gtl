@@ -1,0 +1,80 @@
+#pragma once
+#include "Component/PrimitiveComponent.h"
+#include "Math/LinearColor.h"
+
+struct FDynamicMesh;
+class FArchive;
+
+class ENGINE_API UBillboardComponent : public UPrimitiveComponent
+{
+public:
+	DECLARE_RTTI(UBillboardComponent, UPrimitiveComponent)
+
+	enum class EAxisLockMode : uint8
+	{
+		None,
+		LocalX,
+		LocalY,
+		LocalZ,
+	};
+
+	void PostConstruct() override;
+
+	virtual bool UseSpherePicking() const override { return true; }
+	virtual FBoxSphereBounds GetWorldBounds() const override;
+	virtual FRenderMesh* GetRenderMesh() const override;
+	void Serialize(FArchive& Ar) override;
+	void DuplicateShallow(UObject* DuplicatedObject, FDuplicateContext& Context) const override;
+	void PostDuplicate(UObject* DuplicatedObject, const FDuplicateContext& Context) const override;
+
+	void SetSize(const FVector2& InSize)
+	{
+		if (Size.X != InSize.X || Size.Y != InSize.Y)
+		{
+			Size = InSize;
+			MarkBillboardMeshDirty();
+			UpdateBounds();
+		}
+	}
+	const FVector2& GetSize() const { return Size; }
+
+	void SetTexturePath(const std::wstring& InPath);
+	const std::wstring& GetTexturePath() const { return TexturePath; }
+
+	void SetUVMin(const FVector2& InUVMin) { UVMin = InUVMin; }
+	const FVector2& GetUVMin() const { return UVMin; }
+
+	void SetUVMax(const FVector2& InUVMax) { UVMax = InUVMax; }
+	const FVector2& GetUVMax() const { return UVMax; }
+
+	void SetBaseColorLinear(const FLinearColor& InBaseColor);
+	void SetBaseColor(const FVector4& InBaseColor);
+	void SetBaseColorSRGB(const FVector4& InBaseColor);
+	const FLinearColor& GetBaseColor() const;
+
+	FDynamicMesh* GetBillboardMesh() const { return BillboardMesh.get(); }
+
+
+	void SetAxisLockMode(EAxisLockMode InMode) { AxisLockMode = InMode; }
+	EAxisLockMode GetAxisLockMode() const { return AxisLockMode; }
+	bool IsAxisLockedBillboard() const { return AxisLockMode != EAxisLockMode::None; }
+	FVector GetBillboardAxisLockVector() const;
+
+	void MarkBillboardMeshDirty();
+	bool IsBillboardMeshDirty() const { return bBillboardMeshDirty; }
+	void ClearBillboardMeshDirty() { bBillboardMeshDirty = false; }
+	FVector GetRenderWorldScale() const;
+
+private:
+	EAxisLockMode AxisLockMode = EAxisLockMode::None;
+
+	std::wstring TexturePath;
+
+	FVector2 Size = FVector2(1.f, 1.f);
+	FVector2 UVMin = FVector2(0.f, 0.f);
+	FVector2 UVMax = FVector2(1.f, 1.f);
+	FLinearColor BaseColor = FLinearColor::White;
+
+	bool bBillboardMeshDirty = true;
+	std::shared_ptr<struct FDynamicMesh> BillboardMesh;
+};

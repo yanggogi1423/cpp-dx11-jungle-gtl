@@ -1,0 +1,38 @@
+[Pending Job]
+- Cursor Visibility 설정
+
+
+[Manager 구조]
+GeneralManager(SingleTon) 나머지 Manager 소유
+- InGameManager (Timer, Phase(wave), Setting 등)
+- DataManager (Score, 닉네임 로컬 저장 등)
+- AudioManager
+- UIManager
+- CutSceneManager(정해진 CutScene 재생 등)
+- SceneManager(Scene 변경, HUD 등 담당 - 사실상 StateMachine)
+- EventBus (외부에서 직접 Manager 접근 제한)
+
+
+-> 다른 팀원이 SpawnManager 같은거 등 만들 예정 (소유하게 하지는 않을거임)
+-> GeneralManager가 State를 입력을 받는 주체임
+
+[State(scene)]
+- Intro
+- Main
+- Loading
+- Pre-InGame
+- InGame
+- Defeat1
+- Defeat2
+- Victory 
+
+이렇게 생각하고 있어
+
+자막 - 초 단위
+~ 1 : 긴급 속보입니다.
+~ 5 : 발칸반도가 결국 통제 불능의 파국으로 치닫고 있습니다!
+~ 10 : 코소보 전역에서 벌어진 무차별 유혈 충돌로 현장은 그야말로 피로 물든 생지옥으로 변했습니다.
+~ 21 : 민간인 대량 학살과 난민 폭증으로 서방 정보국은 '제3차 대전급 전면전이 초읽기에 들어갔다'고 경고했습니다.
+~ 25 : 외교적 해법은 완벽히 파탄 났고, 현장의 통제권은 상실되었습니다.
+~ 31 : 결국 조금 전, 미국과 NATO 연합군이 최후의 수단으로 전격적인 군사 개입을 승인, 작전에 돌입했습니다!
+

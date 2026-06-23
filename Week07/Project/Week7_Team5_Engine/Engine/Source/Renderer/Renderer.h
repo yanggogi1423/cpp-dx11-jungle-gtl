@@ -1,0 +1,351 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Renderer/Features/Fog/FogStats.h"
+#include "Renderer/Features/Lighting/LightStats.h"
+#include "Renderer/GPUStats.h"
+#include "Renderer/Features/Outline/OutlineTypes.h"
+#include "Renderer/Features/Decal/DecalProjectionMode.h"
+#include "Renderer/Features/Decal/DecalStats.h"
+#include "Renderer/Features/Decal/DecalTypes.h"
+#include "Renderer/Mesh/MeshBatch.h"
+#include "Renderer/GraphicsCore/RenderDevice.h"
+#include "Renderer/Common/RenderFeatureInterfaces.h"
+#include "Renderer/Frame/FrameRequests.h"
+#include "Renderer/Common/RenderMode.h"
+#include "Renderer/Common/RenderFrameContext.h"
+#include "Renderer/GraphicsCore/RenderStateManager.h"
+#include "Renderer/HotReload/ShaderHotReloadService.h"
+#include "Renderer/Common/SceneRenderTargets.h"
+#include "Renderer/UI/Screen/UIDrawList.h"
+#include "Renderer/Resources/Shader/ShaderManager.h"
+#include "Mesh/MeshBatch.h"
+
+#include <d3d11.h>
+#include <filesystem>
+#include <memory>
+#include <string>
+
+enum class EToneMappingMode : uint8
+{
+	ACES     = 0,
+	Hable    = 1,
+	Reinhard = 2,
+	Linear   = 3,
+};
+
+struct FToneMappingSettings
+{
+	EToneMappingMode Mode             = EToneMappingMode::Hable;
+	float            Exposure         = 0.8f;
+	float            ShoulderStrength = 0.22f;  // Hable A
+	float            LinearWhite      = 11.2f;  // Hable W / Reinhard white point
+
+	// Hable B~F
+	float            HableB           = 0.22f;
+	float            HableC           = 0.10f;
+	float            HableD           = 0.20f;
+	float            HableE           = 0.01f;
+	float            HableF           = 0.30f;
+
+	// ACES a~e
+	float            AcesA            = 2.51f;
+	float            AcesB            = 0.03f;
+	float            AcesC            = 2.43f;
+	float            AcesD            = 0.59f;
+	float            AcesE            = 0.14f;
+};
+
+struct FVertex;
+struct FRenderMesh;
+struct FMeshPassFrameStats;
+enum class EPassDomain : uint8;
+class FPixelShader;
+class FMaterial;
+class ULevel;
+class UWorld;
+class AActor;
+class FSceneRenderer;
+class FViewportCompositor;
+class FScreenUIRenderer;
+class FSceneTargetManager;
+class FDecalTextureCache;
+class FTextRenderFeature;
+class FSubUVRenderFeature;
+class FBillboardRenderFeature;
+class FFogRenderFeature;
+class FOutlineRenderFeature;
+class FDecalRenderFeature;
+class FVolumeDecalRenderFeature;
+class FFireBallRenderFeature;
+class FFXAARenderFeature;
+class FDebugLineRenderFeature;
+class FLightRenderFeature;
+class FBloomRenderFeature;
+class FBillboardRenderer;
+class FDebugDrawManager;
+struct FScreenUIPassInputs;
+
+enum class ETextureColorSpace : uint8
+{
+	ColorSRGB,
+	DataLinear,
+};
+
+class ENGINE_API FRenderer
+{
+public:
+	FRenderer(HWND InHwnd, int32 InWidth, int32 InHeight);
+	~FRenderer();
+
+	bool Initialize(HWND InHwnd, int32 InWidth, int32 InHeight);
+	void BeginFrame();
+	void EndFrame();
+	void Release();
+	bool IsOccluded();
+	void OnResize(int32 NewWidth, int32 NewHeight);
+
+	void SetVSync(bool bEnable)
+	{
+		RenderDevice.SetVSync(bEnable);
+	}
+
+	bool IsVSyncEnabled() const
+	{
+		return RenderDevice.IsVSyncEnabled();
+	}
+
+	bool IsTearingSupported() const
+	{
+		return RenderDevice.IsTearingSupported();
+	}
+
+	bool RenderScreenUIPass(
+		const FScreenUIPassInputs& PassInputs,
+		const FFrameContext&       Frame,
+		ID3D11RenderTargetView*    RenderTargetView,
+		ID3D11DepthStencilView*    DepthStencilView = nullptr);
+	bool ComposeViewports(
+		const FViewportCompositePassInputs& Inputs,
+		const FFrameContext&                Frame,
+		const FViewContext&                 View,
+		ID3D11RenderTargetView*             RenderTargetView,
+		ID3D11DepthStencilView*             DepthStencilView = nullptr);
+	bool RenderGameFrame(const FGameFrameRequest& Request);
+	bool RenderEditorFrame(const FEditorFrameRequest& Request);
+
+	bool CreateTextureFromSTB(
+		ID3D11Device*              Device,
+		const char*                FilePath,
+		ID3D11ShaderResourceView** OutSRV,
+		ETextureColorSpace         ColorSpace);
+	bool CreateTextureFromSTB(
+		ID3D11Device*                Device,
+		const std::filesystem::path& FilePath,
+		ID3D11ShaderResourceView**   OutSRV,
+		ETextureColorSpace           ColorSpace);
+
+	void ConfigureMaterialPasses(FMaterial& Material, bool bTexturedMaterial);
+	void TickShaderHotReload(float DeltaTime);
+	bool ApplyShaderReload(const FShaderReloadTransaction& Transaction, std::string& OutError);
+
+	FMaterial* GetDefaultMaterial() const
+	{
+		return DefaultMaterial.get();
+	}
+
+	FMaterial* GetDefaultTextureMaterial() const
+	{
+		return DefaultTextureMaterial.get();
+	}
+
+	size_t GetPrevCommandCount() const;
+
+	std::unique_ptr<FRenderStateManager>& GetRenderStateManager()
+	{
+		return RenderStateManager;
+	}
+
+	ID3D11Device* GetDevice() const
+	{
+		return RenderDevice.GetDevice();
+	}
+
+	ID3D11DeviceContext* GetDeviceContext() const
+	{
+		return RenderDevice.GetDeviceContext();
+	}
+
+	ID3D11RenderTargetView* GetRenderTargetView() const
+	{
+		return RenderDevice.GetRenderTargetView();
+	}
+
+	IDXGISwapChain* GetSwapChain() const
+	{
+		return RenderDevice.GetSwapChain();
+	}
+
+	HWND GetHwnd() const
+	{
+		return RenderDevice.GetHwnd();
+	}
+
+	const D3D11_VIEWPORT& GetBackBufferViewport() const
+	{
+		return RenderDevice.GetViewport();
+	}
+
+	ISceneTextFeature*         GetSceneTextFeature() const;
+	ISceneSubUVFeature*        GetSceneSubUVFeature() const;
+	ISceneBillboardFeature*    GetSceneBillboardFeature() const;
+	FFogRenderFeature*         GetFogFeature() const;
+	FOutlineRenderFeature*     GetOutlineFeature() const;
+	FDebugLineRenderFeature*   GetDebugLineFeature() const;
+	FDecalRenderFeature*       GetDecalFeature() const;
+	FVolumeDecalRenderFeature* GetVolumeDecalFeature() const;
+	FFireBallRenderFeature*    GetFireBallFeature() const;
+	FFXAARenderFeature*        GetFXAAFeature() const;
+	FLightRenderFeature*       GetLightFeature() const;
+	FBloomRenderFeature*	   GetBloomFeature() const;
+
+	FSceneRenderer& GetSceneRenderer()
+	{
+		return *SceneRenderer;
+	}
+
+	FScreenUIRenderer& GetScreenUIRenderer()
+	{
+		return *ScreenUIRenderer;
+	}
+
+	FRenderDevice& GetRenderDevice()
+	{
+		return RenderDevice;
+	}
+
+	FBillboardRenderer&     GetBillboardRenderer();
+	const FDecalFrameStats& GetDecalFrameStats() const;
+	FMeshPassFrameStats     GetMeshPassFrameStats() const;
+
+	void SetDecalProjectionMode(EDecalProjectionMode InMode)
+	{
+		DecalProjectionMode = InMode;
+	}
+
+	EDecalProjectionMode GetDecalProjectionMode() const
+	{
+		return DecalProjectionMode;
+	}
+
+	const FToneMappingSettings& GetToneMappingSettings() const
+	{
+		return ToneMappingSettings;
+	}
+
+	void SetToneMappingSettings(const FToneMappingSettings& InSettings)
+	{
+		if (memcmp(&ToneMappingSettings, &InSettings, sizeof(FToneMappingSettings)) != 0)
+		{
+			ToneMappingSettings  = InSettings;
+			ToneMappingMode      = InSettings.Mode;
+			bToneMappingDirty    = true;
+		}
+	}
+
+	FDecalStats    GetDecalStats() const;
+	FFogStats      GetFogStats() const;
+	FLightStats    GetLightStats() const;
+	FGPUFrameStats GetGPUStats() const;
+
+	ID3D11SamplerState* GetDefaultSampler() const
+	{
+		return NormalSampler;
+	}
+
+	void SetConstantBuffers();
+	void UpdateFrameConstantBuffer(const FFrameContext& Frame, const FViewContext& View);
+	void UpdateObjectConstantBuffer(const FMatrix& World);
+	void UpdateObjectConstantBuffer(const FMeshBatch& Batch);
+	void ClearDepthBuffer(ID3D11DepthStencilView* DepthStencilView);
+	void PreparePassDomain(EPassDomain Domain, const FSceneRenderTargets& Targets);
+	bool ResolveSceneColorTargets(
+		FSceneRenderTargets& Targets,
+		const FFrameContext& Frame,
+		const FViewContext&  View,
+		bool                 bApplyFXAA);
+
+	ID3D11ShaderResourceView* GetFolderIconSRV() const
+	{
+		return FolderIconSRV;
+	}
+
+	ID3D11ShaderResourceView* GetFileIconSRV() const
+	{
+		return FileIconSRV;
+	}
+
+	FShaderManager ShaderManager;
+
+private:
+	friend class FSceneRenderer;
+	friend class FTextRenderFeature;
+	friend class FBillboardRenderFeature;
+	friend class FFogRenderFeature;
+	friend class FOutlineRenderFeature;
+	friend class FDebugLineRenderFeature;
+	friend class FDecalRenderFeature;
+	friend class FVolumeDecalRenderFeature;
+	friend class FScreenUIRenderer;
+	friend class FRendererResourceBootstrap;
+	friend class FGameFrameRenderer;
+	friend class FEditorFrameRenderer;
+	bool CreateConstantBuffers();
+	bool CreateSamplers();
+	bool EnsureFinalImageResources();
+
+
+	std::unique_ptr<FRenderStateManager> RenderStateManager = nullptr;
+
+	FRenderDevice RenderDevice;
+
+	ID3D11Buffer* FrameConstantBuffer  = nullptr;
+	ID3D11Buffer* ObjectConstantBuffer = nullptr;
+
+	std::shared_ptr<FMaterial> DefaultMaterial;
+	std::shared_ptr<FMaterial> DefaultTextureMaterial;
+
+	std::unique_ptr<FSceneRenderer>            SceneRenderer;
+	std::unique_ptr<FViewportCompositor>       ViewportCompositor;
+	std::unique_ptr<FScreenUIRenderer>         ScreenUIRenderer;
+	std::unique_ptr<FTextRenderFeature>        TextFeature;
+	std::unique_ptr<FSubUVRenderFeature>       SubUVFeature;
+	std::unique_ptr<FBillboardRenderFeature>   BillboardFeature;
+	std::unique_ptr<FFogRenderFeature>         FogFeature;
+	std::unique_ptr<FOutlineRenderFeature>     OutlineFeature;
+	std::unique_ptr<FDebugLineRenderFeature>   DebugLineFeature;
+	std::unique_ptr<FDecalRenderFeature>       DecalFeature;
+	std::unique_ptr<FVolumeDecalRenderFeature> VolumeDecalFeature;
+	std::unique_ptr<FFireBallRenderFeature>    FireBallFeature;
+	std::unique_ptr<FLightRenderFeature>       LightFeature;
+	std::unique_ptr<FBloomRenderFeature>       BloomFeature;
+	std::unique_ptr<FFXAARenderFeature>        FXAAFeature;
+	EDecalProjectionMode                       DecalProjectionMode = EDecalProjectionMode::ClusteredLookup;
+
+	ID3D11ShaderResourceView*            FolderIconSRV = nullptr;
+	ID3D11ShaderResourceView*            FileIconSRV   = nullptr;
+	std::unique_ptr<FSceneTargetManager> SceneTargetManager;
+	std::unique_ptr<FDecalTextureCache>  DecalTextureCache;
+	ID3D11SamplerState*                  NormalSampler              = nullptr;
+	std::shared_ptr<FVertexShaderHandle> FinalImageVertexShader     = nullptr;
+	std::shared_ptr<FPixelShaderHandle>  FinalImageBlitPixelShader  = nullptr;
+	std::shared_ptr<FPixelShaderHandle>  ToneMappingPixelShaders[4] = {}; // [ACES, Hable, Reinhard, Linear]
+	EToneMappingMode                     ToneMappingMode            = EToneMappingMode::Hable;
+	FToneMappingSettings                 ToneMappingSettings;
+	bool                                 bToneMappingDirty          = true;
+	ID3D11Buffer*                        ToneMappingConstantBuffer  = nullptr;
+	ID3D11RasterizerState*               FullscreenRasterizerState  = nullptr;
+	ID3D11DepthStencilState*             FullscreenNoDepthState     = nullptr;
+	ID3D11SamplerState*                  FullscreenPointSampler     = nullptr;
+	FShaderHotReloadService              ShaderHotReloadService;
+};

@@ -1,0 +1,261 @@
+body {
+    margin: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+}
+
+#loadingRoot {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100.000000%;
+    height: 100.000000%;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 255);
+    color: rgba(238, 243, 246, 255);
+    border-width: 0px;
+    padding: 0px;
+    font-family: "Nexon";
+    font-size: 24.000000px;
+    text-align: left;
+}
+
+#loadingSnapshotSlot {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100.000000%;
+    height: 100.000000%;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+#loadingSnapshotImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100.000000%;
+    height: 100.000000%;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+#loadingBottomFade {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100.000000%;
+    height: 432.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+#loadingBottomGradient {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100.000000%;
+    height: 100.000000%;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+#loadingControlsPanel {
+    position: absolute;
+    left: 440.000000px;
+    top: 286.000000px;
+    width: 1040.000000px;
+    height: 390.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(3, 12, 13, 132);
+    border-width: 0px;
+    padding: 0px;
+    font-family: "Nexon";
+}
+
+#loadingControlsTitle {
+    position: absolute;
+    left: 44.000000px;
+    top: 30.000000px;
+    width: 952.000000px;
+    height: 34.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(255, 224, 140, 255);
+    font-family: "Nexon";
+    font-weight: 700;
+    font-size: 24.000000px;
+    text-align: left;
+}
+
+.loading-control-row {
+    position: absolute;
+    width: 470.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 12);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(230, 236, 238, 255);
+    font-family: "Nexon";
+    text-align: left;
+    overflow: hidden;
+}
+
+.control-action {
+    position: absolute;
+    left: 18.000000px;
+    top: 0px;
+    width: 132.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    color: rgba(255, 224, 140, 255);
+    font-weight: 700;
+    font-size: 18.000000px;
+    line-height: 42.000000px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.control-key {
+    position: absolute;
+    left: 150.000000px;
+    top: 0px;
+    width: 300.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    padding: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    opacity: 1;
+    color: rgba(238, 243, 246, 255);
+    font-weight: 700;
+    font-size: 17.000000px;
+    line-height: 42.000000px;
+    text-align: right;
+    overflow: hidden;
+}
+
+#loadingControlMove {
+    left: 44.000000px;
+    top: 88.000000px;
+}
+
+#loadingControlAim {
+    left: 526.000000px;
+    top: 88.000000px;
+}
+
+#loadingControlScope {
+    left: 44.000000px;
+    top: 140.000000px;
+}
+
+#loadingControlFire {
+    left: 526.000000px;
+    top: 140.000000px;
+}
+
+#loadingControlBreath {
+    left: 44.000000px;
+    top: 192.000000px;
+}
+
+#loadingControlZoom {
+    left: 526.000000px;
+    top: 192.000000px;
+}
+
+#loadingControlAmmo {
+    left: 44.000000px;
+    top: 244.000000px;
+}
+
+#loadingControlReload {
+    left: 526.000000px;
+    top: 244.000000px;
+}
+
+#loadingControlPause {
+    left: 44.000000px;
+    top: 296.000000px;
+}
+
+#loadingTitle {
+    position: absolute;
+    left: 96.000000px;
+    top: 790.000000px;
+    width: 760.000000px;
+    height: 72.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(245, 248, 250, 255);
+    font-family: "Nexon";
+    font-weight: 700;
+    font-size: 48.000000px;
+    text-align: left;
+}
+
+#loadingTip {
+    position: absolute;
+    left: 96.000000px;
+    bottom: 112.000000px;
+    width: 1320.000000px;
+    height: 48.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(220, 226, 229, 255);
+    font-family: "Nexon";
+    font-size: 25.000000px;
+    text-align: left;
+}
+
+#pressPrompt {
+    position: absolute;
+    right: 72.000000px;
+    bottom: 54.000000px;
+    width: 360.000000px;
+    height: 40.000000px;
+    box-sizing: border-box;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(255, 213, 118, 255);
+    font-family: "Nexon";
+    font-size: 28.000000px;
+    text-align: right;
+}

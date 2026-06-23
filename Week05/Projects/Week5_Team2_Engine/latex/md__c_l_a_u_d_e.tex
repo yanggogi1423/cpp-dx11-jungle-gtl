@@ -1,0 +1,92 @@
+\chapter{CLAUDE.\+md }
+\hypertarget{md__c_l_a_u_d_e}{}\label{md__c_l_a_u_d_e}\index{CLAUDE.md@{CLAUDE.md}}
+\label{md__c_l_a_u_d_e_autotoc_md0}%
+\Hypertarget{md__c_l_a_u_d_e_autotoc_md0}%
+
+
+This file provides guidance to Claude Code (claude.\+ai/\+code) when working with code in this repository.\hypertarget{md__c_l_a_u_d_e_autotoc_md1}{}\doxysection{\texorpdfstring{Project Overview}{Project Overview}}\label{md__c_l_a_u_d_e_autotoc_md1}
+DirectX 11 3D scene editor engine built with C++ and Im\+Gui. Actor/\+\+Component architecture with WYSIWYG editing, raycasting object selection, multi-\/scene management, and JSON serialization. Includes a standalone OBJ mesh viewer mode ({\ttfamily Obj\+View\+Debug} build) for previewing static meshes.
+
+{\bfseries{Week 5 focus:\+}} High-\/performance rendering competition — render 50,000 {\ttfamily Static\+Mesh\+Component}s (50×50×20 grid) as fast as possible. Key constraint:\+ one Draw Call per Static\+Mesh (no {\ttfamily Draw\+Instanced}/\+{\ttfamily Draw\+Indexed\+Instanced}). Optimization targets:\+ Frustum Culling, Scene Graph (BVH/\+\+Octree/\+\+K-\/d tree), SIMD. Performance HUD must display FPS (ms), last Picking time (ms), accumulated Picking count, and accumulated Picking time (ms) in the top-\/left corner.\hypertarget{md__c_l_a_u_d_e_autotoc_md2}{}\doxysection{\texorpdfstring{Build Commands}{Build Commands}}\label{md__c_l_a_u_d_e_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Build\ (x64\ Debug)\ via\ MSBuild}
+\DoxyCodeLine{msbuild\ KraftonEngine.sln\ /p:Configuration=Debug\ /p:Platform=x64}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Build\ (x64\ Release)}
+\DoxyCodeLine{msbuild\ KraftonEngine.sln\ /p:Configuration=Release\ /p:Platform=x64}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Build\ OBJ\ Viewer\ (x64)\ —\ standalone\ mesh\ preview\ tool}
+\DoxyCodeLine{msbuild\ KraftonEngine.sln\ /p:Configuration=ObjViewDebug\ /p:Platform=x64}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Regenerate\ project\ files\ after\ adding/removing\ source\ files}
+\DoxyCodeLine{python\ Scripts/GenerateProjectFiles.py}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Release\ packaging\ (copies\ exe\ +\ shaders\ +\ assets\ to\ ReleaseBuild/)}
+\DoxyCodeLine{./ReleaseBuild.bat}
+
+\end{DoxyCode}
+
+
+Output:\+ {\ttfamily Krafton\+Engine/\+\+Bin/\+\texorpdfstring{$<$}{<}Configuration\texorpdfstring{$>$}{>}/\+\+Krafton\+Engine.exe}
+
+Build configurations:\+ {\ttfamily Debug}, {\ttfamily Release}, {\ttfamily Obj\+View\+Debug} (x64/\+x86). Obj\+View\+Debug defines {\ttfamily IS\+\_\+\+OBJ\+\_\+\+VIEWER=1} and excludes most Editor sources, launching {\ttfamily UObj\+Viewer\+Engine} instead of {\ttfamily UEditor\+Engine}.
+
+Requirements:\+ Visual Studio 2022 (v143 toolset), Windows SDK with DirectX 11. All dependencies (Im\+Gui, Simple\+JSON, Direct\+XTK) are included in-\/tree. No package manager needed.
+
+There are no tests or linting tools configured in this project.\hypertarget{md__c_l_a_u_d_e_autotoc_md3}{}\doxysection{\texorpdfstring{Architecture}{Architecture}}\label{md__c_l_a_u_d_e_autotoc_md3}
+\hypertarget{md__c_l_a_u_d_e_autotoc_md4}{}\doxysubsection{\texorpdfstring{Object System (RTTI)}{Object System (RTTI)}}\label{md__c_l_a_u_d_e_autotoc_md4}
+Custom runtime type information using {\ttfamily DECLARE\+\_\+\+CLASS} /\+ {\ttfamily DEFINE\+\_\+\+CLASS} macros that build {\ttfamily FType\+Info} chains. Supports {\ttfamily IsA\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()} and {\ttfamily Cast\texorpdfstring{$<$}{<}T\texorpdfstring{$>$}{>}()}. {\ttfamily UObject\+Manager} singleton handles lifecycle and auto-\/naming ({\ttfamily Class\+Name\+\_\+N}). {\ttfamily FName} is a pooled, case-\/insensitive string identifier.\hypertarget{md__c_l_a_u_d_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{Rendering Pipeline}{Rendering Pipeline}}\label{md__c_l_a_u_d_e_autotoc_md5}
+Multi-\/pass command buffer pattern:\+ {\ttfamily Render\+Collector} (scene traversal → {\ttfamily FRender\+Command}) → {\ttfamily Render\+Bus} (per-\/pass queuing) → {\ttfamily Renderer} (GPU submission via {\ttfamily FPass\+Render\+State} lookup tables).
+
+Render pass order:\+ Opaque → Font → Sub\+UV → Translucent → Stencil\+Mask → Outline → Editor → Grid → Depth\+Less.
+
+Adding a new render pass = one entry in the {\ttfamily FPass\+Render\+State} table. Batchers (Line, Font, Sub\+UV) own their shaders and are flushed by the Renderer.\hypertarget{md__c_l_a_u_d_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{Editor}{Editor}}\label{md__c_l_a_u_d_e_autotoc_md6}
+{\ttfamily UEditor\+Engine} extends {\ttfamily UEngine}. Viewport supports ray-\/triangle picking, stencil-\/based selection outline, and gizmo transform manipulation. UI is entirely Im\+Gui-\/based with docking widgets (Scene hierarchy, Property editor, Viewport overlay, Console, Stats).\hypertarget{md__c_l_a_u_d_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{OBJ Viewer}{OBJ Viewer}}\label{md__c_l_a_u_d_e_autotoc_md7}
+Standalone mesh preview mode ({\ttfamily Source/\+\+Obj\+Viewer/\+}). {\ttfamily UObj\+Viewer\+Engine} subclasses {\ttfamily UEngine} and is activated via {\ttfamily IS\+\_\+\+OBJ\+\_\+\+VIEWER} preprocessor flag in {\ttfamily Engine\+Loop.\+cpp}. Components:\+ {\ttfamily Obj\+Viewer\+Panel} (Im\+Gui mesh list + viewport UI), {\ttfamily Obj\+Viewer\+Render\+Pipeline} (offscreen render target), {\ttfamily Obj\+Viewer\+Viewport\+Client} (orbit/\+pan/\+zoom camera).\hypertarget{md__c_l_a_u_d_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Serialization}{Serialization}}\label{md__c_l_a_u_d_e_autotoc_md8}
+{\ttfamily .Scene} files are JSON. {\ttfamily FScene\+Save\+Manager} handles read/\+write of actor hierarchy, components, transforms, camera state. Editor settings persist to {\ttfamily Settings/\+editor.\+ini}.\hypertarget{md__c_l_a_u_d_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Performance \& Optimization (Week 5)}{Performance \& Optimization (Week 5)}}\label{md__c_l_a_u_d_e_autotoc_md9}
+Competition constraints:\+
+\begin{DoxyItemize}
+\item {\bfseries{No Instanced Rendering}} — {\ttfamily Draw\+Instanced} /\+ {\ttfamily Draw\+Indexed\+Instanced} are forbidden; each {\ttfamily Static\+Mesh} issues exactly one Draw Call.
+\item {\bfseries{Real-\/time only}} — pre-\/caching results when the camera is stationary is not allowed. Objects may move in/\+out of view at any time.
+\item Standard scene ({\ttfamily Default\+Scene.\+zip}) and mesh dataset ({\ttfamily Jungle\+Apples.\+zip}) are fixed; camera info, object count, and meshes may vary between teams at judging time.
+\item Performance measured on Alienware m15 R5 (RTX 3070). Winner ranked by FPS score + Picking score (lower ms = better).
+\end{DoxyItemize}
+
+Key optimization techniques in scope:\+
+\begin{DoxyItemize}
+\item {\bfseries{Frustum Culling}} — skip Draw Calls for meshes outside the view frustum.
+\item {\bfseries{Scene Graph /\+ Spatial partitioning}} — BVH, Octree, or K-\/d tree to accelerate frustum and ray-\/cast queries.
+\item {\bfseries{SIMD}} — SSE2/\+\+AVX for math-\/heavy culling loops ({\ttfamily \+\_\+\+\_\+m128}, aligned allocations).
+\item {\bfseries{Render State sorting}} — minimize redundant state changes between Draw Calls.
+\end{DoxyItemize}
+
+Performance timing uses {\ttfamily FWindows\+Platform\+Time} ({\ttfamily Query\+Performance\+Frequency} /\+ {\ttfamily Query\+Performance\+Counter}) and {\ttfamily FScope\+Cycle\+Counter} (RAII scope timer). The HUD overlay (top-\/left) must show:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FPS\ :\ <N>\ (<ms>\ ms)}
+\DoxyCodeLine{Picking\ Time\ <ms>\ ms\ :\ Num\ Attempts\ <N>\ :\ Accumulated\ Time\ <ms>\ ms}
+
+\end{DoxyCode}
+\hypertarget{md__c_l_a_u_d_e_autotoc_md10}{}\doxysection{\texorpdfstring{Code Conventions}{Code Conventions}}\label{md__c_l_a_u_d_e_autotoc_md10}
+
+\begin{DoxyItemize}
+\item C++20 (x64), C++17 (Win32/\+x86)
+\item UTF-\/8 BOM for C++/\+H files, tab indentation (size 4)
+\item UTF-\/8 (no BOM) for HLSL shaders
+\item Include paths root at:\+ {\ttfamily Source/\+\+Engine}, {\ttfamily Source}, {\ttfamily Source/\+\+Editor}, {\ttfamily Source/\+\+Obj\+Viewer}, {\ttfamily Third\+Party}, {\ttfamily Third\+Party/\+\+Im\+Gui}
+\item Headers use relative paths from these roots:\+ {\ttfamily \#include "{}Engine/\+\+Core/\+\+Input\+System.\+h"{}}
+\item Naming:\+ {\ttfamily F} prefix for structs/\+data types (FVector, FName), {\ttfamily U} for UObject derivatives, {\ttfamily A} for Actors, {\ttfamily E} for enums
+\item HLSL shaders in {\ttfamily Krafton\+Engine/\+\+Shaders/\+} are compiled at runtime
+\end{DoxyItemize}\hypertarget{md__c_l_a_u_d_e_autotoc_md11}{}\doxysection{\texorpdfstring{Key Source Layout}{Key Source Layout}}\label{md__c_l_a_u_d_e_autotoc_md11}
+
+\begin{DoxyItemize}
+\item {\ttfamily Krafton\+Engine/\+\+Source/\+\+Engine/\+} — core engine (Object, Math, Render, Game\+Framework, Component, Serialization, Core, Runtime)
+\item {\ttfamily Krafton\+Engine/\+\+Source/\+\+Editor/\+} — editor layer (UI widgets, viewport, selection, settings)
+\item {\ttfamily Krafton\+Engine/\+\+Source/\+\+Obj\+Viewer/\+} — standalone mesh viewer (Obj\+Viewer\+Engine, Panel, Render\+Pipeline, Viewport\+Client)
+\item {\ttfamily Krafton\+Engine/\+\+Shaders/\+} — 8 HLSL files + {\ttfamily Common/\+} subdirectory ({\ttfamily Constant\+Buffers.\+hlsl}, {\ttfamily Functions.\+hlsl}, {\ttfamily Vertex\+Layouts.\+hlsl})
+\item {\ttfamily Krafton\+Engine/\+\+Third\+Party/\+} — Im\+Gui and Simple\+JSON (vendored)
+\item {\ttfamily Krafton\+Engine/\+\+Asset/\+} — font atlas, particle textures, default scene, Mesh\+Cache (prebuilt .bin meshes), Static\+Mesh
+\item {\ttfamily Krafton\+Engine/\+\+Data/\+} — mesh source files (.obj, .mtl, textures) organized by model name 
+\end{DoxyItemize}

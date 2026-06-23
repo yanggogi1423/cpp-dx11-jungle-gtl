@@ -1,0 +1,98 @@
+{
+  "Actors" : [{
+      "ClassName" : "AActor",
+      "Name" : "AActor_0",
+      "NonSceneComponents" : [{
+          "ClassName" : "ULuaScriptComponent",
+          "ObjectId" : 4,
+          "Properties" : {
+            "InitialGameState" : 5,
+            "PendingTagsString" : "",
+            "PersistentGuid" : "Component_108",
+            "ScriptFile" : "Management/GeneralManager.lua",
+            "bAutoActivate" : true,
+            "bEditorOnly" : false,
+            "bHiddenInComponentTree" : false,
+            "bIsActive" : true,
+            "bTickEnable" : true
+          }
+        }],
+      "ObjectId" : 2,
+      "Properties" : {
+        "PendingActorLocation" : [10.082989, -6.434422, 14.475205],
+        "PendingActorRotation" : [-0.000000, 0.000000, 0.000000],
+        "PendingActorScale" : [0.700000, 0.700000, 0.700000],
+        "PendingActorVisible" : true,
+        "PendingTagsString" : "",
+        "bNeedsTick" : true
+      },
+      "RootComponent" : {
+        "Children" : [],
+        "ClassName" : "UBillboardComponent",
+        "ObjectId" : 3,
+        "Properties" : {
+          "AttachSocketName" : "Name_None",
+          "CachedEditRotator" : [-0.000000, 0.000000, 0.000000],
+          "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+          "CollisionEnabled" : 0,
+          "Mass" : 1.000000,
+          "MaterialSlot" : "Content/Material/Editor/EmptyActor.uasset",
+          "ObjectType" : 0,
+          "PendingTagsString" : "",
+          "PersistentGuid" : "Component_104",
+          "RelativeTransform.Location" : [10.082989, -6.434422, 14.475205],
+          "RelativeTransform.Scale" : [0.700000, 0.700000, 0.700000],
+          "ResponseContainer" : {
+            "Responses[0]" : 2,
+            "Responses[1]" : 2,
+            "Responses[2]" : 2,
+            "Responses[3]" : 2,
+            "Responses[4]" : 2
+          },
+          "bAbsoluteScale" : false,
+          "bAutoActivate" : true,
+          "bCastShadow" : true,
+          "bCastShadowAsTwoSided" : false,
+          "bEditorOnly" : true,
+          "bEnableCCD" : false,
+          "bGenerateOverlapEvents" : false,
+          "bHiddenInComponentTree" : false,
+          "bIsActive" : true,
+          "bIsBillboard" : true,
+          "bIsVisible" : true,
+          "bKinematic" : false,
+          "bSimulatePhysics" : false,
+          "bTickEnable" : true
+        }
+      }
+    }],
+  "ClassName" : "UWorld",
+  "ContextHandle" : "NewScene",
+  "ContextName" : "New Scene",
+  "Name" : "Defeat",
+  "ObjectId" : 1,
+  "PerspectiveCamera" : {
+    "FOV" : 1.047198,
+    "FarClip" : 1000.000000,
+    "Location" : [17.514231, -5.861367, 21.297508],
+    "NearClip" : 0.100000,
+    "Rotation" : [0.000000, 37.515060, 166.350006]
+  },
+  "Version" : 2,
+  "WorldSettings" : {
+    "BallisticWindAcceleration" : [0.000000, 1.500000, 0.000000],
+    "BallisticWindBlendSpeed" : 3.000000,
+    "BallisticWindChangeIntervalMax" : 3.000000,
+    "BallisticWindChangeIntervalMin" : 1.200000,
+    "BallisticWindCrossBias" : 1.250000,
+    "BallisticWindDirectionOffsetDegrees" : 90.000000,
+    "BallisticWindEnabled" : true,
+    "BallisticWindMagnitudeScaleMax" : 0.900000,
+    "BallisticWindMagnitudeScaleMin" : 0.250000,
+    "DefaultPawnPrefabPath" : "",
+    "DynamicBallisticWindEnabled" : true,
+    "GameMode" : "",
+    "Gravity" : [0.000000, 0.000000, -9.810000]
+  },
+  "WorldType" : "Editor"
+}

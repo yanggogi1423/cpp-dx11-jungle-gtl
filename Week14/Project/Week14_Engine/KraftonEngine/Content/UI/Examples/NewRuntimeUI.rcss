@@ -1,0 +1,82 @@
+body {
+    margin: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+}
+
+#root {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(6, 7, 10, 255);
+    color: rgba(255, 255, 255, 255);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px 0px 0px 0px;
+    border-radius: 0px;
+    padding: 0px 0px 0px 0px;
+    font-size: 24.000000px;
+    text-align: center;
+}
+
+#mainPanel {
+    position: absolute;
+    left: 660.000000px;
+    top: 330.000000px;
+    width: 600.000000px;
+    height: 360.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(28, 33, 46, 235);
+    color: rgba(255, 255, 255, 255);
+    border-color: rgba(97, 173, 199, 191);
+    border-width: 1.000000px 1.000000px 1.000000px 1.000000px;
+    border-radius: 6.000000px;
+    padding: 0px 0px 0px 0px;
+    font-size: 24.000000px;
+    text-align: center;
+}
+
+#titleText {
+    position: absolute;
+    left: 60.000000px;
+    top: 58.000000px;
+    width: 480.000000px;
+    height: 64.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(235, 250, 255, 255);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px 0px 0px 0px;
+    border-radius: 0px;
+    padding: 0px 0px 0px 0px;
+    font-size: 42.000000px;
+    text-align: center;
+}
+
+#startButton {
+    position: absolute;
+    left: 180.000000px;
+    top: 210.000000px;
+    width: 240.000000px;
+    height: 72.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(56, 117, 148, 255);
+    color: rgba(255, 255, 255, 255);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px 0px 0px 0px;
+    border-radius: 5.000000px;
+    padding: 0px 0px 0px 0px;
+    font-size: 28.000000px;
+    text-align: center;
+}
+

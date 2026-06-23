@@ -1,0 +1,14 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.1/Modules/FindCUDA.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.1/Modules/FindCUDA/run_nvcc.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.1/Modules/FindCUDA/select_compute_arch.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.1/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/Microsoft Visual Studio/18/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-4.1/Modules/FindPackageMessage.cmake
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/Externals/CMakeModules/FindPxShared.cmake
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/Externals/CMakeModules/SetOutputPaths.cmake
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/common/CMakeLists.txt
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/common/NvCloth.cmake
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/CMakeLists.txt
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/compiler/cmake/windows/NvCloth.cmake
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.cmake.pre-gen
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/NvCloth_bin/CMakeFiles/cuda_compile_fatbin_1.dir/__/__/__/src/cuda/cuda_compile_fatbin_1_generated_CuSolverKernel.cu.fatbin.depend

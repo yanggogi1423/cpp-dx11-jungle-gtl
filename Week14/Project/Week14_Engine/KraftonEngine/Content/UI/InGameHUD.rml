@@ -1,0 +1,135 @@
+<rml>
+<head>
+    <link type="text/rcss" href="InGameHUD.rcss" />
+</head>
+<body>
+    <div id="hudRoot" data-ui-type="Canvas" data-ui-name="In Game HUD">
+        <div id="scopeOverlay" data-ui-type="Panel" data-ui-name="Scope Overlay">
+            <img id="scopeImage" data-ui-type="Image" data-ui-name="Scope Image" src="Image/Scope/Scope_3.png" data-ui-fit="fill" />
+            <div id="scopeTelemetryPanel" data-ui-type="Panel" data-ui-name="Scope Telemetry Panel">
+                <div id="scopeDistanceRow" class="scope-info-row" data-ui-type="Panel" data-ui-name="Scope Distance Row">
+                    <img id="scopeDistanceIcon" class="scope-info-icon" data-ui-type="Image" data-ui-name="Scope Distance Icon" src="Image/Scope/Distance.png" data-ui-fit="contain" />
+                    <div id="scopeDistanceValue" class="scope-info-value" data-ui-type="Text" data-ui-name="Scope Distance Value">-- m</div>
+                </div>
+                <div id="scopeWindRow" class="scope-info-row" data-ui-type="Panel" data-ui-name="Scope Wind Row">
+                    <img id="scopeWindIcon" class="scope-info-icon" data-ui-type="Image" data-ui-name="Scope Wind Icon" src="Image/Scope/Wind.png" data-ui-fit="contain" />
+                    <div id="scopeWindValue" class="scope-info-value" data-ui-type="Text" data-ui-name="Scope Wind Value">000 deg</div>
+                    <div id="scopeWindSpeedValue" class="scope-info-value" data-ui-type="Text" data-ui-name="Scope Wind Speed Value">0.0 m/s</div>
+                </div>
+                <div id="scopeZoomRow" class="scope-info-row" data-ui-type="Panel" data-ui-name="Scope Zoom Row">
+                    <img id="scopeZoomIcon" class="scope-info-icon" data-ui-type="Image" data-ui-name="Scope Zoom Icon" src="Image/Scope/Scale.png" data-ui-fit="contain" />
+                    <div id="scopeZoomValue" class="scope-info-value" data-ui-type="Text" data-ui-name="Scope Zoom Value">4x</div>
+                </div>
+                <div id="scopeWindBarRow" data-ui-type="Panel" data-ui-name="Scope Wind Bar Row">
+                    <div id="scopeWindGauge" data-ui-type="Panel" data-ui-name="Scope Wind Gauge">
+                        <div id="scopeWindPulseGlow" data-ui-type="Panel" data-ui-name="Scope Wind Pulse Glow"></div>
+                        <div id="scopeWindBarTrack" data-ui-type="Panel" data-ui-name="Scope Wind Bar Track"></div>
+                        <div id="scopeWindBarLeft" data-ui-type="Panel" data-ui-name="Scope Wind Bar Left"></div>
+                        <div id="scopeWindBarRight" data-ui-type="Panel" data-ui-name="Scope Wind Bar Right"></div>
+                        <div id="scopeWindBarLeftTip" data-ui-type="Panel" data-ui-name="Scope Wind Bar Left Tip"></div>
+                        <div id="scopeWindBarRightTip" data-ui-type="Panel" data-ui-name="Scope Wind Bar Right Tip"></div>
+                        <div id="scopeWindCenterLine" data-ui-type="Panel" data-ui-name="Scope Wind Center Line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img id="compassImage" data-ui-type="Image" data-ui-name="Compass Image" src="Image/Hor-Compass/Window/Compass_Window_000.png" data-ui-fit="contain" />
+        <img id="CompassArrow" data-ui-type="Image" data-ui-name="CompassArrow" src="Image/Hor-Compass/Arrow.png" data-ui-fit="fill" />
+        <img id="crosshairImage" data-ui-type="Image" data-ui-name="Crosshair Image" src="Image/CrossHair/crosshair022.png" data-ui-fit="fill" />
+        <div id="airSupportTimerPanel" data-ui-type="Panel" data-ui-name="Air Support Timer Panel">
+            <div id="airSupportTimerLabel" data-ui-type="Text" data-ui-name="Air Support Timer Label">&#54637;&#44277; &#51648;&#50896; &#46020;&#52265; &#50696;&#51221;</div>
+            <div id="airSupportTimerValue" data-ui-type="Text" data-ui-name="Air Support Timer Value">07:00</div>
+        </div>
+        <div id="combatAgentPanel" data-ui-type="Panel" data-ui-name="Combat Agent Panel">
+            <div id="combatAgentTitle" data-ui-type="Text" data-ui-name="Combat Agent Title">ALLY STATUS</div>
+            <div id="combatAgentRow1" class="combat-agent-row" data-ui-type="Panel"><div id="combatAgentName1" class="combat-agent-name" data-ui-type="Text">-</div><div id="combatAgentHp1" class="combat-agent-hp" data-ui-type="Text">000 / 000</div><div id="combatAgentState1" class="combat-agent-state" data-ui-type="Text">-</div><div id="combatAgentBarTrack1" class="combat-agent-bar-track" data-ui-type="Panel"><div id="combatAgentBarFill1" class="combat-agent-bar-fill" data-ui-type="Panel"></div></div></div>
+            <div id="combatAgentRow2" class="combat-agent-row" data-ui-type="Panel"><div id="combatAgentName2" class="combat-agent-name" data-ui-type="Text">-</div><div id="combatAgentHp2" class="combat-agent-hp" data-ui-type="Text">000 / 000</div><div id="combatAgentState2" class="combat-agent-state" data-ui-type="Text">-</div><div id="combatAgentBarTrack2" class="combat-agent-bar-track" data-ui-type="Panel"><div id="combatAgentBarFill2" class="combat-agent-bar-fill" data-ui-type="Panel"></div></div></div>
+            <div id="combatAgentRow3" class="combat-agent-row" data-ui-type="Panel"><div id="combatAgentName3" class="combat-agent-name" data-ui-type="Text">-</div><div id="combatAgentHp3" class="combat-agent-hp" data-ui-type="Text">000 / 000</div><div id="combatAgentState3" class="combat-agent-state" data-ui-type="Text">-</div><div id="combatAgentBarTrack3" class="combat-agent-bar-track" data-ui-type="Panel"><div id="combatAgentBarFill3" class="combat-agent-bar-fill" data-ui-type="Panel"></div></div></div>
+            <div id="combatAgentRow4" class="combat-agent-row" data-ui-type="Panel"><div id="combatAgentName4" class="combat-agent-name" data-ui-type="Text">-</div><div id="combatAgentHp4" class="combat-agent-hp" data-ui-type="Text">000 / 000</div><div id="combatAgentState4" class="combat-agent-state" data-ui-type="Text">-</div><div id="combatAgentBarTrack4" class="combat-agent-bar-track" data-ui-type="Panel"><div id="combatAgentBarFill4" class="combat-agent-bar-fill" data-ui-type="Panel"></div></div></div>
+            <div id="combatAgentRow5" class="combat-agent-row" data-ui-type="Panel"><div id="combatAgentName5" class="combat-agent-name" data-ui-type="Text">-</div><div id="combatAgentHp5" class="combat-agent-hp" data-ui-type="Text">000 / 000</div><div id="combatAgentState5" class="combat-agent-state" data-ui-type="Text">-</div><div id="combatAgentBarTrack5" class="combat-agent-bar-track" data-ui-type="Panel"><div id="combatAgentBarFill5" class="combat-agent-bar-fill" data-ui-type="Panel"></div></div></div>
+        </div>
+        <div id="breathPanel" data-ui-type="Panel" data-ui-name="Hold Breath Panel">
+            <div id="breathLabel" data-ui-type="Text" data-ui-name="Hold Breath Label">&amp;#49704;&amp;#52280;&amp;#44592;</div>
+            <div id="breathBarTrack" data-ui-type="Panel" data-ui-name="Hold Breath Track">
+                <div id="breathBarFill" data-ui-type="Panel" data-ui-name="Hold Breath Fill"></div>
+                <progress id="breathProgress" data-ui-type="Panel" data-ui-name="Hold Breath Progress" value="1" max="1"></progress>
+            </div>
+        </div>
+        <div id="weaponInfoPanel" data-ui-type="Panel" data-ui-name="Weapon Info Panel">
+            <img id="weaponPanelBg" data-ui-type="Image" data-ui-name="Weapon Panel Background" src="Image/HUD/WeaponPanelFade.png" data-ui-fit="fill" />
+            <div id="weaponNameLabel" data-ui-type="Text" data-ui-name="Weapon Name">SNIPER RIFLE</div>
+            <div id="ammoCountLabel" data-ui-type="Text" data-ui-name="Ammo Count">05</div>
+            <div id="ammoTypeLabel" data-ui-type="Text" data-ui-name="Ammo Type">AMMO TYPE  NORMAL</div>
+        </div>
+        <div id="hitNotifyPanel" data-ui-type="Panel" data-ui-name="Hit Notify Panel">
+            <div id="hitNotifyTitle" data-ui-type="Text" data-ui-name="Hit Notify Title">HIT</div>
+            <div id="hitNotifyMeta" data-ui-type="Panel" data-ui-name="Hit Notify Meta">
+                <div id="hitNotifyDistance" data-ui-type="Text" data-ui-name="Hit Notify Distance">DISTANCE --m</div>
+                <div id="hitNotifyScore" data-ui-type="Text" data-ui-name="Hit Notify Score">+0 POINTS</div>
+            </div>
+        </div>
+        <div id="cutsceneLetterboxTop" data-ui-type="Panel" data-ui-name="Cutscene Letterbox Top"></div>
+        <div id="cutsceneLetterboxBottom" data-ui-type="Panel" data-ui-name="Cutscene Letterbox Bottom"></div>
+        <div id="cutsceneSkipPrompt" data-ui-type="Text" data-ui-name="Cutscene Skip Prompt">Press Space to Skip</div>
+        <div id="radioBlackout" data-ui-type="Panel" data-ui-name="Radio Blackout"></div>
+        <div id="radioSubtitlePanel" data-ui-type="Panel" data-ui-name="Radio Subtitle Panel">
+            <div id="radioSubtitleText" data-ui-type="Text" data-ui-name="Radio Subtitle Text"></div>
+        </div>
+        <div id="radioOpeningSkipPrompt" data-ui-type="Text" data-ui-name="Radio Opening Skip Prompt">Press Space to Skip</div>
+        <div id="pauseLayer" data-ui-type="Panel" data-ui-name="Pause Layer">
+            <div id="pauseMenuPanel" data-ui-type="Panel" data-ui-name="Pause Menu Panel">
+                <div id="pauseTitle" data-ui-type="Text" data-ui-name="Pause Title">Paused</div>
+                <button id="btnPauseResume" data-ui-type="Button" data-ui-name="Resume Button"><span id="btnPauseResumeLabel">Resume</span></button>
+                <button id="btnPauseMain" data-ui-type="Button" data-ui-name="Go To Main Button"><span id="btnPauseMainLabel">Go to Main</span></button>
+                <button id="btnPauseSettings" data-ui-type="Button" data-ui-name="Pause Settings Button"><span id="btnPauseSettingsLabel">Settings</span></button>
+                <button id="btnPauseControls" data-ui-type="Button" data-ui-name="Pause Controls Button"><span id="btnPauseControlsLabel">Controls</span></button>
+            </div>
+            <div id="pauseSettingsPanel" data-ui-type="Panel" data-ui-name="Pause Settings Panel">
+                <div id="pauseSettingsTitle" data-ui-type="Text" data-ui-name="Pause Settings Title">Settings</div>
+                <button id="btnPauseSettingsBack" data-ui-type="Button" data-ui-name="Pause Settings Back"><span>Back</span></button>
+                <div id="pauseSettingBgmRow" data-ui-type="Panel" data-ui-name="BGM Row">
+                    <div id="pauseBgmLabel" data-ui-type="Text" data-ui-name="BGM Label">BGM Volume</div>
+                    <button id="btnPauseBgmDown" data-ui-type="Button" data-ui-name="BGM Down"><span>-</span></button>
+                    <div id="pauseBgmValue" data-ui-type="Text" data-ui-name="BGM Value">100%</div>
+                    <button id="btnPauseBgmUp" data-ui-type="Button" data-ui-name="BGM Up"><span>+</span></button>
+                </div>
+                <div id="pauseSettingSfxRow" data-ui-type="Panel" data-ui-name="SFX Row">
+                    <div id="pauseSfxLabel" data-ui-type="Text" data-ui-name="SFX Label">SFX Volume</div>
+                    <button id="btnPauseSfxDown" data-ui-type="Button" data-ui-name="SFX Down"><span>-</span></button>
+                    <div id="pauseSfxValue" data-ui-type="Text" data-ui-name="SFX Value">100%</div>
+                    <button id="btnPauseSfxUp" data-ui-type="Button" data-ui-name="SFX Up"><span>+</span></button>
+                </div>
+                <div id="pauseSettingZoomRow" data-ui-type="Panel" data-ui-name="Zoom Row">
+                    <div id="pauseZoomLabel" data-ui-type="Text" data-ui-name="Zoom Label">Right Click Zoom</div>
+                    <button id="btnPauseZoomMode" data-ui-type="Button" data-ui-name="Zoom Mode"><span id="pauseZoomModeValue">Hold</span></button>
+                </div>
+                <div id="pauseSettingMouseRow" data-ui-type="Panel" data-ui-name="Mouse Row">
+                    <div id="pauseMouseLabel" data-ui-type="Text" data-ui-name="Mouse Label">Mouse Sensitivity</div>
+                    <button id="btnPauseMouseDown" data-ui-type="Button" data-ui-name="Mouse Down"><span>-</span></button>
+                    <div id="pauseMouseValue" data-ui-type="Text" data-ui-name="Mouse Value">1.00x</div>
+                    <button id="btnPauseMouseUp" data-ui-type="Button" data-ui-name="Mouse Up"><span>+</span></button>
+                </div>
+                <div id="pauseSettingGamepadRow" data-ui-type="Panel" data-ui-name="Gamepad Row">
+                    <div id="pauseGamepadLabel" data-ui-type="Text" data-ui-name="Gamepad Label">Gamepad Sensitivity</div>
+                    <button id="btnPauseGamepadDown" data-ui-type="Button" data-ui-name="Gamepad Down"><span>-</span></button>
+                    <div id="pauseGamepadValue" data-ui-type="Text" data-ui-name="Gamepad Value">1.00x</div>
+                    <button id="btnPauseGamepadUp" data-ui-type="Button" data-ui-name="Gamepad Up"><span>+</span></button>
+                </div>
+            </div>
+            <div id="pauseControlsPanel" data-ui-type="Panel" data-ui-name="Pause Controls Panel">
+                <div id="pauseControlsTitle" data-ui-type="Text" data-ui-name="Pause Controls Title">Controls</div>
+                <button id="btnPauseControlsBack" data-ui-type="Button" data-ui-name="Pause Controls Back"><span>Back</span></button>
+                <div id="pauseControlMove" data-ui-type="Text" data-ui-name="Move Control">Move : WASD / Right Stick</div>
+                <div id="pauseControlAim" data-ui-type="Text" data-ui-name="Aim Control">Aim : Mouse Move / Left Stick</div>
+                <div id="pauseControlScope" data-ui-type="Text" data-ui-name="Scope Control">Scope : Right Mouse / Left Trigger</div>
+                <div id="pauseControlFire" data-ui-type="Text" data-ui-name="Fire Control">Fire : Left Mouse / Right Trigger</div>
+                <div id="pauseControlBreath" data-ui-type="Text" data-ui-name="Breath Control">Hold Breath : Shift / LB</div>
+                <div id="pauseControlZoom" data-ui-type="Text" data-ui-name="Zoom Control">Zoom : Mouse Wheel / D-Pad Up, Down</div>
+                <div id="pauseControlAmmo" data-ui-type="Text" data-ui-name="Ammo Control">Ammo : 1, 2 / D-Pad Left, Right</div>
+                <div id="pauseControlReload" data-ui-type="Text" data-ui-name="Reload Control">Reload : R / X</div>
+                <div id="pauseControlPause" data-ui-type="Text" data-ui-name="Pause Control">Pause : Q / Menu</div>
+            </div>
+        </div>
+    </div>
+</body>
+</rml>

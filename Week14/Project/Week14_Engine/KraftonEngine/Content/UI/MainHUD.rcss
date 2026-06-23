@@ -1,0 +1,599 @@
+body {
+    margin: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+}
+
+#mainRoot {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100.000000%;
+    height: 100.000000%;
+    box-sizing: border-box;
+    overflow: hidden;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(238, 243, 246, 255);
+    border-width: 0px;
+    padding: 0px;
+    font-size: 24.000000px;
+    text-align: left;
+}
+
+#mainMenu {
+    position: absolute;
+    left: 96.000000px;
+    top: 592.000000px;
+    width: 470.000000px;
+    height: 436.000000px;
+    box-sizing: border-box;
+    overflow: visible;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+.menu-button {
+    position: relative;
+    display: block;
+    width: 470.000000px;
+    height: 70.000000px;
+    margin: 0px 0px 15px 0px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(226, 232, 235, 255);
+    font-family: "Nexon";
+    font-weight: 700;
+    font-size: 47.000000px;
+    text-align: left;
+    transform: scale(1.0);
+    transform-origin: left center;
+}
+
+.menu-button:hover {
+    color: rgba(255, 213, 118, 255);
+    transform: scale(1.08);
+}
+
+.menu-button:hover .menu-button-label {
+    color: rgba(255, 213, 118, 255);
+}
+
+.menu-button.primary {
+    font-size: 47.000000px;
+    margin: 0px 0px 28px 0px;
+}
+
+.menu-button.secondary {
+    font-size: 37.600000px;
+}
+
+.menu-button-label {
+    display: block;
+    width: 100.000000%;
+    height: 100.000000%;
+    opacity: 1;
+    color: rgba(226, 232, 235, 255);
+}
+
+#logoSlot {
+    position: absolute;
+    left: 80.000000px;
+    top: 172.000000px;
+    width: 500.000000px;
+    height: 285.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px;
+    overflow: hidden;
+}
+
+#mainLogo {
+    position: absolute;
+    left: 0.000000px;
+    top: 0.000000px;
+    width: 500.000000px;
+    height: 285.000000px;
+    box-sizing: border-box;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0);
+    border-width: 0px;
+    padding: 0px;
+}
+
+#versionLabel {
+    position: absolute;
+    right: 10.000000px;
+    bottom: 10.000000px;
+    width: 520.000000px;
+    height: 24.000000px;
+    box-sizing: border-box;
+    overflow: visible;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    padding: 0px;
+    color: rgba(218, 222, 224, 255);
+    font-family: "Nexon";
+    font-weight: 700;
+    font-size: 14.000000px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+#popupLayer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+}
+
+#popupBackdrop {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1920.000000px;
+    height: 1080.000000px;
+    box-sizing: border-box;
+    background-color: rgba(2, 6, 8, 172);
+    border-width: 0px;
+}
+
+.popup-panel {
+    position: absolute;
+    left: 530.000000px;
+    top: 208.000000px;
+    width: 860.000000px;
+    height: 620.000000px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: none;
+    opacity: 0;
+    background-color: rgba(15, 21, 24, 230);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 2px;
+    padding: 0px;
+    color: rgba(236, 241, 235, 255);
+    font-family: "Nexon";
+}
+
+.popup-header {
+    position: absolute;
+    left: 34.000000px;
+    top: 32.000000px;
+    width: 792.000000px;
+    height: 64.000000px;
+    box-sizing: border-box;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(224, 205, 142, 176);
+}
+
+.popup-title {
+    position: absolute;
+    left: 0px;
+    top: 3.000000px;
+    width: 640.000000px;
+    height: 56.000000px;
+    color: rgba(245, 238, 210, 255);
+    font-size: 34.000000px;
+    font-weight: 700;
+}
+
+.popup-close {
+    position: absolute;
+    left: 758.000000px;
+    top: 12.000000px;
+    width: 34.000000px;
+    height: 34.000000px;
+    box-sizing: border-box;
+    background-color: rgba(30, 36, 39, 228);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(244, 239, 220, 255);
+    font-size: 15.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.popup-close-label {
+    position: absolute;
+    left: 0px;
+    top: 7.000000px;
+    width: 34.000000px;
+    height: 18.000000px;
+    color: rgba(244, 239, 220, 255);
+    font-size: 15.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.popup-close:hover {
+    background-color: rgba(94, 78, 44, 240);
+    color: rgba(255, 223, 134, 255);
+}
+
+.popup-close:hover .popup-close-label {
+    color: rgba(255, 223, 134, 255);
+}
+
+.settings-list {
+    position: absolute;
+    left: 34.000000px;
+    top: 126.000000px;
+    width: 792.000000px;
+    height: 430.000000px;
+    box-sizing: border-box;
+}
+
+.setting-row {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 792.000000px;
+    height: 78.000000px;
+    box-sizing: border-box;
+    background-color: rgba(24, 31, 32, 178);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+#settingsBgmRow {
+    top: 0px;
+}
+
+#settingsSfxRow {
+    top: 86.000000px;
+}
+
+#settingsZoomRow {
+    top: 172.000000px;
+}
+
+#settingsMouseRow {
+    top: 258.000000px;
+}
+
+#settingsGamepadRow {
+    top: 344.000000px;
+}
+
+.setting-label {
+    position: absolute;
+    left: 24.000000px;
+    top: 21.000000px;
+    width: 430.000000px;
+    height: 36.000000px;
+    color: rgba(218, 229, 222, 255);
+    font-size: 24.000000px;
+    font-weight: 700;
+}
+
+.setting-value {
+    position: absolute;
+    left: 608.000000px;
+    top: 21.000000px;
+    width: 126.000000px;
+    height: 36.000000px;
+    color: rgba(255, 218, 132, 255);
+    font-size: 22.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.step-button {
+    position: absolute;
+    top: 18.000000px;
+    width: 44.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    background-color: rgba(38, 48, 48, 230);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(245, 245, 235, 255);
+    font-size: 22.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.step-button-label {
+    position: absolute;
+    left: 0px;
+    top: 8.000000px;
+    width: 44.000000px;
+    height: 24.000000px;
+    color: rgba(245, 245, 235, 255);
+    font-size: 22.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.step-button:hover,
+.mode-button:hover {
+    background-color: rgba(91, 77, 43, 238);
+    color: rgba(255, 223, 134, 255);
+}
+
+.step-button:hover .step-button-label,
+.mode-button:hover #zoomModeValue {
+    color: rgba(255, 223, 134, 255);
+}
+
+#btnBgmDown,
+#btnSfxDown,
+#btnMouseDown,
+#btnGamepadDown {
+    left: 556.000000px;
+}
+
+#btnBgmUp,
+#btnSfxUp,
+#btnMouseUp,
+#btnGamepadUp {
+    left: 744.000000px;
+}
+
+.mode-button {
+    position: absolute;
+    left: 556.000000px;
+    top: 18.000000px;
+    width: 232.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    background-color: rgba(38, 48, 48, 230);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(245, 245, 235, 255);
+    font-size: 18.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#zoomModeValue {
+    position: absolute;
+    left: 0px;
+    top: 10.000000px;
+    width: 232.000000px;
+    height: 22.000000px;
+    color: rgba(245, 245, 235, 255);
+    font-size: 18.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.score-table-header {
+    position: absolute;
+    left: 34.000000px;
+    top: 126.000000px;
+    width: 770.000000px;
+    height: 42.000000px;
+    box-sizing: border-box;
+    color: rgba(255, 218, 132, 255);
+    font-size: 16.000000px;
+    font-weight: 700;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(224, 205, 142, 116);
+}
+
+.score-list {
+    position: absolute;
+    left: 34.000000px;
+    top: 184.000000px;
+    width: 770.000000px;
+    height: 406.000000px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.score-row {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 770.000000px;
+    height: 44.000000px;
+    box-sizing: border-box;
+    background-color: rgba(25, 32, 33, 160);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+    color: rgba(229, 236, 230, 255);
+    font-size: 17.000000px;
+}
+
+#scoreRow1 {
+    top: 0px;
+}
+
+#scoreRow2 {
+    top: 52.000000px;
+}
+
+#scoreRow3 {
+    top: 104.000000px;
+}
+
+#scoreRow4 {
+    top: 156.000000px;
+}
+
+#scoreRow5 {
+    top: 208.000000px;
+}
+
+#scoreRow6 {
+    top: 260.000000px;
+}
+
+#scoreRow7 {
+    top: 312.000000px;
+}
+
+#scoreRow8 {
+    top: 364.000000px;
+}
+
+.rank-cell,
+.name-cell,
+.result-cell,
+.score-cell {
+    position: absolute;
+    top: 10.000000px;
+    height: 24.000000px;
+    overflow: hidden;
+}
+
+.rank-cell {
+    left: 0.000000px;
+    width: 100.000000px;
+    text-align: center;
+}
+
+.name-cell {
+    left: 116.000000px;
+    width: 260.000000px;
+    text-align: left;
+}
+
+.result-cell {
+    left: 424.000000px;
+    width: 180.000000px;
+    text-align: left;
+}
+
+.score-cell {
+    left: 620.000000px;
+    width: 150.000000px;
+    text-align: right;
+}
+
+.fake-scrollbar {
+    position: absolute;
+    left: 820.000000px;
+    top: 184.000000px;
+    width: 6.000000px;
+    height: 406.000000px;
+    background-color: rgba(220, 228, 218, 40);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+.fake-scrollbar-thumb {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 6.000000px;
+    height: 126.000000px;
+    background-color: rgba(255, 218, 132, 180);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+.credits-content {
+    position: absolute;
+    left: 34.000000px;
+    top: 126.000000px;
+    width: 792.000000px;
+    height: 430.000000px;
+    box-sizing: border-box;
+}
+
+.credit-row {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 792.000000px;
+    height: 58.000000px;
+    box-sizing: border-box;
+    background-color: rgba(24, 31, 32, 160);
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 0px;
+    border-radius: 1px;
+}
+
+#creditRowPm {
+    top: 0px;
+}
+
+#creditRowAi {
+    top: 74.000000px;
+}
+
+#creditRowLevel {
+    top: 148.000000px;
+}
+
+#creditRowSystem {
+    top: 222.000000px;
+}
+
+.credit-role {
+    position: absolute;
+    left: 22.000000px;
+    top: 15.000000px;
+    width: 72.000000px;
+    color: rgba(255, 218, 132, 255);
+    font-size: 18.000000px;
+    font-weight: 700;
+}
+
+.credit-name {
+    position: absolute;
+    left: 120.000000px;
+    top: 14.000000px;
+    width: 210.000000px;
+    color: rgba(244, 249, 241, 255);
+    font-size: 20.000000px;
+    font-weight: 700;
+}
+
+.credit-work {
+    position: absolute;
+    left: 348.000000px;
+    top: 16.000000px;
+    width: 390.000000px;
+    color: rgba(208, 219, 214, 255);
+    font-size: 17.000000px;
+}
+
+.credit-divider {
+    position: absolute;
+    left: 0px;
+    top: 306.000000px;
+    width: 792.000000px;
+    height: 1.000000px;
+    background-color: rgba(224, 205, 142, 110);
+}
+
+.credit-meta {
+    position: absolute;
+    left: 0px;
+    top: 338.000000px;
+    width: 792.000000px;
+    height: 28.000000px;
+    color: rgba(213, 222, 216, 255);
+    font-size: 18.000000px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#creditMetaTeam {
+    top: 376.000000px;
+}

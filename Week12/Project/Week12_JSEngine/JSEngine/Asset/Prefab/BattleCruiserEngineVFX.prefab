@@ -1,0 +1,51 @@
+{
+  "Actor" : {
+    "Active" : true,
+    "ClassName" : "AParticleSystemActor",
+    "Components" : [{
+        "AttachSocketName" : "Name_None",
+        "ClassName" : "UParticleSystemComponent",
+        "ObjectName" : "UParticleSystemComponent_1",
+        "OpacityMultiplier" : 1.000000,
+        "PersistentGuid" : "A1183B7D-F26344D3-AFB87923-AB930F6D",
+        "RelativeLocation" : {
+          "X" : 0.000000,
+          "Y" : 0.000000,
+          "Z" : 0.000000
+        },
+        "RelativeRotation" : {
+          "X" : 0.000000,
+          "Y" : 0.000000,
+          "Z" : 0.000000
+        },
+        "RelativeScale3D" : {
+          "X" : 1.000000,
+          "Y" : 1.000000,
+          "Z" : 1.000000
+        },
+        "Tags" : [],
+        "TemplateAssetPath" : "Asset/Particle System/PS_BattleCruiser_Engine.uasset",
+        "Type" : "UParticleSystemComponent",
+        "UUID" : 3001,
+        "bAutoActivate" : true,
+        "bCanEverTick" : true,
+        "bCastDecal" : true,
+        "bEnableCull" : false,
+        "bGenerateOverlapEvents" : false,
+        "bIsActive" : true,
+        "bIsEditorOnly" : false,
+        "bIsVisible" : true,
+        "bTransient" : false
+      }],
+    "EditorOnly" : false,
+    "Name" : "BattleCruiserEngineVFX",
+    "PersistentGuid" : "6356CEAE-3E9447AD-B78F9D5D-2E983BF2",
+    "RootComponent" : 3001,
+    "Tags" : ["BattleCruiserVFX"],
+    "UUID" : 3000,
+    "Visible" : true
+  },
+  "ClassName" : "JSPrefab",
+  "SourceActorName" : "BattleCruiserEngineVFX",
+  "Version" : 1
+}

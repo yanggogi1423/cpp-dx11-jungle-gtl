@@ -1,0 +1,49 @@
+struct VSInput
+{
+	float2 Position : POSITION;
+	float4 Color : COLOR;
+	float2 TexCoord : TEXCOORD;
+};
+
+struct VSOutput
+{
+	float4 Position : SV_POSITION;
+	float4 Color : COLOR;
+	float2 TexCoord : TEXCOORD;
+};
+
+cbuffer UIRenderCB : register(b0)
+{
+	float2 PhysicalViewportSize;
+	float2 VirtualViewportSize;
+	float UIScale;
+	float2 UIOffset;
+	float UIPadding0;
+	float2 Translation;
+	column_major float4x4 Transform;
+};
+
+Texture2D UITexture : register(t0);
+SamplerState UISampler : register(s0);
+
+VSOutput VS(VSInput Input)
+{
+	VSOutput Output;
+	float4 PixelPosition = float4(Input.Position + Translation, 0.0f, 1.0f);
+	PixelPosition = mul(Transform, PixelPosition);
+	float2 PhysicalPosition = PixelPosition.xy * UIScale + UIOffset;
+	float2 NdcPosition = float2(
+		(PhysicalPosition.x / PhysicalViewportSize.x) * 2.0f - 1.0f,
+		1.0f - (PhysicalPosition.y / PhysicalViewportSize.y) * 2.0f
+	);
+	Output.Position = float4(NdcPosition, 0.0f, 1.0f);
+	Output.Color = Input.Color;
+	Output.TexCoord = Input.TexCoord;
+	return Output;
+}
+
+float4 PS(VSOutput Input) : SV_Target
+{
+	float4 TextureColor = UITexture.Sample(UISampler, Input.TexCoord);
+	return Input.Color * TextureColor;
+}

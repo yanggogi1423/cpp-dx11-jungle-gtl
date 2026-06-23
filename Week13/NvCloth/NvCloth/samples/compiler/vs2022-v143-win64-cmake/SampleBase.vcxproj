@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="checked|x64">
+      <Configuration>checked</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="profile|x64">
+      <Configuration>profile</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B0496A95-8864-3F4E-BACF-228B8F2EB442}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>SampleBase</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|x64'">SampleBase.dir\debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|x64'">SampleBase</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='checked|x64'">SampleBase.dir\checked\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='checked|x64'">SampleBase</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='checked|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='checked|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='checked|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='profile|x64'">SampleBase.dir\profile\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='profile|x64'">SampleBase</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='profile|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='profile|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='profile|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|x64'">SampleBase.dir\release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release|x64'">SampleBase</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8 /RTCsu</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4005;4244</DisableSpecificWarnings>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_UNICODE;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;_DEBUG;NV_DEBUG=1;CMAKE_INTDIR="debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\SampleBaseDEBUG_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_UNICODE;UNICODE;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NV_DEBUG=1;CMAKE_INTDIR=\"debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/shadow_lib/GFSDK_ShadowLib_DX11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/hbao/GFSDK_SSAO_D3D11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different "$(VC_ExecutablePath_x64_x64)/d3dcompiler_47.dll" C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;dxgi.lib;comctl32.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\hbao\GFSDK_SSAO_D3D11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\shadow_lib\GFSDK_ShadowLib_DX11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core\Bin\dynamiccrt\vs2015\x64\Debug\DXUT.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional\Bin\dynamiccrt\vs2015\x64\Debug\DXUTOpt.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\bin\dynamiccrt\vs2015\x64\Debug\DirectXTex.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\lib\win.x86_64.vc143.md\NvClothDEBUG_x64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/SampleBase.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/SampleBase.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='checked|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4005;4244</DisableSpecificWarnings>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_UNICODE;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;NV_CHECKED=1;CMAKE_INTDIR="checked"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\SampleBaseCHECKED_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_UNICODE;UNICODE;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;NV_CHECKED=1;CMAKE_INTDIR=\"checked\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/shadow_lib/GFSDK_ShadowLib_DX11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/hbao/GFSDK_SSAO_D3D11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different "$(VC_ExecutablePath_x64_x64)/d3dcompiler_47.dll" C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;dxgi.lib;comctl32.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\hbao\GFSDK_SSAO_D3D11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\shadow_lib\GFSDK_ShadowLib_DX11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core\Bin\dynamiccrt\vs2015\x64\Release\DXUT.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional\Bin\dynamiccrt\vs2015\x64\Release\DXUTOpt.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\bin\dynamiccrt\vs2015\x64\Release\DirectXTex.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\lib\win.x86_64.vc143.md\NvClothCHECKED_x64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/SampleBase.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/SampleBase.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='profile|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4005;4244</DisableSpecificWarnings>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_UNICODE;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;NV_PROFILE=1;CMAKE_INTDIR="profile"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\SampleBasePROFILE_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_UNICODE;UNICODE;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;NV_PROFILE=1;CMAKE_INTDIR=\"profile\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/shadow_lib/GFSDK_ShadowLib_DX11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/hbao/GFSDK_SSAO_D3D11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different "$(VC_ExecutablePath_x64_x64)/d3dcompiler_47.dll" C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;dxgi.lib;comctl32.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\hbao\GFSDK_SSAO_D3D11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\shadow_lib\GFSDK_ShadowLib_DX11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core\Bin\dynamiccrt\vs2015\x64\Release\DXUT.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional\Bin\dynamiccrt\vs2015\x64\Release\DXUTOpt.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\bin\dynamiccrt\vs2015\x64\Release\DirectXTex.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\lib\win.x86_64.vc143.md\NvClothPROFILE_x64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/SampleBase.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/SampleBase.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CallingConvention>Cdecl</CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4819;4005;4244</DisableSpecificWarnings>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MinimalRebuild>false</MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <StringPooling>true</StringPooling>
+      <SupportJustMyCode></SupportJustMyCode>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);_UNICODE;UNICODE;WIN32;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;CMAKE_INTDIR="release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md\SampleBase_x64.pdb</ProgramDataBaseFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_UNICODE;UNICODE;WIN64;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_ALLOW_ITERATOR_DEBUG_LEVEL_MISMATCH;_ALLOW_RUNTIME_LIBRARY_MISMATCH;__GFSDK_DX11__;USE_CUDA=1;USE_DX11=1;NDEBUG;CMAKE_INTDIR=\"release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\shadow_lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\hbao;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include\foundation;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\PxShared\src\foundation\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\include;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\extensions\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/shadow_lib/GFSDK_ShadowLib_DX11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:\Users\jungle\Desktop\YG\Week13\NvCloth\/NvCloth/samples/external/hbao/GFSDK_SSAO_D3D11.win64.dll C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different "$(VC_ExecutablePath_x64_x64)/d3dcompiler_47.dll" C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\bin\win.x86_64.vc143.md
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>d3dcompiler.lib;d3d11.lib;dxgi.lib;comctl32.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\hbao\GFSDK_SSAO_D3D11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\\NvCloth\samples\external\shadow_lib\GFSDK_ShadowLib_DX11.win64.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Core\Bin\dynamiccrt\vs2015\x64\Release\DXUT.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DXUT\9.15.2016.1\Optional\Bin\dynamiccrt\vs2015\x64\Release\DXUTOpt.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\DirectXTex\10.5.2016.2\bin\dynamiccrt\vs2015\x64\Release\DirectXTex.lib;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\lib\win.x86_64.vc143.md\NvCloth_x64.lib;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v13.3\lib\x64\cuda.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/lib/win.x86_64.vc143.md/SampleBase.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/bin/win.x86_64.vc143.md/SampleBase.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='debug|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\FindNvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase-AT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeCXXCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeRCCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeSystem.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDXUT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDirectXTex.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\Findimgui.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\SetOutputPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='debug|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='checked|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='checked|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\FindNvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase-AT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeCXXCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeRCCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeSystem.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDXUT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDirectXTex.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\Findimgui.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\SetOutputPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='checked|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='checked|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='profile|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='profile|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\FindNvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase-AT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeCXXCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeRCCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeSystem.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDXUT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDirectXTex.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\Findimgui.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\SetOutputPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='profile|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='profile|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='release|x64'">Building Custom Rule C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples -BC:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake --check-stamp-file C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2022-v143-win64-cmake/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindCUDA\select_compute_arch.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\Externals\CMakeModules\FindPxShared.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\FindNvCloth.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\CMakeLists.txt;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase-AT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\cmake\windows\SampleBase.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeCXXCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeRCCompiler.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\4.1.2-msvc8\CMakeSystem.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDXUT.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\FindDirectXTex.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\Findimgui.cmake;C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\CMakeModules\SetOutputPaths.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='release|x64'">C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\Application.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\Application.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\DeviceManager.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\DeviceManager.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\SampleController.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\SampleController.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\SampleManager.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\core\SampleManager.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ConvexRenderMesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ConvexRenderMesh.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\CustomRenderMesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\CustomRenderMesh.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ClothRenderMesh.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ClothRenderMesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\DebugRenderBuffer.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Mesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Mesh.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\PrimitiveRenderMesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\PrimitiveRenderMesh.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\PxPhysXCommonConfig.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\PxRenderBuffer.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Renderable.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Renderable.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Renderer.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\Renderer.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RendererHBAO.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RendererHBAO.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RendererShadow.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RendererShadow.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RenderMaterial.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RenderMaterial.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\RenderUtils.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ResourceManager.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ResourceManager.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\ShaderUtils.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\SkinnedRenderMesh.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\renderer\SkinnedRenderMesh.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\SceneController.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\SceneController.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\Scene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\Scene.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SimpleScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SimpleScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\WindScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\WindScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TetherScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TetherScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\FrictionScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\FrictionScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\FreeFallScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\FreeFallScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SphereScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SphereScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\StiffnessPerConstraintScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\StiffnessPerConstraintScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\GeodesicScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\GeodesicScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\LocalGlobalScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\LocalGlobalScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\DistanceConstraintScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\DistanceConstraintScene.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\InterCollisionScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\InterCollisionScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SelfCollisionScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\SelfCollisionScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TriangleScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TriangleScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\ConvexCollisionScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\ConvexCollisionScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\PlaneCollisionScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\PlaneCollisionScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CapsuleScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CapsuleScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CCDScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CCDScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CCDScene2.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\CCDScene2.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\MultiSolverScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\MultiSolverScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\ScaledScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\ScaledScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TimeStepScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TimeStepScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\VirtualParticleScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\VirtualParticleScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TeleportScene.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\scene\scenes\TeleportScene.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui\CommonUIController.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui\CommonUIController.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui\imgui_impl_dx11.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\ui\imgui_impl_dx11.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\SampleProfiler.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\SampleProfiler.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\SampleTime.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\UIHelpers.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\Utils.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\Utils.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\ClothMeshGenerator.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\ClothMeshGenerator.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\CallbackImplementations.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\CallbackImplementations.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\JobManager.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\JobManager.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\DebugLineRenderBuffer.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\DebugLineRenderBuffer.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\MeshGenerator.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\MeshGenerator.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\DataStream.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\DataStream.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\AnimatedModelUtilities.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\utils\AnimatedModelUtilities.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxCpuDispatcher.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxGpuDispatcher.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxGpuTask.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxTask.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxTaskDefine.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\task\PxTaskManager.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\Main.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\SampleBase\Sample.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imconfig.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imgui.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imgui.h" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imgui_demo.cpp" />
+    <ClCompile Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imgui_draw.cpp" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\imgui_internal.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\stb_rect_pack.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\stb_textedit.h" />
+    <ClInclude Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\external\imgui\1.49\stb_truetype.h" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\ZERO_CHECK.vcxproj">
+      <Project>{5A04116E-6CD8-38D1-A9E3-FDAB8E68C0F6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\jungle\Desktop\YG\Week13\NvCloth\NvCloth\samples\compiler\vs2022-v143-win64-cmake\NvCloth_bin\NvCloth.vcxproj">
+      <Project>{2719F48F-DD42-3C68-B3A7-90EBFB30F4C5}</Project>
+      <Name>NvCloth</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

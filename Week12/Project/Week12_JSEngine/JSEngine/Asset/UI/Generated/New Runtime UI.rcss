@@ -1,0 +1,60 @@
+/* Generated from Runtime UI Layout Asset. Do not edit by hand. */
+
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    font-family: "Malgun Gothic";
+    color: #ffffff;
+}
+
+#RootCanvas {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    transform-origin: 0% 0%;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+#StartButton {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    transform-origin: 50% 50%;
+    left: 120.000000px;
+    top: 120.000000px;
+    width: 240px;
+    height: 64px;
+    background-color: rgba(60, 84, 128, 230);
+    color: rgba(255, 255, 255, 255);
+    font-size: 22px;
+    font-family: "Malgun Gothic";
+    font-weight: 600;
+    text-align: center;
+    line-height: 64px;
+    white-space: nowrap;
+}
+
+#StartButton:hover {
+    background-color: rgba(68, 96, 146, 230);
+    color: rgba(255, 255, 255, 255);
+}
+
+#StartButton:active {
+    background-color: rgba(49, 69, 105, 230);
+    color: rgba(240, 240, 240, 255);
+}
+
+#StartButton:disabled {
+    background-color: rgba(31, 44, 67, 133);
+    color: rgba(158, 158, 158, 148);
+}

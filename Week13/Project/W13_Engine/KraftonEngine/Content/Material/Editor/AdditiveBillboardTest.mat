@@ -1,0 +1,16 @@
+{
+  "BlendState" : "Additive",
+  "DepthStencilState" : "",
+  "EmissiveColor" : [1.000000, 1.000000, 1.000000, 1.000000],
+  "EmissiveIntensity" : 0.000000,
+  "Origin" : "Editor",
+  "PathFileName" : "Content/Material/Editor/AdditiveBillboardTest.mat",
+  "RasterizerState" : "",
+  "RenderPass" : "AlphaBlend",
+  "ShaderPath" : "Shaders/UI/Billboard.hlsl",
+  "ShadowMode" : "Opaque",
+  "Textures" : {
+    "DiffuseTexture" : "Content/Editor/Icons/PointLight_64x.png"
+  },
+  "bEnableBloom" : false
+}

@@ -1,0 +1,98 @@
+{
+  "Actor" : {
+    "ClassName" : "AStaticMeshActor",
+    "Name" : "AStaticMeshActor_62",
+    "NonSceneComponents" : [{
+        "ClassName" : "UCombatCoverNodeComponent",
+        "ObjectId" : 3,
+        "Properties" : {
+          "DebugSlotRadius" : 1.000000,
+          "DisplayName" : "",
+          "Links" : [],
+          "MaxOccupants" : 1,
+          "NodeId" : "",
+          "PendingTagsString" : "",
+          "PersistentGuid" : "Component_337",
+          "Slots" : [{
+              "LocalApproachOffset" : [0.000000, 0.000000, 0.000000],
+              "LocalForward" : [1.000000, 0.000000, 0.000000],
+              "LocalPosition" : [0.000000, 1.000000, 0.000000],
+              "Radius" : 1.000000,
+              "SlotId" : 0,
+              "SlotType" : 2,
+              "Tags" : "Ally,Cover",
+              "Weight" : 1.000000,
+              "bUseApproachOnEntry" : false,
+              "bUseApproachOnExit" : false
+            }, {
+              "LocalApproachOffset" : [0.000000, 0.000000, 0.000000],
+              "LocalForward" : [1.000000, 0.000000, 0.000000],
+              "LocalPosition" : [0.000000, -1.000000, 0.000000],
+              "Radius" : 1.000000,
+              "SlotId" : 1,
+              "SlotType" : 2,
+              "Tags" : "Enemy,Cover",
+              "Weight" : 1.000000,
+              "bUseApproachOnEntry" : false,
+              "bUseApproachOnExit" : false
+            }],
+          "bAutoActivate" : true,
+          "bEditorOnly" : false,
+          "bHiddenInComponentTree" : false,
+          "bIsActive" : true,
+          "bTickEnable" : true
+        }
+      }],
+    "ObjectId" : 1,
+    "Properties" : {
+      "PendingActorLocation" : [0.000000, 0.000000, 0.000000],
+      "PendingActorRotation" : [-0.000000, 89.999977, 0.000000],
+      "PendingActorScale" : [1.000000, 1.000000, 1.000000],
+      "PendingActorVisible" : true,
+      "PendingTagsString" : "",
+      "bNeedsTick" : true
+    },
+    "RootComponent" : {
+      "Children" : [],
+      "ClassName" : "UStaticMeshComponent",
+      "ObjectId" : 2,
+      "Properties" : {
+        "AttachSocketName" : "Name_None",
+        "CachedEditRotator" : [-0.000000, 89.999977, 0.000000],
+        "CenterOfMassOffset" : [0.000000, 0.000000, 0.000000],
+        "CollisionEnabled" : 0,
+        "Mass" : 1.000000,
+        "MaterialSlots" : ["None"],
+        "ObjectType" : 0,
+        "PendingTagsString" : "",
+        "PersistentGuid" : "Component_333",
+        "RelativeTransform.Location" : [0.000000, 0.000000, 0.000000],
+        "RelativeTransform.Scale" : [1.000000, 1.000000, 1.000000],
+        "ResponseContainer" : {
+          "Responses[0]" : 2,
+          "Responses[1]" : 2,
+          "Responses[2]" : 2,
+          "Responses[3]" : 2,
+          "Responses[4]" : 2
+        },
+        "StaticMeshPath" : "None",
+        "bAbsoluteScale" : false,
+        "bAutoActivate" : true,
+        "bCastShadow" : true,
+        "bCastShadowAsTwoSided" : false,
+        "bEditorOnly" : false,
+        "bEnableCCD" : false,
+        "bGenerateOverlapEvents" : false,
+        "bHiddenInComponentTree" : false,
+        "bIsActive" : true,
+        "bIsVisible" : true,
+        "bKinematic" : false,
+        "bSimulatePhysics" : false,
+        "bTickEnable" : true
+      }
+    }
+  },
+  "SourceActorName" : "AStaticMeshActor_62",
+  "Type" : "KraftonPrefab",
+  "Version" : 1
+}

@@ -1,0 +1,87 @@
+{
+  "Actor": {
+    "ClassName": "AStaticMeshActor",
+    "Name": "Building_Hangar_v3_outbuilding_1",
+    "NonSceneComponents": [],
+    "ObjectId": 1,
+    "Properties": {
+      "PendingActorLocation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "PendingActorRotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "PendingActorScale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "PendingActorVisible": true,
+      "PendingTagsString": "",
+      "bNeedsTick": true
+    },
+    "RootComponent": {
+      "Children": [],
+      "ClassName": "UStaticMeshComponent",
+      "ObjectId": 2,
+      "Properties": {
+        "AttachSocketName": "Name_None",
+        "CachedEditRotator": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "CenterOfMassOffset": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "CollisionEnabled": 0,
+        "Mass": 1.0,
+        "MaterialSlots": [
+          "Content/Material/Auto/Hangar_v3.uasset"
+        ],
+        "ObjectType": 0,
+        "PendingTagsString": "",
+        "PersistentGuid": "Component_Building_Hangar_v3_outbuilding_1_Root",
+        "RelativeTransform.Location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "RelativeTransform.Scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "ResponseContainer": {
+          "Responses[0]": 2,
+          "Responses[1]": 2,
+          "Responses[2]": 2,
+          "Responses[3]": 2,
+          "Responses[4]": 2
+        },
+        "StaticMeshPath": "Content/Data/Map/격납고/Hangar_v3_outbuilding_1_StaticMesh.uasset",
+        "bAutoActivate": true,
+        "bCastShadow": true,
+        "bCastShadowAsTwoSided": false,
+        "bEditorOnly": false,
+        "bEnableCCD": false,
+        "bGenerateOverlapEvents": false,
+        "bHiddenInComponentTree": false,
+        "bIsActive": true,
+        "bIsVisible": true,
+        "bKinematic": false,
+        "bSimulatePhysics": false,
+        "bTickEnable": true
+      }
+    }
+  },
+  "SourceActorName": "Building_Hangar_v3_outbuilding_1",
+  "Type": "KraftonPrefab",
+  "Version": 1
+}

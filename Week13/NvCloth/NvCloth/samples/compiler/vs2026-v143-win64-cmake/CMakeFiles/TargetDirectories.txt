@@ -1,0 +1,5 @@
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/CMakeFiles/SampleBase.dir
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/CMakeFiles/ALL_BUILD.dir
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/CMakeFiles/ZERO_CHECK.dir
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/NvCloth_bin/CMakeFiles/NvCloth.dir
+C:/Users/jungle/Desktop/YG/Week13/NvCloth/NvCloth/samples/compiler/vs2026-v143-win64-cmake/NvCloth_bin/CMakeFiles/ALL_BUILD.dir

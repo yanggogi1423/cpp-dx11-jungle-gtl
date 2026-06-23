@@ -1,0 +1,37 @@
+﻿#pragma once
+#include "ShapeComponent.h"
+
+UCLASS(SpawnableComponent, DisplayName = "Capsule Component", Category = "Collision")
+class UCapsuleComponent : public UShapeComponent
+{
+public:
+	GENERATED_BODY(UCapsuleComponent, UShapeComponent)
+	float GetCapsuleHalfHeight() const { return CapsuleHalfHeight; }
+	float GetCapsuleRadius() const { return CapsuleRadius; }
+
+	void UpdateWorldAABB() const override;
+
+	float GetScaledCapsuleHalfHeight() const 
+	{
+		FVector Scale = GetWorldScale();
+		return CapsuleHalfHeight * std::abs(Scale.Z);
+	}
+	
+	float GetScaledCapsuleRadius() const
+	{
+		FVector Scale = GetWorldScale();
+		return CapsuleRadius * std::abs(Scale.Z);
+	}
+
+private:
+	UPROPERTY(DisplayName = "Capsule Half Height", LuaReadOnly, LuaName = CapsuleHalfHeight)
+	float CapsuleHalfHeight = 0.5f;
+
+	UPROPERTY(DisplayName = "Capsule Radius", LuaReadOnly, LuaName = CapsuleRadius)
+	float CapsuleRadius = 0.5f;
+
+	bool RaycastMesh(const FRay& Ray, FHitResult& OutHitResult) override;
+	bool SweepMesh(const FVector& Start, const FVector& End, const FQuat& ShapeWorldRotation,
+		const FCollisionShape& Shape, FHitResult& OutHitResult) override;
+	EPrimitiveType GetPrimitiveType() const override;
+};

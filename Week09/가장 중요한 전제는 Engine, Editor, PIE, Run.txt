@@ -1,0 +1,36 @@
+가장 중요한 전제는 Engine, Editor, PIE, Runtime(GameClient)를 구분해서 보아야 한다는 것임.
+
+[현재 파악된 Bug Report]
+1. Actors, Components의 Tag들있잖아 복사하면 공유하던데 Duplicate에 대해서 대응
+2. StaticMesh를 로드하는 Obj -> Binary -> Runtime 이 구조가 의도한대로 제대로 동작하지 않음. (bin이 있으면 obj가 없어도 동작해야함)
+3. Editor의 Details에서 Component를 선택해도 Property가 뜨지 않고 Actor로 Fallback되는 오류가 간헐적으로 보고됨 (또 종종 에디터를 끄고 동일 씬을 켜면 되는 경우도 있고 반대로 아닌 경우도 있음)
+4. 3번과 유사하게 Gizmo가 붙지 않는 경우도 존재함. Outliner에서 Actor를 선택했을때는 Gizmo가 있지만 Cursor가 Viewport로 들어오면 Gizmo가 사라짐
+5. 3,4번 문제는 종종 복사할때 (ctrl + d) 발생하기도 함. 그러나 3, 4의 문제를 가지고 있는 액터를 복사한 액터는 3,4이 정상동작하거나 혹은 그렇지 않거나 등 전반적으로 정상적인 동작이 일어나지 않음
+6. 또한 4번과 유사하게 기즈모를 조작하다가 보면 기즈모가 갑자기 사라지는 문제도 있음. 이때는 Cursor가 보이고 움직여지지만 Viewport 내부로 갇힘 (밖으로 Cursor 가 나가지지 않음 이러한 경우에는 클릭이나 다른 조치를 취하면 해결되지만 기즈모가 다시 뜨지 않거나 등의 문제가 존재했음)
+7. PIE의 경우 Actor Name 등의 정보가 공유되지 않는 것을 파악함 이와 관련하여 Actor NAme, Component Name, Tag 들에 대해서 확인해 볼 것
+[이후의 더 개선할 사항]
+Outline이 정상적으로 그려지도록 할 것임 (현재와 다르게 정말로 그려지는 윤곽선에 대해서 처리가 필요함 이는 다른 엔진을 참고하도록 할 예정이니 이에 대해서는 레퍼런스를 반드시 요청할 것)
+현재 Ray-Triangle Picking 방식에서 ID Picking 방식으로 변경할 예정임
+3. 타 엔진에 있는 Tone Mapping과 Bloom Post Process를 가져올 예정임 (이에 대해서도 1번과 마찬가지로 반드시 레퍼런스를 요청할 것)
+4. 이 외에도 엔진 전반적으로 의존성 등의 문제를 해결하기 위해서 엔진 전반적인 검사를 진행하고 리팩토링 진행할 것임 (이는 최후의 순번으로 미루고 진행전 승인을 받을것)
+이 들에 대해서 md 파일로 하나로 관리하고 Bug부터 순차적으로 확인하고 SideEffect 방지 및 코드를 복잡하게 만들지 않을 것임. lambda와 name space 사용은 지양하고, Legacy를 구태여 남기지 말것. 배칭할 수 있는 것들에 대해서 배칭으로 나누어 작업을 진행하고, 애매모호하거나 그러한 부분들에 대해서는 반드시 동의를 받을 것. 내가 "진행해"라는 뉘앙스로 말해도 정확하게 결정을 내려줘야한다고 말해야함. 항상 프로젝트의 최신 코드를 기준으로 확인하고 구조를 생각하면 진행하기
+
+
+[추가]
+Packaging 시 이름 규칙이나 이런걸 먹지 않음
+Build Settings 관련해서 Editor.ini 이런곳에 caching 해두기
+Editor Toolbar 카메라 속도 배율 최대치 수정
+
+
+[PPT]
+Unreal Engine 5 Camera System (PCM, CameraComponent, Camera Modifier)
+Transition - Interpolation
+UCurveFloatAsset (Hermite Curve)
+UActorSequenceComponent
+기존의 Reflection 이용 및 Persistent GUID 도입
+Camera Shake
+Letter Box
+Fade In and Out
+Spring Arm
+Gamma Correction
+Game Jam

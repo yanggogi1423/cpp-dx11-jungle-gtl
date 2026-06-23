@@ -1,0 +1,13 @@
+<rml>
+<head>
+    <link type="text/rcss" href="Asset/UI/Generated/NewRuntimeUI.rcss" />
+</head>
+<body>
+    <div id="RootCanvas" data-ui-type="Canvas" data-ui-name="Root Canvas">
+        <button id="StartButton" data-ui-type="Button" data-ui-name="Start Button" data-action="StartGame">Start
+            <div id="Text1" data-ui-type="Text" data-ui-name="Text">ddsdsdf</div>
+        </button>
+        <img id="Image1" data-ui-type="Image" data-ui-name="Image" data-ui-image="Asset/Cube/Cube.png" data-ui-fit="stretch" src="Asset/Cube/Cube.png" />
+    </div>
+</body>
+</rml>
