@@ -24,6 +24,23 @@
 **/Resource/
 **/Resources/
 
+# Keep small in-project editor/runtime resources that are required by tools.
+!/Week03/Projects/Week03_Team2/Editor/Resources/
+!/Week03/Projects/Week03_Team2/Editor/Resources/**
+!/Week03/Projects/Week03_Team2/Engine/Resources/
+!/Week03/Projects/Week03_Team2/Engine/Resources/**
+!/Week07/Project/Week7_Team5_Engine/Editor/Resource/
+!/Week07/Project/Week7_Team5_Engine/Editor/Resource/**
+!/Week10/Projects/W10_Team01_Engine/JSEngine/Resources/
+!/Week10/Projects/W10_Team01_Engine/JSEngine/Resources/Editor/
+!/Week10/Projects/W10_Team01_Engine/JSEngine/Resources/Editor/**
+!/Week11/Projects/JSEngine/Resources/
+!/Week11/Projects/JSEngine/Resources/Editor/
+!/Week11/Projects/JSEngine/Resources/Editor/**
+!/Week12/Project/Week12_JSEngine/JSEngine/Resources/
+!/Week12/Project/Week12_JSEngine/JSEngine/Resources/Editor/
+!/Week12/Project/Week12_JSEngine/JSEngine/Resources/Editor/**
+
 # IDE state and local caches.
 **/.vs/
 **/.vscode/
